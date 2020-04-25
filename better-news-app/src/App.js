@@ -24,7 +24,7 @@ function App() {
         <br />
         <button type="button" class="btn btn-light">Children's Corner!</button>
         <br />
-        <button type="button" class="btn btn-dark">Artistic and Creative!</button>
+        <button type="button" class="btn btn-dark">Art and Creativity!</button>
         <br />
         <button type="button" class="btn btn-success">Professional!</button>
         <br />
