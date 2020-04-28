@@ -15,6 +15,10 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 app.use(routes);
+const index = require('./routes/index')
+const avatar = require('./routes/api/avatar')
+const user = require('./routes/api/user')
+const index2 = require('./routes/api/index')
 
 // Send every other request to the React app
 // Define any API routes before this runs
