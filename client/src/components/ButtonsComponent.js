@@ -5,6 +5,7 @@ function ButtonComponent({children}) {
         <button type="button" className="btn btn-primary">
            {children}
         </button>
+        
     )
 
 }
