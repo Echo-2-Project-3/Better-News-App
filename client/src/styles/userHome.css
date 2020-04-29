@@ -1,0 +1,13 @@
+#userHome {
+    background-image: url("../images/qbkls.png");
+    border-radius: 6px;
+    color: rgb(251, 156, 3);
+    border-color: black;
+    box-shadow: 5px 5px 20px;
+}
+
+#userBtnDiv {
+    background-color: rgba(62, 154, 167, 0.37);
+    border-radius: 12px;
+    box-shadow: 3px 3px 30px;
+}

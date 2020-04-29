@@ -3,7 +3,9 @@ import virus from "./virus.jpg";
 import axios from "axios";
 import ConnectedChallenge from "./pages/ConnectedChallenges.js";
 import ButtonComponent from "./components/ButtonsComponent.js";
-import Login from "./pages/login.js"
+import Login from "./pages/login.js";
+import UserHome from "./pages/UserHome.js";
+import "./styles/userHome.css";
 import "./App.css";
 
 const buttonNames = [" Health and Fitness!", "Children's Corner!", "Professional!", "Home Improvements!", "Jump Right In!", "Social and Staying Connected!", "Self-Help and Mindfulness!", " Make a Custom Challenge!", "Connect with Friends!", "View Leaderboards!"];
@@ -33,18 +35,19 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <Login/>
           <p>Welcome to Viral Growth!</p>
 
           <img src={virus} className="Virus-logo" alt="irus" height="200px" />
           <p>Please log in to get started!</p>
-          <button type="button" className="btn btn-danger">
+          </header>
+          {/* <button type="button" className="btn btn-danger">
             Get Started!
-          </button>
-          <br />
-          <button type="button" className="btn btn-info">
+            </button>
+            <br />
+            <button type="button" className="btn btn-info">
             Login!
-          </button>
+          </button> */}
+          <Login/>
           <br />
           {buttonNames.map(buttonName => {
             return (
@@ -67,8 +70,9 @@ class App extends Component {
           </button>
        
           <ConnectedChallenge />
+
+          <UserHome />
           
-        </header>
       </div>
     );
   }
