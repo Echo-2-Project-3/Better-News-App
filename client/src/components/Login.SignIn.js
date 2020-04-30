@@ -1,15 +1,15 @@
 import React from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button} from "react-bootstrap";
 import { Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 // import "./Login.css";
 
-class SignIn extends React.Component {
+function SignIn (props) {
   //    const [email, setEmail] = useState("");
   //    const [password, setPassword] = useState("");
-
-  state = {
-    show: false,
-  };
+ console.log("PROPS IN SIGN IN", props);
+  // state = {
+  //   show: false,
+  // };
 
   //   validateForm = () => {
   //     return email.length > 0 && password.length > 0;
@@ -17,27 +17,30 @@ class SignIn extends React.Component {
 
   
 
-  logInModal = (props) => {
-    let loggedIn = props.userName;
-    console.log("logInModal function running");
-    if (!loggedIn) {
-      this.setState((state) => ({ show: state.true }));
-      //if logged in, then display page//
-    } else {
-      this.setState((state) => ({ show: state.false }));
-    }
-  };
+  // logInModal = (props) => {
+  //   let loggedIn = props.userName;
+  //   console.log("logInModal function running");
+  //   if (!loggedIn) {
+  //     this.setState((state) => ({ show: state.true }));
+  //     //if logged in, then display page//
+  //   } else {
+  //     this.setState((state) => ({ show: state.false }));
+  //   }
+  // };
 
-  render() {
-    const handleClose = () => this.setState((state) => ({ show: state.false } ));//&& keep on splash page*/
-    const show = () => this.setState((state) => ({ show: state.true }));
-    const handleSubmit = () => this.setState((state) => ({show: state.false} )); //&& route to user page
 
+    // const handleClose = () => this.setState((state) => ({ show: state.false } ));//&& keep on splash page*/
+    // const show = () => this.setState((state) => ({ show: state.true }));
+    // const handleSubmit = () => this.setState((state) => ({show: state.false} )); //&& route to user page
+
+    
+    
     return (
+      
       <div className="Login">
-        <Modal show={show} onClick={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>
+        <Modal show={props.show} >
+          <Modal.Header closeButton onClick={props.handleClose}>
+            <Modal.Title> 
               Please sign in to create account and begin!
             </Modal.Title>
           </Modal.Header>
@@ -48,20 +51,22 @@ class SignIn extends React.Component {
                   Name
                   <FormControl
                     autoFocus
+                    value={props.name}
                     type="text"
                     name="name"
-                    //onChange={(e) => setEmail(e.target.value)}
+                    onChange={props.handleChange}
                   />
                 </FormLabel>
               </Form.Group>
               <FormGroup controlId="email" bsSize="large">
                 <FormLabel>
-                  Email:
+                  Email: 
                   <FormControl
                     autoFocus
+                    name="email"
                     type="email"
-                    //value="email"
-                    //onChange={(e) => setEmail(e.target.value)}
+                    value={props.email}
+                    onChange={props.handleChange}
                   />
                 </FormLabel>
               </FormGroup>
@@ -70,9 +75,10 @@ class SignIn extends React.Component {
                   Password:
                   <FormControl
                     autoFocus
-                    //value="password"
-                    //onChange={(e) => setPassword(e.target.value)}
+                    name="password"
                     type="password"
+                    value={props.password}
+                    onChange={props.handleChange}
                   />
                 </FormLabel>
               </FormGroup>
@@ -80,7 +86,7 @@ class SignIn extends React.Component {
               <Button
                 variant="primary"
                 type="submit"
-                onClick={handleSubmit}
+                onClick={props.handleSubmit}
                 block
                 bsSize="large"
               >
@@ -89,14 +95,14 @@ class SignIn extends React.Component {
             </form>
           </Modal.Body>
           <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={props.handleClose}>
                 Close
               </Button>
           </Modal.Footer>
         </Modal>
       </div>
     );
-  }
+  
 }
 
 export default SignIn;

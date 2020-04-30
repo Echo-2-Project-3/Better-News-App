@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 //import ButtonComponent from "../components/ButtonsComponent";
 //import {Route} from 'react-router-dom';
 
@@ -8,25 +8,54 @@ import SignIn from "../components/Login.SignIn.js";
 import virus from "../images/virus.jpg"
 
 
-function AppWelcome(props) { {
+
+class AppWelcome extends Component {
+    
+  state = {
+     show: true,
+     email: "",
+     name: "",
+     password: ""
+    }
+
+   handleClose = () => this.setState({show: false});//&& keep on splash page*/
+   handleShow = () => {
+     //console.log("SHOW IS CALLED")
+     this.setState({show: true})
     
     
+    };
+   handleSubmit = () => {
     
+    let {email, name, password} = this.state; 
+    let user = {email, name, password};
+    // make Api call to end ppoint and pass user
+
+    // making moxk to session for anyone who uses this ui 
+    window.sessionStorage.setItem('user', JSON.stringify(user));
+    this.setState({show: false})
+    
+    }; //&& route to user page
+    handleChange = ({target}) => {
+      let {name, value} = target; 
+      this.setState({
+        [name]: value
+      })
+    }
+  render() {
       return (
       <div id="AppWelcome">
       
       <p>Welcome to Viral Growth!</p>
-
-      
-
-      <img src={virus} className="Virus-logo" alt="irus" height="200px" />
+        
+      <img src={virus} className="Virus-logo" alt="virus" height="200px" />
       <p>Please log in to get started!</p>
-      <SignIn/>
+      <SignIn show={this.state.show} handleClose={this.handleClose} handleSubmit={this.handleSubmit} name={this.state.name} email={this.state.email} password={this.state.password} handleChange={this.handleChange}/>
       <button type="button" className="btn btn-danger">
         Get Started!
         </button>
         <br />
-        <button type="button" className="btn btn-info">
+        <button type="button" className="btn btn-info" onClick={this.handleShow}>
         Login!
       </button>
       
@@ -34,13 +63,11 @@ function AppWelcome(props) { {
    
       <br />
 
-
-
       </div>
       
              
       )
-        
+       
     };
 
 }

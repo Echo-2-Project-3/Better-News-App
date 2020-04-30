@@ -9,7 +9,7 @@ function ButtonComponent({children}) {
     return (
         <button type="button" className="btn btn-primary">
           {/* <Link to={`challenges/${path}`} style={{color: 'white'}}> {children}</Link> */}
-             
+             {children}
         </button>
         
     )
