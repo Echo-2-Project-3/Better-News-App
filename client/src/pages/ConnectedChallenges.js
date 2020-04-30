@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonComponent from "../components/ButtonsComponent";
-import {Route} from 'react-router-dom';
+//import {Route} from 'react-router-dom';
 
 const buttonNames = ["Connect with Friends!", "Jump Right In!", "View Leaderboards!"];
 //const later = "Health and Fitness!", "Children's Corner!", "Social and Staying Connected!",  "Professional!", "Home Improvements!","Self-Help and Mindfulness!", " Make a Custom Challenge!",]

@@ -3,13 +3,14 @@ import virus from "./virus.jpg";
 import axios from "axios";
 import ConnectedChallenge from "./pages/ConnectedChallenges.js";
 import ProfilePage from "./pages/profilepage.js";
-import ButtonComponent from "./components/ButtonsComponent.js";
+//import ButtonComponent from "./components/ButtonsComponent.js";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Login from "./components/Login.SignIn.js";
+//import Login from "./components/Login.SignIn.js";
 import UserHome from "./pages/UserHome.js";
 import Nav from "./components/Navbar.js";
 import "./styles/userHome.css";
 import "./App.css";
+import SignIn from "./components/Login.SignIn.js";
 
 
 
@@ -36,6 +37,8 @@ class App extends Component {
       });
   };
   render() {
+
+
     return (
       <div className="App">
         <Router>
@@ -44,21 +47,22 @@ class App extends Component {
           <Route exact path="/" component={UserHome}/>
 
           <Route path="/challenges" >
-            <ConnectedChallenge userName={this.state.useName} />
+            <ConnectedChallenge userName={this.state.userName} />
           </Route>
 
           <Route exact path="/profilepage" component={ProfilePage}/>
         </Switch>
           
       </Router>
-        <header className="App-header">
+        <SignIn loggedIn={this.state.show}></SignIn>
+        <SignIn/>
           <p>Welcome to Viral Growth!</p>
 
         
 
           <img src={virus} className="Virus-logo" alt="irus" height="200px" />
           <p>Please log in to get started!</p>
-          </header>
+          {/* </header> */}
           {/* <button type="button" className="btn btn-danger">
             Get Started!
             </button>
@@ -66,7 +70,7 @@ class App extends Component {
             <button type="button" className="btn btn-info">
             Login!
           </button> */}
-          <Login/>
+          {/* <Login/> */}
           <br />
        
           <br />
@@ -88,7 +92,7 @@ class App extends Component {
           
       </div>
 
-      // <Switch>
+      
     );
   }
 }
