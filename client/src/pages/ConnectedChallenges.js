@@ -32,6 +32,16 @@ function ConnectedChallenge(props) {
 
         {buttonNames.map(buttonName => {
             return (
+        //            /*<p>Hello User!</p>
+        // <p>What would you like to do today?</p>
+       
+        
+        // <button type="button" className="btn btn-light">
+          
+        // </button>*/}
+     
+        // /* <ConnectedChallenge /> */
+
               <ButtonComponent>{buttonName}</ButtonComponent>
             )
           })} 

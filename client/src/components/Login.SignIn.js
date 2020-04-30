@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import { Form, Col, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 // import "./Login.css";
 
 class SignIn extends React.Component {
@@ -15,10 +15,7 @@ class SignIn extends React.Component {
   //     return email.length > 0 && password.length > 0;
   //   };
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  // };
+  
 
   logInModal = (props) => {
     let loggedIn = props.userName;
@@ -32,8 +29,10 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const handleClose = () => this.setState((state) => ({ show: state.true }));
-    const show = () => this.setState((state) => ({ show: state.false }));
+    const handleClose = () => this.setState((state) => ({ show: state.false } ));//&& keep on splash page*/
+    const show = () => this.setState((state) => ({ show: state.true }));
+    const handleSubmit = () => this.setState((state) => ({show: state.false} )); //&& route to user page
+
     return (
       <div className="Login">
         <Modal show={show} onClick={handleClose}>
@@ -81,7 +80,7 @@ class SignIn extends React.Component {
               <Button
                 variant="primary"
                 type="submit"
-                onClick={handleClose}
+                onClick={handleSubmit}
                 block
                 bsSize="large"
               >
