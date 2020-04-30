@@ -2,17 +2,21 @@ import React, { Component } from "react";
 import virus from "./virus.jpg";
 import axios from "axios";
 import ConnectedChallenge from "./pages/ConnectedChallenges.js";
+import ProfilePage from "./pages/profilepage.js";
 import ButtonComponent from "./components/ButtonsComponent.js";
-import Login from "./pages/login.js";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Login from "./components/Login.SignIn.js";
 import UserHome from "./pages/UserHome.js";
+import Nav from "./components/Navbar.js";
 import "./styles/userHome.css";
 import "./App.css";
 
-const buttonNames = [" Health and Fitness!", "Children's Corner!", "Professional!", "Home Improvements!", "Jump Right In!", "Social and Staying Connected!", "Self-Help and Mindfulness!", " Make a Custom Challenge!", "Connect with Friends!", "View Leaderboards!"];
+
 
 class App extends Component {
   state = {
     avatars: [],
+    userName: ""
   };
   componentDidMount() {
     // this.getAvatars();
@@ -34,8 +38,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Router>
+        <Nav/>
+        <Switch>
+          <Route exact path="/" component={UserHome}/>
+
+          <Route path="/challenges" >
+            <ConnectedChallenge userName={this.state.useName} />
+          </Route>
+
+          <Route exact path="/profilepage" component={ProfilePage}/>
+        </Switch>
+          
+      </Router>
         <header className="App-header">
           <p>Welcome to Viral Growth!</p>
+
+        
 
           <img src={virus} className="Virus-logo" alt="irus" height="200px" />
           <p>Please log in to get started!</p>
@@ -49,11 +68,7 @@ class App extends Component {
           </button> */}
           <Login/>
           <br />
-          {buttonNames.map(buttonName => {
-            return (
-              <ButtonComponent>{buttonName}</ButtonComponent>
-            )
-          })}
+       
           <br />
           {/* {this.state.avatars.map(avatar => {
             return (
@@ -61,19 +76,19 @@ class App extends Component {
             )
           })} */}
          
-          <p>Hello User!</p>
+          {/*<p>Hello User!</p>
           <p>What would you like to do today?</p>
          
           
           <button type="button" className="btn btn-light">
             
-          </button>
+          </button>*/}
        
-          <ConnectedChallenge />
-
-          <UserHome />
+          {/* <ConnectedChallenge /> */}
           
       </div>
+
+      // <Switch>
     );
   }
 }
