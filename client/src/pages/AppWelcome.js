@@ -29,6 +29,7 @@ class AppWelcome extends Component {
     
     let {email, name, password} = this.state; 
     let user = {email, name, password};
+    user.subscriptions = [];
     // make Api call to end ppoint and pass user
 
     // making moxk to session for anyone who uses this ui 

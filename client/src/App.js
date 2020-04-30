@@ -34,9 +34,18 @@ class App extends Component {
       })
     }
   };
+  subscribeTo = (challenge) => {
+    console.log("In aubscribe to")
+    let user = this.state.user;
+    user.subscriptions.push(challenge);
+    this.setState({
+      user: user
+    })
+
+  }
   logoutUser = () => {
     window.sessionStorage.removeItem('user')
-    window.location.href = "/";
+    this.setState({user: null})
   }
   render() {
     return (
@@ -51,7 +60,7 @@ class App extends Component {
                 
                 <Route exact path="/Home" component={UserHome} />
                 <Route path="/challenges" >
-                  <ConnectedChallenge userName={this.state.userName} />
+                  <ConnectedChallenge user={this.state.user} subscribeTo={this.subscribeTo} />
                 </Route>
                 <Route exact path="/profilepage" component={ProfilePage} />
               </Switch>
