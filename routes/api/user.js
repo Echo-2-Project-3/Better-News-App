@@ -6,6 +6,7 @@ var user = require("../../controllers/UserController.js")
 
 router.route("/") // https://ipadress:3000/api/user/
     .get(user.findAll)
+    //.get(user.findOne)
     .post(user.create);
 
 // router.route('/jeff/chelsea')

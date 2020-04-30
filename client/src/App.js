@@ -1,95 +1,78 @@
 import React, { Component } from "react";
-import virus from "./virus.jpg";
+//import virus from "./virus.jpg";
 import axios from "axios";
 import ConnectedChallenge from "./pages/ConnectedChallenges.js";
+import AppWelcome from "./pages/AppWelcome.js";
 import ProfilePage from "./pages/profilepage.js";
-import ButtonComponent from "./components/ButtonsComponent.js";
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Login from "./components/Login.SignIn.js";
+//import ButtonComponent from "./components/ButtonsComponent.js";
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+//import Login from "./components/Login.SignIn.js";
 import UserHome from "./pages/UserHome.js";
 import Nav from "./components/Navbar.js";
 import "./styles/userHome.css";
 import "./App.css";
-
-
+//import SignIn from "./components/Login.SignIn.js";
+import Login from './components/Login.js';
 
 class App extends Component {
-  state = {
-    avatars: [],
-    userName: ""
-  };
-  componentDidMount() {
-    // this.getAvatars();
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null
+    };
   }
-
-  getAvatars = () => {
-    axios
-      .get("/api/avatar")
-      .then((res) => {
-        console.log("res", res);
-        this.setState({
-          avatars: res.data.asset_ids,
-        });
+  
+  componentDidMount() {
+    let user = JSON.parse(window.sessionStorage.getItem('user'));
+    if(user) {
+      this.setState({
+        user: user
       })
-      .catch((err) => {
-        console.log("the err", err);
-      });
+    }else {
+      this.setState({
+        user: null
+      })
+    }
   };
+  subscribeTo = (challenge) => {
+    console.log("In aubscribe to")
+    let user = this.state.user;
+    user.subscriptions.push(challenge);
+    this.setState({
+      user: user
+    })
+
+  }
+  logoutUser = () => {
+    window.sessionStorage.removeItem('user')
+    this.setState({user: null})
+  }
   render() {
     return (
       <div className="App">
-        <Router>
-        <Nav/>
-        <Switch>
-          <Route exact path="/" component={UserHome}/>
+        {
 
-          <Route path="/challenges" >
-            <ConnectedChallenge userName={this.state.useName} />
-          </Route>
+          (!this.state.user) ? <AppWelcome/> : 
+          <div>
+            <Router>
+              {(this.state.user) ? <Nav logoutUser={this.logoutUser}/>: null}
+              <Switch>
+                
+                <Route exact path="/Home" component={UserHome} />
+                <Route path="/challenges" >
+                  <ConnectedChallenge user={this.state.user} subscribeTo={this.subscribeTo} />
+                </Route>
+                <Route exact path="/profilepage" component={ProfilePage} />
+              </Switch>
 
-          <Route exact path="/profilepage" component={ProfilePage}/>
-        </Switch>
-          
-      </Router>
-        <header className="App-header">
-          <p>Welcome to Viral Growth!</p>
+            </Router>
+          </div>
 
-        
+        }
 
-          <img src={virus} className="Virus-logo" alt="irus" height="200px" />
-          <p>Please log in to get started!</p>
-          </header>
-          {/* <button type="button" className="btn btn-danger">
-            Get Started!
-            </button>
-            <br />
-            <button type="button" className="btn btn-info">
-            Login!
-          </button> */}
-          <Login/>
-          <br />
-       
-          <br />
-          {/* {this.state.avatars.map(avatar => {
-            return (
-              <h5 style={{ backgroundColor: "black" }}><img src={avatar.thumbnailSrc} style={{width: '250px', height: '250px'}}/> </h5>
-            )
-          })} */}
-         
-          {/*<p>Hello User!</p>
-          <p>What would you like to do today?</p>
-         
-          
-          <button type="button" className="btn btn-light">
-            
-          </button>*/}
-       
-          {/* <ConnectedChallenge /> */}
-          
+
       </div>
-
-      // <Switch>
-    );
+    )
   }
 }
 
