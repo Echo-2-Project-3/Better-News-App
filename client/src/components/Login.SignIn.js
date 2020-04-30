@@ -1,23 +1,24 @@
 import React from "react";
-import { Modal} from "react-bootstrap";
-//import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
+import { Form, Col, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 // import "./Login.css";
 
 class SignIn extends React.Component {
-//    const [email, setEmail] = useState("");
-//    const [password, setPassword] = useState("");
+  //    const [email, setEmail] = useState("");
+  //    const [password, setPassword] = useState("");
 
-    state = {
-        show: false,
+  state = {
+    show: false,
   };
 
-//   validateForm = () => {
-//     return email.length > 0 && password.length > 0;
-//   };
+  //   validateForm = () => {
+  //     return email.length > 0 && password.length > 0;
+  //   };
 
-//   handleSubmit = (event) => {
-//     event.preventDefault();
-//   };
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  // };
 
   logInModal = (props) => {
     let loggedIn = props.userName;
@@ -35,58 +36,65 @@ class SignIn extends React.Component {
     const show = () => this.setState((state) => ({ show: state.false }));
     return (
       <div className="Login">
-        {/* <form onSubmit={handleSubmit}> */}
-          <Modal show={show} onClick={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Please log in to get started!</Modal.Title>
-            </Modal.Header>
-            {/* <Modal.Body>
-              <FormGroup controlId="name" bsSize="large">
-                <FormLabel>Name</FormLabel>
-                <FormControl
-                  autoFocus
-                  type="text"
-                  name="name"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </FormGroup>
+        <Modal show={show} onClick={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Please sign in to create account and begin!
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <Form.Group controlId="name" bsSize="large">
+                <FormLabel>
+                  Name
+                  <FormControl
+                    autoFocus
+                    type="text"
+                    name="name"
+                    //onChange={(e) => setEmail(e.target.value)}
+                  />
+                </FormLabel>
+              </Form.Group>
               <FormGroup controlId="email" bsSize="large">
-                <FormLabel>Email</FormLabel>
-                <FormControl
-                  autoFocus
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <FormLabel>
+                  Email:
+                  <FormControl
+                    autoFocus
+                    type="email"
+                    //value="email"
+                    //onChange={(e) => setEmail(e.target.value)}
+                  />
+                </FormLabel>
               </FormGroup>
               <FormGroup controlId="password" bsSize="large">
-                <FormLabel>Password</FormLabel>
-                <FormControl
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                />
+                <FormLabel>
+                  Password:
+                  <FormControl
+                    autoFocus
+                    //value="password"
+                    //onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                  />
+                </FormLabel>
               </FormGroup>
+              <hr />
               <Button
+                variant="primary"
+                type="submit"
+                onClick={handleClose}
                 block
                 bsSize="large"
-                disabled={!validateForm()}
-                type="submit"
-                // onClick={handleSubmit}
               >
-                Login
+                Sign In
               </Button>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+            </form>
+          </Modal.Body>
+          <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Save Changes
-              </Button>
-            </Modal.Footer> */}
-          </Modal>
-        {/* </form> */}
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
