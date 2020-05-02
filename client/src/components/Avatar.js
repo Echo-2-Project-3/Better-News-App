@@ -1,24 +1,26 @@
-// class App extends Component {
-//     state = {
-//       avatars: [],
-//       userName: ""
-//     };
-//     componentDidMount() {
-//       // this.getAvatars();
-//     }
-  
-//     getAvatars = () => {
-//       axios
-//         .get("/api/avatar")
-//         .then((res) => {
-//           console.log("res", res);
-//           this.setState({
-//             avatars: res.data.asset_ids,
-//           });
-//         })
-//         .catch((err) => {
-//           console.log("the err", err);
-//         });
-//     };
+import React from 'react';
 
-//     render return
+
+function Avatar(props) {
+
+    let doppelmekey = ''//props.doppelMeKey;
+    const universalkey = "DM1732409GPK";
+    let avatar;
+
+    if (doppelmekey) {
+        avatar = <img src={"http://www.doppelme.com/," + doppelmekey + "/crop.png"} border="0" />
+    } else {
+        avatar = <img src={"http://www.doppelme.com/," + universalkey + "/crop.png"} border="0" />
+    }
+
+
+
+    return (
+        <div> {avatar}</div>
+
+
+    )
+
+}
+
+export default Avatar;

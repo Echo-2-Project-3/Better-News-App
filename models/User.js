@@ -26,5 +26,12 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: "Personal  Interest"
       }
     });
+
+    User.associate = function(models) {
+      User.belongsToMany(models.Challenge,
+        {
+        through: models.SubscribedTo
+      });
+    }
     return User;
   };
