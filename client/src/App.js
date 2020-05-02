@@ -5,14 +5,17 @@ import ConnectedChallenge from "./pages/ConnectedChallenges.js";
 import AppWelcome from "./pages/AppWelcome.js";
 import ProfilePage from "./pages/profilepage.js";
 //import ButtonComponent from "./components/ButtonsComponent.js";
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //import Login from "./components/Login.SignIn.js";
 import UserHome from "./pages/UserHome.js";
 import Nav from "./components/Navbar.js";
 import "./styles/userHome.css";
+import ChallengesPage from "./pages/challengesPage.js";
+import ChallengePage from "./pages/challengePage.js";
 import "./App.css";
 //import SignIn from "./components/Login.SignIn.js";
 import Login from './components/Login.js';
+import Leaderboards from "./pages/Leaderboard.js";
 
 class App extends Component {
   constructor(props) {
@@ -21,14 +24,14 @@ class App extends Component {
       user: null
     };
   }
-  
+
   componentDidMount() {
     let user = JSON.parse(window.sessionStorage.getItem('user'));
-    if(user) {
+    if (user) {
       this.setState({
         user: user
       })
-    }else {
+    } else {
       this.setState({
         user: null
       })
@@ -45,28 +48,39 @@ class App extends Component {
   }
   logoutUser = () => {
     window.sessionStorage.removeItem('user')
-    this.setState({user: null})
+    this.setState({ user: null })
   }
   render() {
     return (
       <div className="App">
         {
 
-          (!this.state.user) ? <AppWelcome/> : 
-          <div>
-            <Router>
-              {(this.state.user) ? <Nav logoutUser={this.logoutUser}/>: null}
-              <Switch>
-                
-                <Route exact path="/Home" component={UserHome} />
-                <Route path="/challenges" >
-                  <ConnectedChallenge user={this.state.user} subscribeTo={this.subscribeTo} />
-                </Route>
-                <Route exact path="/profilepage" component={ProfilePage} />
-              </Switch>
+          (!this.state.user) ? <AppWelcome /> :
+            <div>
+              <Router>
+                {(this.state.user) ? <Nav logoutUser={this.logoutUser} /> : null}
+                <Switch>
 
-            </Router>
-          </div>
+                  <Route exact path="/"><UserHome /></Route>
+
+                  <Route exact path="/challenges" >
+                    <ChallengesPage user={this.state.user} subscribeTo={this.subscribeTo} />
+                  </Route>
+                  
+                  <Route exact path="/challenges/optimism-challenge" >
+                    <ChallengePage user={this.state.user} subscribeTo={this.subscribeTo} />
+                  </Route>
+
+                  
+                  <Route exact path="/challenges/social-challenge" >
+                    <ChallengePage user={this.state.user} subscribeTo={this.subscribeTo} />
+                  </Route>
+
+                  <Route exact path="/profilepage" component={ProfilePage} />
+                </Switch>
+
+              </Router>
+            </div>
 
         }
 

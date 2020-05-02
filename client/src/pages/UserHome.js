@@ -1,5 +1,6 @@
 import React from "react";
 import MenuBtnComponent from "../components/menuButtons.js"
+import { Link } from 'react-router-dom'
 
 const menu = ["Optimism Challenge", "Social Challenge"];
 
@@ -8,13 +9,11 @@ function UserHome() {
         <div id="userHome">
             <h1>Welcome User!</h1>
             <br />
-            <h3>Here you can view and join new challenges, track your progress and ranking, and connect with friends.</h3>
+            <h3>This is a great app for the things and the stuffs.</h3>
             <br />
-            <div id="menuBtnDiv">
+            <div>
+            <Link to={'/challenges/'}><button>See the Challenges</button></Link>
             
-    {menu.map((menuItem) => (<MenuBtnComponent> {menuItem} </MenuBtnComponent>))} 
-
-               
             </div>
 
         </div>

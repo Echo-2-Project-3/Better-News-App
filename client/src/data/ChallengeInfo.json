@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "name": "Social Challenge",
+        "info": "This is info about your social challenge",
+        "maxpoints": "10"
+
+    },
+    { 
+        "id": "2",
+        "name": "Optimism Challenge",
+        "info": "",
+        "maxpoints": "10"
+
+    }
+]

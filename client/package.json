@@ -9,6 +9,7 @@
     "react": "^16.6.3",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.6.3",
+    "react-native-leaderboard": "^1.0.6",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^2.1.1"
   },

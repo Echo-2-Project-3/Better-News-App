@@ -1,12 +1,12 @@
 import React from "react";
-import { Modal, Button} from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 // import "./Login.css";
 
-function SignIn (props) {
+function SignIn(props) {
   //    const [email, setEmail] = useState("");
   //    const [password, setPassword] = useState("");
- console.log("PROPS IN SIGN IN", props);
+  console.log("PROPS IN SIGN IN", props);
   // state = {
   //   show: false,
   // };
@@ -15,7 +15,7 @@ function SignIn (props) {
   //     return email.length > 0 && password.length > 0;
   //   };
 
-  
+
 
   // logInModal = (props) => {
   //   let loggedIn = props.userName;
@@ -29,80 +29,80 @@ function SignIn (props) {
   // };
 
 
-    // const handleClose = () => this.setState((state) => ({ show: state.false } ));//&& keep on splash page*/
-    // const show = () => this.setState((state) => ({ show: state.true }));
-    // const handleSubmit = () => this.setState((state) => ({show: state.false} )); //&& route to user page
+  // const handleClose = () => this.setState((state) => ({ show: state.false } ));//&& keep on splash page*/
+  // const show = () => this.setState((state) => ({ show: state.true }));
+  // const handleSubmit = () => this.setState((state) => ({show: state.false} )); //&& route to user page
 
-    
-    
-    return (
-      
-      <div className="Login">
-        <Modal show={props.show} >
-          <Modal.Header closeButton onClick={props.handleClose}>
-            <Modal.Title> 
-              Please sign in to create account and begin!
+
+
+  return (
+
+    <div className="Login">
+      <Modal show={props.show} >
+        <Modal.Header closeButton onClick={props.handleClose}>
+          <Modal.Title>
+            Please sign in to create account and begin!
             </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <form>
-              <Form.Group controlId="name" bsSize="large">
-                <FormLabel>
-                  Name
+        </Modal.Header>
+        <Modal.Body>
+          <form>
+            <Form.Group controlId="name">
+              <FormLabel>
+                Name
                   <FormControl
-                    autoFocus
-                    value={props.name}
-                    type="text"
-                    name="name"
-                    onChange={props.handleChange}
-                  />
-                </FormLabel>
-              </Form.Group>
-              <FormGroup controlId="email" bsSize="large">
-                <FormLabel>
-                  Email: 
+                  autoFocus
+                  value={props.name}
+                  type="text"
+                  name="name"
+                  onChange={props.handleChange}
+                />
+              </FormLabel>
+            </Form.Group>
+            <FormGroup controlId="email">
+              <FormLabel>
+                Email:
                   <FormControl
-                    autoFocus
-                    name="email"
-                    type="email"
-                    value={props.email}
-                    onChange={props.handleChange}
-                  />
-                </FormLabel>
-              </FormGroup>
-              <FormGroup controlId="password" bsSize="large">
-                <FormLabel>
-                  Password:
+                  autoFocus
+                  name="email"
+                  type="email"
+                  value={props.email}
+                  onChange={props.handleChange}
+                />
+              </FormLabel>
+            </FormGroup>
+            <FormGroup controlId="password">
+              <FormLabel>
+                Password:
                   <FormControl
-                    autoFocus
-                    name="password"
-                    type="password"
-                    value={props.password}
-                    onChange={props.handleChange}
-                  />
-                </FormLabel>
-              </FormGroup>
-              <hr />
-              <Button
-                variant="primary"
-                type="submit"
-                onClick={props.handleSubmit}
-                block
-                bsSize="large"
-              >
-                Sign In
+                  autoFocus
+                  name="password"
+                  type="password"
+                  value={props.password}
+                  onChange={props.handleChange}
+                />
+              </FormLabel>
+            </FormGroup>
+            <hr />
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={props.handleSubmit}
+              block
+
+            >
+              Sign In
               </Button>
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
           <Button variant="secondary" onClick={props.handleClose}>
-                Close
+            Close
               </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
-    );
-  
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+
 }
 
 export default SignIn;
