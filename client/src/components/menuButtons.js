@@ -8,7 +8,7 @@ function MenuBtnComponent({ children, ...props }) {
   //  console.log("PROPS FOR BUTTON: ", path)  
   return (
     <div>
-      <button type="button" onClick={props.subscribeTo} className="btn btn-primary mb-2">
+      <button type="button" onClick={props.subscribeTo} className="btn btn-primary mb-2" >{children}
         
       </button>
     </div>
