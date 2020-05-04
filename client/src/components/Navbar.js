@@ -1,22 +1,34 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import {Link} from 'react-router-dom';
-import Avatar from './Avatar.js';
+import { Navbar, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Avatar from "./Avatar.js";
+import sprout from "../images/sprout.wText.png";
+import "../styles/nav.css";
 
-function Nav(props) {
-        return (
-        
-       <Navbar>
-           <Link to="/">Home</Link>
-           <Link to="/challenges">Challenges</Link>
-           <Link to="/profilepage">Profile Page   </Link>
-           <button onClick={props.logoutUser}>Sign Out</button>
-           <Avatar/>
-           
-
-        </Navbar>
-    )
-
+function Navybar(props) {
+  return (
+    <Navbar>
+      <Col xs={2}>
+        <Link to="/">
+          <img src={sprout}></img>
+        </Link>
+      </Col>
+      <Col xs={1}>
+        <Link to="/challenges">Challenges</Link>
+      </Col>
+      <Col xs={2}>
+        <Link to="/profilepage">Profile Page</Link>
+      </Col>
+      <Col xs={6}></Col>
+      <Col xs={1}>
+        {" "}
+        <div className="avatarbox">
+          <Avatar />
+        </div>
+        <Link onClick={props.logoutUser}>Sign Out</Link>
+      </Col>
+    </Navbar>
+  );
 }
 
-export default Nav;
+export default Navybar;

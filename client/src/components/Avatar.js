@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 function Avatar(props) {
 
     let doppelmekey = ''//props.doppelMeKey;
@@ -8,9 +9,9 @@ function Avatar(props) {
     let avatar;
 
     if (doppelmekey) {
-        avatar = <img src={"http://www.doppelme.com/," + doppelmekey + "/crop.png"} border="0" />
+        avatar = <img src={"http://www.doppelme.com/," + doppelmekey + "/crop.png"} border="0" width="100%"/>
     } else {
-        avatar = <img src={"http://www.doppelme.com/," + universalkey + "/crop.png"} border="0" />
+        avatar = <img src={"http://www.doppelme.com/," + universalkey + "/crop.png"} border="0" width="100%"/>
     }
 
 

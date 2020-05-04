@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-// import "./Login.css";
+import "../styles/login.css";
 
 function SignIn(props) {
   //    const [email, setEmail] = useState("");
@@ -40,14 +40,14 @@ function SignIn(props) {
     <div className="Login">
       <Modal show={props.show} >
         <Modal.Header closeButton onClick={props.handleClose}>
-          <Modal.Title>
+          <Modal.Title className="title">
             Please sign in to create account and begin!
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
             <Form.Group controlId="name">
-              <FormLabel>
+              <FormLabel className="mandatory">
                 Name
                   <FormControl
                   autoFocus
@@ -59,7 +59,7 @@ function SignIn(props) {
               </FormLabel>
             </Form.Group>
             <FormGroup controlId="email">
-              <FormLabel>
+              <FormLabel className="mandatory">
                 Email:
                   <FormControl
                   autoFocus
@@ -70,8 +70,22 @@ function SignIn(props) {
                 />
               </FormLabel>
             </FormGroup>
-            <FormGroup controlId="password">
+            <Form.Group controlId="doppelme">
               <FormLabel>
+                Doppel Me Key
+                <p className="justanote">Personalize your own avatar at DoppelMe.com to get your unique "Doppel Me" key.</p>
+                  <FormControl
+                  autoFocus
+                  value={props.doppelme}
+                  type="text"
+                  name="name"
+                  onChange={props.handleChange}
+                />
+              </FormLabel>
+              
+            </Form.Group>
+            <FormGroup controlId="password">
+              <FormLabel className="mandatory">
                 Password:
                   <FormControl
                   autoFocus
