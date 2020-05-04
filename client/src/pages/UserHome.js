@@ -1,6 +1,8 @@
 import React from "react";
-import MenuBtnComponent from "../components/menuButtons.js"
-import { Link } from 'react-router-dom'
+import MenuBtnComponent from "../components/menuButtons.js";
+import { Link } from 'react-router-dom';
+import LeaderBoard from "./Leaderboard.js";
+
 
 const menu = ["Optimism Challenge", "Social Challenge"];
 
@@ -15,7 +17,7 @@ function UserHome() {
             <Link to={'/challenges/'}><button>See the Challenges</button></Link>
             
             </div>
-
+<LeaderBoard />
         </div>
     );
 };
