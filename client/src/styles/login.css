@@ -1,0 +1,12 @@
+.mandatory {
+    font-weight: bolder;
+}
+
+.justanote {
+    font-size: xx-small;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}

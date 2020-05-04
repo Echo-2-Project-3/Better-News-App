@@ -8,7 +8,7 @@ import ProfilePage from "./pages/profilepage.js";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //import Login from "./components/Login.SignIn.js";
 import UserHome from "./pages/UserHome.js";
-import Nav from "./components/Navbar.js";
+import Navybar from "./components/Navbar.js";
 import "./styles/userHome.css";
 import ChallengesPage from "./pages/challengesPage.js";
 import ChallengePage from "./pages/challengePage.js";
@@ -58,7 +58,7 @@ class App extends Component {
           (!this.state.user) ? <AppWelcome /> :
             <div>
               <Router>
-                {(this.state.user) ? <Nav logoutUser={this.logoutUser} /> : null}
+                {(this.state.user) ? <Navybar logoutUser={this.logoutUser} /> : null}
                 <Switch>
 
                   <Route exact path="/"><UserHome /></Route>
