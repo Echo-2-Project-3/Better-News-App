@@ -6,10 +6,13 @@ import LeaderBoard from "./Leaderboard.js";
 
 const menu = ["Optimism Challenge", "Social Challenge"];
 
-function UserHome() {
+function UserHome(props) {
     return (
         <div id="userHome">
-            <h1>Welcome User!</h1>
+            <h1>
+            Welcome, {props.user.name || 'user'}.
+            </h1>
+            
             <br />
             <h3>This is a great app for the things and the stuffs.</h3>
             <br />
