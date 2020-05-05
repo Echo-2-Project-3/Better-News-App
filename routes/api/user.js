@@ -1,13 +1,23 @@
 var express = require("express");
+const passport = require("passport");
 
 var router = express.Router();
 
 var user = require("../../controllers/UserController.js")
 
 router.route("/") // https://ipadress:3000/api/user/
-    .get(user.findAll)
+    // .get(user.findAll)
+    // .get(user.findByName)
     //.get(user.findOne)
     .post(user.create);
+
+  router.route("/:name")
+  .get(user.findByName)
+
+  router.use("/login", passport.authenticate("local"));
+
+  router.route("/login")
+  .post(user.login)
 
 // router.route('/jeff/chelsea')
 // .get(function(req, res) {

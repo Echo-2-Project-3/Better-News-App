@@ -14,12 +14,24 @@ module.exports = function(sequelize, DataTypes) {
           isEmail: true
         }
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [4]
+        }
+      },
       age: {
         type: DataTypes.INTEGER,
         allowNull: true,
         validate: {
           len: [1]
         }
+      },
+      dopple_me: {
+        type: DataTypes.STRING, 
+        allowNull: true,
+        defaultValue: "DM1732409GPK"
       },
       interest: {
         type: DataTypes.STRING,

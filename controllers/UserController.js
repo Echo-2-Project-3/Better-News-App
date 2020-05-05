@@ -18,5 +18,17 @@ module.exports = {
         db.User.create(user)
         .then(user => res.json(user))
         .catch(err => res.status(422).json(err));
+    },
+
+    findByName: function(req, res) {
+        db.User.findOne({where: {name: req.params.name}})
+        .then(user => res.json(user))
+        .catch(err => res.status(407).json(err));
+    },
+
+    login: function(req, res) {
+        console.log("Login function", req.user);
+        res.send(req.user);
+              
     }
 }

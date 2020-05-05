@@ -25,6 +25,32 @@ class App extends Component {
     };
   }
 
+  handleSubmit = (user) => {
+    let {name} = user; 
+    console.log("Logging in");
+    // let {email, name, password} = this.state; 
+    // let user = {email, name, password};
+    axios.post(`/api/user/login`, user)
+    .then((response) => {
+      console.log("response: ", response)
+
+      let user = response.data;
+      window.sessionStorage.setItem('user', JSON.stringify(user));
+      this.setState({user: user })
+    })
+    .catch((err) => {
+      console.log("err", err)
+    })
+    // make Api call to end ppoint and pass user
+
+    // making moxk to session for anyone who uses this ui 
+   // 
+   // this.setState({show: false})
+    
+    }; //&& route to user page
+    
+   
+
   componentDidMount() {
     let user = JSON.parse(window.sessionStorage.getItem('user'));
     if (user) {
@@ -37,15 +63,7 @@ class App extends Component {
       })
     }
   };
-  subscribeTo = (challenge) => {
-    console.log("In aubscribe to")
-    let user = this.state.user;
-    user.subscriptions.push(challenge);
-    this.setState({
-      user: user
-    })
 
-  }
   logoutUser = () => {
     window.sessionStorage.removeItem('user')
     this.setState({ user: null })
@@ -55,13 +73,13 @@ class App extends Component {
       <div className="App">
         {
 
-          (!this.state.user) ? <AppWelcome /> :
+          (!this.state.user) ? <AppWelcome user={this.state.user} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> :
             <div>
               <Router>
                 {(this.state.user) ? <Navybar logoutUser={this.logoutUser} /> : null}
                 <Switch>
 
-                  <Route exact path="/"><UserHome /></Route>
+                  <Route exact path="/"><UserHome user={this.state.user} /></Route>
 
                   <Route exact path="/challenges" >
                     <ChallengesPage user={this.state.user} subscribeTo={this.subscribeTo} />
@@ -76,7 +94,9 @@ class App extends Component {
                     <ChallengePage user={this.state.user} subscribeTo={this.subscribeTo} />
                   </Route>
 
-                  <Route exact path="/profilepage" component={ProfilePage} />
+                  <Route exact path="/profilepage">
+                    <ProfilePage user={this.state.user}/>
+                  </Route>
                 </Switch>
 
               </Router>

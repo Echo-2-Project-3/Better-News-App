@@ -13,15 +13,9 @@ function Avatar(props) {
     } else {
         avatar = <img src={"http://www.doppelme.com/," + universalkey + "/crop.png"} border="0" width="100%"/>
     }
-
-
-
     return (
         <div> {avatar}</div>
-
-
     )
-
 }
 
 export default Avatar;
