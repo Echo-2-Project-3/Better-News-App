@@ -1,12 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
     var Post = sequelize.define("Post", {
-        name: {
+        content: {
             type: DataTypes.STRING
-        }, 
-        point: {
-            type: DataTypes.INTEGER
-        },
-        
+        }
     });
 
     Post.associate = function(models) {

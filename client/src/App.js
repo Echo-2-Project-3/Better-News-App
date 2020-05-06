@@ -82,7 +82,7 @@ class App extends Component {
                   <Route exact path="/"><UserHome user={this.state.user} /></Route>
 
                   <Route exact path="/challenges" >
-                    <ChallengesPage user={this.state.user} subscribeTo={this.subscribeTo} />
+                    <ChallengesPage user={this.state.user}/>
                   </Route>
                   
                   <Route exact path="/challenges/optimism-challenge" >

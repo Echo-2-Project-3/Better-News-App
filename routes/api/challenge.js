@@ -1,7 +1,7 @@
-// var express = require("express");
+var express = require("express");
 // const passport = require("passport");
 
-// var router = express.Router();
+ var router = express.Router();
 
 // var challenge = require("../../controllers/UserController.js")
 
@@ -25,4 +25,4 @@
 // //         message: "You made it to my end point at /api/user/jeff/chelsea"
 //   //  })
 // //})
-// module.exports = router;
+module.exports = router;

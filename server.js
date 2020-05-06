@@ -43,7 +43,13 @@ passport.use(new LocalStrategy(
       // When a user tries to sign in this code runs
       // If we're trying to log in with an invalide username
       // console.log("in strat", data)
-      console.log("Found user in data base", data.name, data.password)
+      console.log("what does data look when not found", data);
+      if (data == null) {
+        return done(null, false, {
+          message: "Sorry, that doesn't match our records."
+        })
+      }
+      //console.log("Found user in data base", data.name, data.password)
       var pword = data.password;
       var uname = data.name;
       var uid = data.id;
@@ -65,7 +71,7 @@ passport.use(new LocalStrategy(
           interest: data.interest,
           email: data.email,
           age: data.age,
-          doppel_me: data.doppel_me,
+          dopple_me: data.dopple_me,
           name: data.name
         }
           console.log("user: ", user)
@@ -99,8 +105,8 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 app.use(routes);
-const index = require('./routes/index')
-const user = require('./routes/api/user')
+//const index = require('./routes/index')
+//const user = require('./routes/api/user')
 //const index2 = require('./routes/api/index')
 
 // Send every other request to the React app
@@ -116,4 +122,5 @@ db.sequelize.sync().then(function () {
 })
 
 
-module.exports = router;
+
+

@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = {
   findAll: function (req, res) {
-    db.Challenge.find(req.query)
+    db.Challenge.findAll()
       .then((Challenge) => res.json(Challenge))
       .catch((err) => res.status(422).json(err));
   },
@@ -19,5 +19,5 @@ module.exports = {
     db.Challenge.findOne({ where: { name: req.params.name } })
       .then((challenge) => res.json(challenge))
       .catch((err) => res.status(407).json(err));
-  },
+  }
 };

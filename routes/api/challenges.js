@@ -6,12 +6,12 @@ var router = express.Router();
 var challenge = require("../../controllers/ChallengeController.js")
 
 router.route("/") // https://ipadress:3000/api/challenge/
-    // .get(challenge.findAll)
+    .get(challenge.findAll)
     // .get(challenge.findByName)
     //.get(challenge.findOne)
     .post(challenge.create);
 
-  router.route("/:challenge_name")
+router.route("/:challenge_name")
   .get(challenge.findByName)
 
 

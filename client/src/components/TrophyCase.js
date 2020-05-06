@@ -6,11 +6,11 @@ import trophy from '../images/trophy.png';
 
 
 
-function TrophyCase () {
+function TrophyCase (props) {
     let trophyCase;
     console.log("trophies displayed");
     // if (user.challenges.trophy == true) {
-        if (true) {
+        if (props.challengeCompleted) {
         trophyCase = <img src={trophy} height= "400px"></img>
        }else {
         trophyCase = <h2>"No trophies to display yet, but go get it!"</h2>
