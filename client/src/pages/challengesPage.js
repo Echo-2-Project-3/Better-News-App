@@ -3,8 +3,8 @@ import MenuBtnComponent from "../components/menuButtons.js";
 import { Link } from "react-router-dom";
 
 const menu = [
-  { challenge: "Optimism Challenge", path: "optimism-challenge" },
-  { challenge: "Social Challenge", path: "social-challenge" },
+  { challenge: "Optimism Challenge", path: "optimism-challenge", info: "Here's how to do the optimism challenge." },
+  { challenge: "Social Challenge", path: "social-challenge", info: "here's how to do the social challenge" },
 ];
 
 function ChallengesPage() {
@@ -20,7 +20,7 @@ function ChallengesPage() {
       <div id="menuBtnDiv">
         {menu.map((menuItem) => (
           <Link to={`/challenges/` + menuItem.path} >
-            <MenuBtnComponent >{menuItem.challenge}</MenuBtnComponent>
+            <MenuBtnComponent index={menuItem.index} info={menuItem.info} name={menuItem.challenge} path={menuItem.path}>{menuItem.challenge}</MenuBtnComponent>
           </Link>
         ))}
 

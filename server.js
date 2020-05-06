@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
 const db = require('./models');
+const router = require("router");
 var session = require("express-session");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
@@ -65,7 +66,7 @@ passport.use(new LocalStrategy(
           interest: data.interest,
           email: data.email,
           age: data.age,
-          dopple_me: data.dopple_me,
+          doppel_me: data.doppel_me,
           name: data.name
         }
           console.log("user: ", user)
@@ -100,8 +101,9 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use(routes);
 const index = require('./routes/index')
-const avatar = require('./routes/api/avatar')
 const user = require('./routes/api/user')
+const challenges = require('./routes/api/challenges')
+const challenge = require ('./routes/api/challenges/:challenge')
 //const index2 = require('./routes/api/index')
 
 // Send every other request to the React app
@@ -117,4 +119,4 @@ db.sequelize.sync().then(function () {
 })
 
 
-
+module.exports = router;

@@ -9,9 +9,9 @@ function Avatar(props) {
     let avatar;
 
     if (doppelmekey) {
-        avatar = <img src={"http://www.doppelme.com/," + doppelmekey + "/crop.png"} border="0" width="100%"/>
+        avatar = <img src={"http://www.doppelme.com/," + doppelmekey + "/crop.png"} border="0" width="100%" alt="UPic"/>
     } else {
-        avatar = <img src={"http://www.doppelme.com/," + universalkey + "/crop.png"} border="0" width="100%"/>
+        avatar = <img src={"http://www.doppelme.com/," + universalkey + "/crop.png"} border="0" width="100%" alt="nkdPic"/>
     }
     return (
         <div> {avatar}</div>

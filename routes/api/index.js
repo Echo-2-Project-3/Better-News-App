@@ -1,11 +1,13 @@
 const router = require('express').Router();
-const userRoutes = require('./user')
+const userRoutes = require('./user');
+const challengeRoutes = require('./challenges');
+const singleChallenge = require('./challenge');
 
 const path = require('path');
 
 router.use("/user", userRoutes);
-
-
+router.use("/challenges", challengeRoutes);
+router.use("/challenge", singleChallenge);
 
 router.use(function(req, res) {
     res.sendFile(path.join(__dirname, "../../client/build/index.html"))
