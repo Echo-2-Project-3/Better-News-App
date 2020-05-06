@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {useLocation} from 'react-router-dom';
 //import { Link } from "react-router-dom";
 import ChallengeInfo from "../data/ChallengeInfo.json";
 import ChallengeProgress from "../components/ChallengeProgress.js";
@@ -7,6 +8,7 @@ import LeaderBoards from "./Leaderboard.js";
 import ButtonsComponent from '../components/ButtonsComponent'
 import ButtonComponent from "../components/ButtonsComponent";
 import { InputGroup, FormControl, Container, Row, Col, Button } from 'react-bootstrap';
+import axios from "axios";
 // import {menu} from "./challengesPage";
 
 class ChallengePage extends Component {
@@ -19,18 +21,25 @@ class ChallengePage extends Component {
       challengeNavigation: ["Subscribe", "Leader Board"]
     };
   }
-  // are yu there? can you hear me?
-  //I'm here, but no I can't hear you. :
-  // k hold on  Will do 
-  //Can you hear me?
-  // no, im going to try logging off and coming back in
-  //gothca okee dokie I sdon't know how to spell dokie
+  
 
-  //can you hear me now?
-  // ;-( no.... 
-  //Let's restart the meeting.  I think I'll reboot my machine just in case...
-  // okay, make sure everything is saved. se you in a bit
-  //Will do. See you soon :)
+  componentDidMount() {
+    
+    this.getChallenge(this.props.challengeName);
+    console.log("lcation", this.props.loc)
+  }
+
+  getChallenge = (challengeName) => {
+    let path= `/api/subscribed-to/${challengeName}`;
+    console.log("the path", path)
+    axios.get(path)
+    .then(res=> {
+      console.log(res);      
+    })
+    .catch(err=> {
+      console.log("err", err);
+    })
+  }
 
   render() {
     return (

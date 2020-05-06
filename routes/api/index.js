@@ -2,12 +2,14 @@ const router = require('express').Router();
 const userRoutes = require('./user');
 const challengeRoutes = require('./challenges');
 const singleChallenge = require('./challenge.js');
+const subscribedToRoutes = require("./subscribedTo");
 
 const path = require('path');
 
 router.use("/user", userRoutes);
 router.use("/challenges", challengeRoutes);
 router.use("/challenge", singleChallenge);
+router.use("/subscribed-to", subscribedToRoutes);
 //router.use("/avatar", avatar)
 
 router.use(function(req, res) {

@@ -11,7 +11,10 @@ router.route("/") // https://ipadress:3000/api/user/
     //.get(user.findOne)
     .post(user.create);
 
-  router.route("/:name")
+router.route("/get-challenge/:user_id/:challenge_name")
+.get(user.findChallenge)
+
+router.route("/:name")
   .get(user.findByName)
 
   router.use("/login", passport.authenticate("local"));
