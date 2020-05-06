@@ -14,9 +14,23 @@ class ChallengePage extends Component {
     super(props);
     this.state = {
       challengeCompleted: false, 
-      post: ""
+      challenge: null,
+      post: "",
+      challengeNavigation: ["Subscribe", "Leader Board"]
     };
   }
+  // are yu there? can you hear me?
+  //I'm here, but no I can't hear you. :
+  // k hold on  Will do 
+  //Can you hear me?
+  // no, im going to try logging off and coming back in
+  //gothca okee dokie I sdon't know how to spell dokie
+
+  //can you hear me now?
+  // ;-( no.... 
+  //Let's restart the meeting.  I think I'll reboot my machine just in case...
+  // okay, make sure everything is saved. se you in a bit
+  //Will do. See you soon :)
 
   render() {
     return (
@@ -25,14 +39,15 @@ class ChallengePage extends Component {
         {this.props.info} //We'll need to direct this to the challenge info database later
 
         <ChallengeProgress />
-        {["Subscribe", "Post", "Leader Board"].map(el => {
-          return (<ButtonComponent>
-            {el}
-          </ButtonComponent>)
+        {this.state.challengeNavigation.map(el => {
+          return (<ButtonComponent >
+                     {el}
+                </ButtonComponent>)
         })
         }
 
-        <Container>
+
+        {(this.state.challenge) ?<Container>
           <Row>
             <Col md={{span: 6, offset: 3}}>
               <InputGroup>
@@ -43,7 +58,8 @@ class ChallengePage extends Component {
               </Button>
             </Col>
           </Row>
-        </Container>
+        </Container> : null
+      }
 
 
         {/* post stuff here */}
