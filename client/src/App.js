@@ -21,7 +21,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: {
+        id: 0,
+        name: "",
+        email: "",
+        age: "",
+        interests: ""
+      }
     };
   }
 

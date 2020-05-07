@@ -16,7 +16,9 @@ class ChallengePage extends Component {
     super(props);
     this.state = {
       challengeCompleted: false, 
-      challenge: null,
+      challenge: {
+        name: ""
+      },
       post: "",
       posts: ["Test1", "test2","test3"],
       challengeNavigation: ["Subscribe", "Leader Board"]
@@ -38,6 +40,7 @@ class ChallengePage extends Component {
       console.log(res);  
       let challenge= res.data.Challenges[0];
       let {SubscribedTo} = challenge;
+      SubscribedTo.name = challenge.name;
       this.setState({
         challenge: SubscribedTo
       }, function() {
@@ -86,12 +89,14 @@ class ChallengePage extends Component {
     })
   }
   
-
+// {(this.props.user) ? this.props.user.name : null} {(this.state.challenge.name) ? this.state.challenge.name : null}
   
   render() {
+    console.log("my props", this.props);
     return (
       <div id="ChallengePage">
-        <p>on the {this.props.name} challenge page</p>
+        <h6>Hi,{this.props.user.name} , you're on the  challenge page, {this.state.challenge.name}</h6>
+        
         {this.props.info}
 
         <ChallengeProgress  point={(this.state.challenge) ? this.state.challenge.point: null}/>
@@ -123,14 +128,14 @@ class ChallengePage extends Component {
           </Row>
         </Container> : null
       }
-
-
         {/* post stuff here */}
+
         {
           this.state.posts.map(post => {
-          return <div>{post.content}</div>
+          return <ul>{post.content}</ul>
           })
         }
+
         <TrophyCase challengeCompleted={this.state.challengeCompleted} />
 
         <LeaderBoards />
