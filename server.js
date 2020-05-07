@@ -68,6 +68,7 @@ passport.use(new LocalStrategy(
       } else {
         // successful login, return the user -- which consists of an object holding the username
         let user = {
+          id: data.id,
           interest: data.interest,
           email: data.email,
           age: data.age,

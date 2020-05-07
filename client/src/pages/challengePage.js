@@ -30,14 +30,40 @@ class ChallengePage extends Component {
   }
 
   getChallenge = (challengeName) => {
-    let path= `/api/subscribed-to/${challengeName}`;
+    let path= `/api/user/get-challenge/${this.props.user.id}/${challengeName}`///api/subscribed-to/${challengeName}`;
     console.log("the path", path)
     axios.get(path)
     .then(res=> {
-      console.log(res);      
+      console.log(res);  
+      let challenge= res.data.Challenges[0];
+      let {SubscribedTo} = challenge;
+      this.setState({
+        challenge: SubscribedTo
+      })
     })
     .catch(err=> {
       console.log("err", err);
+    })
+  }
+
+  handlePost = () => {
+    console.log("Sending post: ", this.state.post);
+    let post = {
+      content: this.state.post
+    }
+    axios.post("/api/post", post)
+    .then(res=> {
+      console.log(res);
+    })
+    .catch(err=> {
+      console.log("err", err);
+    })
+  }
+
+  handlePostChange = (e) => {
+    let {name, value} = e.target; 
+    this.setState({
+      [name]: value
     })
   }
 
@@ -47,7 +73,7 @@ class ChallengePage extends Component {
         <p>on the {this.props.name} challenge page</p>
         {this.props.info} //We'll need to direct this to the challenge info database later
 
-        <ChallengeProgress />
+        <ChallengeProgress  point={(this.state.challenge) ? this.state.challenge.point: null}/>
         {this.state.challengeNavigation.map(el => {
           return (<ButtonComponent >
                      {el}
@@ -60,9 +86,9 @@ class ChallengePage extends Component {
           <Row>
             <Col md={{span: 6, offset: 3}}>
               <InputGroup>
-                <FormControl as="textarea" aria-label="With textarea" value={this.state.post} />
+                <FormControl as="textarea" aria-label="With textarea" name="post" value={this.state.post} onChange={this.handlePostChange} />
               </InputGroup>
-              <Button variant="primary" size="lg" block>
+              <Button variant="primary" size="lg" onClick={this.handlePost} block>
                 Make Post
               </Button>
             </Col>
@@ -72,8 +98,6 @@ class ChallengePage extends Component {
 
 
         {/* post stuff here */}
-        <form>
-        </form>
         <TrophyCase challengeCompleted={this.state.challengeCompleted} />
 
         <LeaderBoards />
