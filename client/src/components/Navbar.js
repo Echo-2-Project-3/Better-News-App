@@ -10,7 +10,7 @@ function Navybar(props) {
     <Navbar>
       <Col xs={2}>
         <Link to="/">
-          <img src={sprout}></img>
+          <img src={sprout} alt="sproutPic"></img>
         </Link>
       </Col>
       <Col xs={1}>

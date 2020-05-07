@@ -30,5 +30,18 @@ module.exports = {
         console.log("Login function", req.user);
         res.send(req.user);
               
+    },
+
+    findChallenge: function(req, res) {
+        console.log("finding challenge");
+        let {user_id, challenge_name} = req.params; 
+        db.User.findOne({
+            include: [{model: db.Challenge, where: {name: challenge_name}, through: {'UserId': user_id}}], 
+
+        })
+        .then(data=> {
+            res.send(data)
+        })
+        
     }
 }

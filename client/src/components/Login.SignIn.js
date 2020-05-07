@@ -13,7 +13,7 @@ function SignIn(props) {
       <Modal show={props.show} >
         <Modal.Header closeButton onClick={props.handleClose}>
           <Modal.Title className="title">
-            Please sign in to create account and begin!
+            Please sign in to begin!
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>

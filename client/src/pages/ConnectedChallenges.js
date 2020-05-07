@@ -18,7 +18,8 @@ function Jump(props) {
 function ConnectedChallenge(props) {
 
         //if logged in, then display page//
-    let page = <Jump {...props}/>
+    let page;
+    page =  <Jump {...props}/>
 
 
 
@@ -28,7 +29,7 @@ function ConnectedChallenge(props) {
         <br />
         <h3>Welcome to the staying connected challenge!  This is a great opportunity to help maintain a community you're involved in during your stay-at-home "vacation".  Reach out to at least one member of your community at least once a day, and post the interaction here.  You must post at least once per day to finish the challenge. This awards one point per post.</h3>
         <h1>Selected Challenge</h1>
-        <Route path="/challenges/jump-right-in" component={() => <Jump {...props}/>}/>
+        <Route path="/challenges/jump-right-in" component={() => page}/>
         {buttonNames.map(buttonName => {
             return (
             <ButtonComponent>{buttonName}</ButtonComponent>

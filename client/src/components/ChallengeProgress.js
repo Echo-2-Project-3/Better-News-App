@@ -16,9 +16,7 @@ function ChallengeProgress () {
     
   return (
     <div>
-       
-       <ProgressBar animated variant="success" now={points*10} />
-       
+       <ProgressBar animated variant="success" now={progressPercent.point} />
     </div>
   )
 

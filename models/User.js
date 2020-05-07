@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-      dopple_me: {
+      doppel_me: {
         type: DataTypes.STRING, 
         allowNull: true,
         defaultValue: "DM1732409GPK"

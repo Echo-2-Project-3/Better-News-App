@@ -3,11 +3,14 @@ module.exports = function (sequelize, DataTypes) {
         name: {
             type: DataTypes.STRING
         }, 
-        point: {
+        info: {
+            type: DataTypes.TEXT
+        },
+        total: {
             type: DataTypes.INTEGER
         },
         trophy: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             defaultValue: 0
         }
     });

@@ -21,7 +21,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: {
+        id: 0,
+        name: "",
+        email: "",
+        age: "",
+        interests: ""
+      }
     };
   }
 
@@ -82,16 +88,19 @@ class App extends Component {
                   <Route exact path="/"><UserHome user={this.state.user} /></Route>
 
                   <Route exact path="/challenges" >
-                    <ChallengesPage user={this.state.user} subscribeTo={this.subscribeTo} />
+                    <ChallengesPage user={this.state.user}/>
                   </Route>
                   
                   <Route exact path="/challenges/optimism-challenge" >
-                    <ChallengePage user={this.state.user} subscribeTo={this.subscribeTo} />
+                    <ChallengePage user={this.state.user} challengeName="optimism-challenge" subscribeTo={this.subscribeTo} />
                   </Route>
 
                   
                   <Route exact path="/challenges/social-challenge" >
-                    <ChallengePage user={this.state.user} subscribeTo={this.subscribeTo} />
+                    <ChallengePage user={this.state.user} challengeName="social-challenge" subscribeTo={this.subscribeTo} />
+                  </Route>
+                  <Route exact path="/challenges/fitness-challenge" >
+                    <ChallengePage user={this.state.user} challengeName="fitness-challenge" subscribeTo={this.subscribeTo} />
                   </Route>
 
                   <Route exact path="/profilepage">
