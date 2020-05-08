@@ -1,12 +1,14 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import "../pages/Leaderboard.css";
+import Avatar from "../components/Avatar.js";
 
 const useStyles = makeStyles({
   table: {
@@ -19,11 +21,11 @@ function createData(name, highscore, lastweek, last30days, today) {
 }
 
 const rows = [
-  createData('Chelsea', 150, 6.0, 24, 4.0),
-  createData('Jeff', 237, 9.0, 37, 4.3),
-  createData('Destiny', 262, 16.0, 24, 6.0),
-  createData('Samantha', 305, 3.7, 67, 4.3),
-  createData('Justin', 356, 16.0, 49, 3.9),
+  createData("Chelsea", 150, 6.0, 24, 4.0),
+  createData("Jeff", 237, 9.0, 37, 4.3),
+  createData("Destiny", 262, 16.0, 24, 6.0),
+  createData("Samantha", 305, 3.7, 67, 4.3),
+  createData("Justin", 356, 16.0, 49, 3.9),
 ];
 
 export default function SimpleTable() {
@@ -31,9 +33,9 @@ export default function SimpleTable() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
+      <Table className="" aria-label="simple table">
+        <TableHead className="leadheader ">
+          <TableRow className="">
             <TableCell>User Name</TableCell>
             <TableCell align="right">High Score</TableCell>
             <TableCell align="right">Last Week</TableCell>
@@ -43,8 +45,9 @@ export default function SimpleTable() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
+            <TableRow key={row.name} className="">
+              <TableCell className="users img" component="th" scope="row">
+                <Avatar></Avatar>
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.highscore}</TableCell>

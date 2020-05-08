@@ -4,6 +4,7 @@
     border-radius: 6px;
     border-color: black;
     box-shadow: 5px 5px 20px black;
+    padding-bottom: 20px;
 }
 
 #userBtnDiv {
