@@ -23,6 +23,102 @@ body {
   border: 2px solid rgba(0, 168, 232, 0.79);
   margin-right: 10px;
   vertical-align: middle;
+  animation-name: avatarBorder;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes avatarBorder{
+  0% {
+    border-width: 2px;
+    border-radius: 50%;
+    border-color: rgba(0, 168, 232, 0.79);
+  }
+  6% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgba(0, 4, 232, 0.79);
+  }
+  12% {
+    border-width: 4px;
+    border-radius: 50%;
+    border-color: rgba(101, 0, 232, 0.79);
+  }
+  18% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgba(232, 0, 232, 0.79);
+  }
+  25% {
+    border-width: 2px;
+    border-radius: 50%;
+    border-color: rgba(232, 0, 89, 0.79);
+  }
+  31% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgba(230, 138, 18, 1);
+  }
+  37% {
+    border-width: 4px;
+    border-radius: 45%;
+    border-color: rgba(230, 138, 18, 1);
+  }
+  44% {
+    border-width: 5px;
+    border-radius: 40%;
+    border-color: rgb(0, 168, 232 0.79);
+  }
+  50% {
+    border-width: 4px;
+    border-radius: 45%;
+    border-color: rgba(230, 138, 18, 1);
+  }
+  56% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgba(230, 138, 18, 1);
+  }
+  62% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgba(230, 138, 18, 0.79);
+  }
+  68% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgb(230, 216, 18, 0.79);
+  }
+  74% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgb(60, 230, 18, 0.79);
+  }
+  80% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgba(18, 230, 202, 0.79);
+  }
+  86% {
+    border-width: 3.5px;
+    border-radius: 50%;
+    border-color: rgba(0, 168, 232, 0.79);
+  }
+  90% {
+    border-width: 4px;
+    border-radius: 45%;
+    border-color: rgb(0, 168, 232, 0.79);
+  }
+  95% {
+    border-width: 3.5px;
+    border-radius: 50%;
+    border-color: rgba(0, 168, 232, 0.79);
+  }
+  100% {
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: rgba(0, 168, 232, 0.79);
+  }
 }
 
 /* .users:children{

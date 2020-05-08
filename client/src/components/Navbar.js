@@ -2,15 +2,21 @@ import React from "react";
 import { Navbar, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar.js";
-import sprout from "../images/sprout.wText.png";
+import sprout from "../images/sprout.png";
 import "../styles/nav.css";
+import "../animation/logoanimation.css";
 
 function Navybar(props) {
   return (
     <Navbar>
       <Col xs={2}>
         <Link to="/">
-          <img src={sprout} alt="sproutPic"></img>
+          <div>
+            <div className="air">
+              <img className="movement" src={sprout} />
+            </div>
+            <div className="shadow"></div>
+          </div>
         </Link>
       </Col>
       <Col xs={1}>
