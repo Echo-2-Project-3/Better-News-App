@@ -9,6 +9,7 @@ import ButtonsComponent from '../components/ButtonsComponent'
 import ButtonComponent from "../components/ButtonsComponent";
 import { InputGroup, FormControl, Container, Row, Col, Button } from 'react-bootstrap';
 import axios from "axios";
+import "../pages/Leaderboard.css";
 // import {menu} from "./challengesPage";
 
 class ChallengePage extends Component {
@@ -136,9 +137,9 @@ class ChallengePage extends Component {
           })
         }
 
-        <TrophyCase challengeCompleted={this.state.challengeCompleted} />
+        <div class="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
 
-        <LeaderBoards />
+        <div class="leaderboard"><LeaderBoards /></div>
       </div>
     );
 

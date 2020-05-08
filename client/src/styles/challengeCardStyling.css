@@ -1,0 +1,53 @@
+.progressBar0 {
+    /* for class zeroPercent */
+    color: rgb(0, 0, 0);
+    max-width: 80%;
+    margin: 10px auto;
+    padding: 20px;
+    /* display: block;
+    position: absolute; */
+    background-image: url("../images/papyrus.png");
+    border-radius: 6px;
+    box-shadow: 5px 5px 20px black;
+    box-shadow: 5px 5px 20px black;
+}
+
+.progressBar1 {
+    color: rgb(206, 22, 22);
+    max-width: 80%;
+    margin: 10px auto;
+    padding: 20px;
+    /* display: block;
+    position: absolute; */
+    background-image: url("../images/papyrus.png");
+    border-radius: 6px;
+    border-color: 5px 5px 20px rgb(250, 4, 4);
+    box-shadow: 5px 5px 20px black;
+    animation-name: progressBarOne;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes progressBarOne {
+    0% {box-shadow: 5px 5px 20px rgba(150, 60, 235, 0.6);}
+    6% {box-shadow: 5px 5px 20px rgba(37, 139, 235, 0.6);}
+    12% {box-shadow: 5px 5px 20px rgba(27, 238, 203, 0.6);}
+    18% {box-shadow: 5px 5px 20px rgba(236, 240, 27, 0.6);}
+    25% {box-shadow: 5px 5px 20px rgba(235, 162, 45, 0.6);}
+    31% {box-shadow: 5px 5px 20px rgba(235, 60, 60, 0.6);}
+    37% {box-shadow: 5px 5px 20px rgb(255, 255, 255);}
+    44% {box-shadow: 5px 5px 20px rgb(248, 232, 9);}
+    50% {box-shadow: 5px 5px 20px rgba(255, 0, 0, 0.6);}
+    56% {box-shadow: 5px 5px 20px rgba(150, 60, 235, 0.6);}
+    62% {box-shadow: 5px 5px 20px rgba(37, 139, 235, 0.6);}
+    68% {box-shadow: 5px 5px 20px rgba(27, 238, 203, 0.6);}
+    74% {box-shadow: 5px 5px 20px rgba(236, 240, 27, 0.6);}
+    80% {box-shadow: 5px 5px 20px rgba(235, 162, 45, 0.6);}
+    86% {box-shadow: 5px 5px 20px rgba(235, 60, 60, 0.6);}
+    90% {box-shadow: 5px 5px 20px rgb(255, 255, 255);}
+    95% {box-shadow: 5px 5px 20px rgb(248, 232, 9);}
+    100% {box-shadow: 5px 5px 20px rgba(255, 0, 0, 0.6);}
+
+}

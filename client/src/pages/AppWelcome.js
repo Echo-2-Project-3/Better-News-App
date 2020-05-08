@@ -53,7 +53,7 @@ class AppWelcome extends Component {
               <div id="AppWelcome">
                 <br></br>
                 <br></br>
-      <h1>Welcome to Sprout!</h1>
+      <h1>Welcome to Sproso!</h1>
       <p>The app that ....blah blah blah...</p>
       <img src={logo} className="sprout-logo" alt="virus" height="200px" />
       <p>Please log in to get started!</p>

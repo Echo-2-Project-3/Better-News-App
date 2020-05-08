@@ -72,7 +72,7 @@ passport.use(new LocalStrategy(
           interest: data.interest,
           email: data.email,
           age: data.age,
-          dopple_me: data.dopple_me,
+          doppel_me: data.doppel_me,
           name: data.name
         }
           console.log("user: ", user)
