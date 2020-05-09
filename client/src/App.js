@@ -16,6 +16,7 @@ import "./App.css";
 //import SignIn from "./components/Login.SignIn.js";
 import Login from './components/Login.js';
 import Leaderboards from "./pages/Leaderboard.js";
+import Footer from "./components/Footer/Footer.js"
 
 class App extends Component {
   constructor(props) {
@@ -113,7 +114,7 @@ class App extends Component {
 
         }
 
-
+<Footer />
       </div>
     )
   }
