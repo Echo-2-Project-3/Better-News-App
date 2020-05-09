@@ -9,18 +9,27 @@ import "../animation/logoanimation.css";
 function Navybar(props) {
   return (
     <Navbar>
-      <Col xs={2}>
+      <Col xs={1}>
         <Link to="/" className="spacingForStuff navfont">
           <div>
             <div className="air">
               <img className="movement" src={sprout} />
-              <h1>SPROSO</h1>
-            </div>
+                          </div>
             <div className="shadow"></div>
           </div>
         </Link>
       </Col>
-      <Col xs={2}>
+      <Col xs={1}>
+        <Link to="/" className="spacingForStuff navfont">
+          <div>
+                                       <h1>SPROSO</h1>
+            </div>
+            
+          
+        </Link>
+      </Col>
+      <Col xs={1}></Col>
+      <Col xs={1}>
         <Link to="/challenges" className="spacingForStuff navfont">Challenges</Link>
       </Col>
       <Col xs={4}>
