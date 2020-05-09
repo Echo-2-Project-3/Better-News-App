@@ -11,7 +11,7 @@ router.route("/") // https://ipadress:3000/api/user/
     //.get(user.findOne)
     .post(user.create);
 
-router.route("/get-challenge/:user_id/:challenge_name")
+router.route("/get-challenge/:user_id/:challenge_id")
 .get(user.findChallenge)
 
 router.route("/:name")
@@ -21,6 +21,9 @@ router.route("/:name")
 
   router.route("/login")
   .post(user.login)
+
+router.route("/:doppel")
+  .get(user.findByDoppel)
 
 // router.route('/jeff/chelsea')
 // .get(function(req, res) {

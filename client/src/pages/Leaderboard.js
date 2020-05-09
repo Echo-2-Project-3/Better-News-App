@@ -21,14 +21,14 @@ function createData(name, highscore, lastweek, last30days, today) {
 }
 
 const rows = [
-  createData("Chelsea", 150, 6.0, 24, 4.0),
-  createData("Jeff", 237, 9.0, 37, 4.3),
-  createData("Destiny", 262, 16.0, 24, 6.0),
-  createData("Samantha", 305, 3.7, 67, 4.3),
-  createData("Justin", 356, 16.0, 49, 3.9),
+  // createData("Chelsea", 150, 6.0, 24, 4.0),
+  // createData("Jeff", 237, 9.0, 37, 4.3),
+  // createData("Destiny", 262, 16.0, 24, 6.0),
+  // createData("Samantha", 305, 3.7, 67, 4.3),
+  // createData("Justin", 356, 16.0, 49, 3.9),
 ];
 
-export default function SimpleTable() {
+export default function Leaderboard (props) {
   const classes = useStyles();
 
   return (
@@ -37,23 +37,23 @@ export default function SimpleTable() {
         <TableHead className="leadheader ">
           <TableRow className="">
             <TableCell>User Name</TableCell>
-            <TableCell align="right">High Score</TableCell>
-            <TableCell align="right">Last Week</TableCell>
-            <TableCell align="right">Last 30 Days</TableCell>
-            <TableCell align="right">Today</TableCell>
+            <TableCell align="right">Percent Completed</TableCell>
+            <TableCell align="right">Total Points</TableCell>
+            <TableCell align="right">Updated At?</TableCell>
+            <TableCell align="right">Trophies</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {props.rows.map((row) => (
             <TableRow key={row.name} className="">
               <TableCell className="users img" component="th" scope="row">
-                <Avatar></Avatar>
+                <Avatar doppel_me={row.doppel_me}/>
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.highscore}</TableCell>
-              <TableCell align="right">{row.lastweek}</TableCell>
-              <TableCell align="right">{row.last30days}</TableCell>
-              <TableCell align="right">{row.today}</TableCell>
+              <TableCell align="right">{row.SubscribedTo.percent_completed}</TableCell>
+              <TableCell align="right">{row.SubscribedTo.point}</TableCell>
+              <TableCell align="right">{row.SubscribedTo.updatedAt}</TableCell>
+              <TableCell align="right">{row.SubscribedTo.trophy}</TableCell>
             </TableRow>
           ))}
         </TableBody>

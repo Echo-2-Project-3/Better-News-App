@@ -45,7 +45,7 @@ function SignIn(props) {
             <Form.Group controlId="doppelme">
               <FormLabel>
                 Doppel Me Key
-                <p className="justanote">Personalize your own avatar at DoppelMe.com to get your unique "Doppel Me" key.</p>
+                <p className="justanote">Personalize your own avatar at DoppelMe.com to get your unique "Doppel Me" key at <a href="https://www.doppelme.com/">here.</a></p>
                   <FormControl
                   autoFocus
                   value={props.dopple_me}

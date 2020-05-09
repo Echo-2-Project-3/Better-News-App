@@ -5,20 +5,15 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import data from '../data/ChallengeInfo.json';
 import "../styles/challengeCardStyling.css";
 
-// let points = user.challenges.points//user's accrued points;
-let progressPercent = (points / (data[1].maxpoints) * 100);
+function ChallengeProgress(props) {
 
-let points = 1;
-
-function ChallengeProgress() {
-
-
-  console.log("progress", progressPercent);
+  let progressPercent =  (props.point / props.total);
+  let userPointTotal = progressPercent * 100;
 
   return (
-    <div class="progressBar1">
-      <ProgressBar animated variant="success" now={progressPercent.point} />
-      <span>{progressPercent.point}% Complete</span>
+    <div className="progressBar1">
+      <ProgressBar animated variant="success" now={userPointTotal} />
+      <span>{userPointTotal}% Complete</span>
     </div>
   )
 

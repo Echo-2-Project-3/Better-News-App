@@ -11,9 +11,15 @@ router.route("/") // https://ipadress:3000/api/challenge/
     //.get(challenge.findOne)
     .post(challenge.create);
 
-router.route("/:challenge_name/user/:user_id")
+router.route("/:challenge_name")
   .get(challenge.findByName)
+
+router.route("/subscribe-to/:challenge_id/user/:user_id")
   .post(challenge.subscribeToUser)
+
+router.route("/users/:challenge_id")
+  .get(challenge.findAllUsersByChallengeID)
+
 
 
 

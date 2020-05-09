@@ -15,17 +15,30 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
+  findById: function (req, res) {
+    db.Challenge.findOne({ where: { id: req.params.name } })
+      .then((challenge) => res.json(challenge))
+      .catch((err) => res.status(407).json(err));
+  },
+
   findByName: function (req, res) {
     db.Challenge.findOne({ where: { name: req.params.name } })
       .then((challenge) => res.json(challenge))
       .catch((err) => res.status(407).json(err));
   },
 
+  findAllUsersByChallengeID: function (req, res) {
+    console.log("GET:/api/challenges/users/:challenge_id", req.params.challenge_id)
+    db.Challenge.findOne({ where: { id: req.params.challenge_id} })
+      .then((challenge) => challenge.getUsers())
+      .then(data => res.json(data));
+  },
+
   subscribeToUser: function(req, res) {
-    let {user_id, challenge_name} = req.params;
+    let {user_id, challenge_id} = req.params;
     db.Challenge.findOne({
       where: {
-        name: challenge_name
+        id: challenge_id
       }
     })
     .then(challenge=> {

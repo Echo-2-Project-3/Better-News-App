@@ -12,7 +12,7 @@ const Footer = props => (
                 <a href="https://github.com/Echo-2-Project-3/Better-News-App" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-react fa-2x"></i>
                 </a>
-                <div classNmae="spacer"></div>
+                <div className="spacer"></div>
                 The Echo Team, Sproso Project, 2020
             </td>
         </tr>
