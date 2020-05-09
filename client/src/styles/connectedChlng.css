@@ -1,7 +1,12 @@
 #cnctdChal {
     color: rgb(0, 0, 0);
-    background-image: url("../images/papyrus.png.png");
+    background-image: url("../images/papyrus.png");
     border-radius: 6px;
     border-color: black;
     box-shadow: 5px 5px 20px black;
+}
+
+.challengeButtonStyle {
+    margin: 10px;
+    width: 150px;
 }

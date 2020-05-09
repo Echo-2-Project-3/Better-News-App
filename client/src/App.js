@@ -16,13 +16,14 @@ import "./App.css";
 //import SignIn from "./components/Login.SignIn.js";
 import Login from './components/Login.js';
 import Leaderboards from "./pages/Leaderboard.js";
+import Footer from "./components/Footer/Footer.js"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {
-        id: 0,
+        id: "",
         name: "",
         email: "",
         age: "",
@@ -58,7 +59,9 @@ class App extends Component {
    
 
   componentDidMount() {
+    console.log("mounting: ")
     let user = JSON.parse(window.sessionStorage.getItem('user'));
+    console.log("mounting: ", user)
     if (user) {
       this.setState({
         user: user
@@ -82,7 +85,7 @@ class App extends Component {
           (!this.state.user) ? <AppWelcome user={this.state.user} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> :
             <div>
               <Router>
-                {(this.state.user) ? <Navybar logoutUser={this.logoutUser} /> : null}
+                {(this.state.user) ? <Navybar logoutUser={this.logoutUser} user={this.state.user}/> : null}
                 <Switch>
 
                   <Route exact path="/"><UserHome user={this.state.user} /></Route>
@@ -91,15 +94,15 @@ class App extends Component {
                     <ChallengesPage user={this.state.user}/>
                   </Route>
                   
-                  <Route exact path="/challenges/optimism-challenge" >
+                  <Route exact path="/challenges/:id/optimism-challenge" >
                     <ChallengePage user={this.state.user} challengeName="optimism-challenge" subscribeTo={this.subscribeTo} />
                   </Route>
 
                   
-                  <Route exact path="/challenges/social-challenge" >
+                  <Route exact path="/challenges/:id/social-challenge" >
                     <ChallengePage user={this.state.user} challengeName="social-challenge" subscribeTo={this.subscribeTo} />
                   </Route>
-                  <Route exact path="/challenges/fitness-challenge" >
+                  <Route exact path="/challenges/:id/fitness-challenge" >
                     <ChallengePage user={this.state.user} challengeName="fitness-challenge" subscribeTo={this.subscribeTo} />
                   </Route>
 
@@ -113,7 +116,7 @@ class App extends Component {
 
         }
 
-
+<Footer />
       </div>
     )
   }

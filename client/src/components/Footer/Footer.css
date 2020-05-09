@@ -1,0 +1,24 @@
+a,a:hover {
+    color: whitesmoke
+
+}
+
+table{
+    height:100px;
+    background-color: rgb(79, 245, 79);
+    border-top: 5px solid yellow;
+    width: 100%;
+    color: black;
+}
+
+.spacer {
+    margin-bottom: 10px;
+}
+
+.fa-react{
+    margin-right: 5px;
+}
+
+.fa-github {
+    margin-left: 5px;
+}

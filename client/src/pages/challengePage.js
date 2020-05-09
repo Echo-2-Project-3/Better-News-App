@@ -10,6 +10,7 @@ import ButtonComponent from "../components/ButtonsComponent";
 import { InputGroup, FormControl, Container, Row, Col, Button } from 'react-bootstrap';
 import axios from "axios";
 import "../pages/Leaderboard.css";
+import "../styles/connectedChlng.css"
 // import {menu} from "./challengesPage";
 
 class ChallengePage extends Component {
@@ -20,37 +21,49 @@ class ChallengePage extends Component {
       challenge: {
         name: ""
       },
+      theChallenge: {},
       post: "",
       posts: ["Test1", "test2","test3"],
-      challengeNavigation: ["Subscribe", "Leader Board"]
+      challengeNavigation: ["Subscribe", "Leader Board"],
+      leaderUsers: []
     };
   }
   
-
   componentDidMount() {
     
-    this.getChallenge(this.props.challengeName);
-    console.log("location", this.props.loc)
+    let challengeId =  window.location.pathname.split("/")[2];
+    this.getChallenge(challengeId);
+    //.console.log("location", this.props.loc)
   }
 
-  getChallenge = (challengeName) => {
-    let path= `/api/user/get-challenge/${this.props.user.id}/${challengeName}`///api/subscribed-to/${challengeName}`;
+  getChallenge = (challengeId) => {
+    console.log("user id: ", this.props.user.id)
+    let path= `/api/user/get-challenge/${this.props.user.id}/${challengeId}`
+    
+    //`/api/user/get-challenge/${this.props.user.id}/${challengeName}`///api/subscribed-to/${challengeName}`;
     console.log("the path", path)
     axios.get(path)
     .then(res=> {
-      console.log(res);  
+      console.log(res); 
+      
+      //if()
       let challenge= res.data.Challenges[0];
       let {SubscribedTo} = challenge;
       SubscribedTo.name = challenge.name;
+
       this.setState({
-        challenge: SubscribedTo
+        challenge: SubscribedTo,
+        theChallenge: challenge
+      
       }, function() {
        axios.get(`/api/posts/${this.state.challenge.ChallengeId}`)
        .then(res=> {
          console.log("POSTS::::", res.data);
          this.setState({
            posts: res.data
-         })
+         },
+         this.getLeaderUsers(this.state.challenge.ChallengeId)
+         )
 
        })
        .catch(err=> {
@@ -89,22 +102,73 @@ class ChallengePage extends Component {
       [name]: value
     })
   }
+
+  getLeaderUsers = (challengeId) => {
+    console.log("challenge id to user: ", challengeId)
+    axios.get(`/api/challenges/users/${challengeId}`)
+    .then((response) =>  {
+      this.setState({
+        leaderUsers: response.data
+      })
+      console.log(response)
+  })
+  }
   
 // {(this.props.user) ? this.props.user.name : null} {(this.state.challenge.name) ? this.state.challenge.name : null}
-  
+  subscribeTo = () => {
+    let challengeId =  window.location.pathname.split("/")[2];
+    axios.post(`/api/challenges/subscribe-to/${challengeId}/user/${this.props.user.id}`)
+    .then((res) => {
+      console.log("SUBWCRIBED:", res);
+      let challengeId =  window.location.pathname.split("/")[2];
+      this.getChallenge(challengeId);
+
+    })
+    .catch(err=>{ 
+      console.log(err)
+    })
+    
+  }
+
+ challengeNameSpread = () => {
+  let cleanedName1 =  this.state.challenge.name.replace(/-/g, ' ')
+  let cleanedName2 = cleanedName1.replace(/(\b[a-z](?!\s))/g,  function(x){return x.toUpperCase() })
+  return cleanedName2
+ }
+  leaderBoard = () => {
+    console.log("LEASERS CLICK");
+  }
+  checkSubcribe = (el) => {
+    console.log("string is: ", el)
+    if(el  == "Subscribe") {
+      if(this.state.theChallenge.id){
+        return false;
+      } 
+     
+    }
+    return true;
+  }
   render() {
     console.log("my props", this.props);
     return (
       <div id="ChallengePage">
-        <h6>Hi,{this.props.user.name} , you're on the  challenge page, {this.state.challenge.name}</h6>
+        <br></br>
+        <h6>Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h6>
         
         {this.props.info}
-
-        <ChallengeProgress  point={(this.state.challenge) ? this.state.challenge.point: null}/>
+        
+        <br></br>
+        {(this.state.theChallenge.id) ? <ChallengeProgress  point={this.state.challenge.point} total={this.state.theChallenge.total}/> : null}
         {this.state.challengeNavigation.map(el => {
-          return (<ButtonComponent >
+          return (
+            <>
+              {(this.checkSubcribe(el)) ?
+              <ButtonComponent handleClick={(el == "Subscribe") ? this.subscribeTo : this.leaderBoard} >
                      {el}
-                </ButtonComponent>)
+                </ButtonComponent> : null
+              }
+            </>
+                )
         })
         }
 
@@ -137,9 +201,9 @@ class ChallengePage extends Component {
           })
         }
 
-        <div class="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
+        <div className="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
 
-        <div class="leaderboard"><LeaderBoards /></div>
+        <div className="leaderboard"><LeaderBoards rows={this.state.leaderUsers} /></div>
       </div>
     );
 

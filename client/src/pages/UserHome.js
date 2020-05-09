@@ -20,7 +20,7 @@ function UserHome(props) {
           <button>See the Challenges</button>
         </Link>
       </div>
-      <div class="leaderboard"><LeaderBoard /></div>
+      <div className="leaderboard"><LeaderBoard /></div>
     </div>
   );
 }

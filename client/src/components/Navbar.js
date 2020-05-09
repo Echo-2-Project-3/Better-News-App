@@ -10,28 +10,29 @@ function Navybar(props) {
   return (
     <Navbar>
       <Col xs={2}>
-        <Link to="/">
+        <Link to="/" className="spacingForStuff navfont">
           <div>
             <div className="air">
               <img className="movement" src={sprout} />
+              <h1>SPROSO</h1>
             </div>
             <div className="shadow"></div>
           </div>
         </Link>
       </Col>
-      <Col xs={1}>
-        <Link to="/challenges">Challenges</Link>
-      </Col>
       <Col xs={2}>
-        <Link to="/profilepage">Profile Page</Link>
+        <Link to="/challenges" className="spacingForStuff navfont">Challenges</Link>
       </Col>
-      <Col xs={6}></Col>
-      <Col xs={1}>
+      <Col xs={4}>
+        <Link to="/profilepage" className="spacingForStuff navfont">Profile Page</Link>
+      </Col>
+      <Col xs={2}></Col>
+      <Col xs={2} className="align">
         {" "}
         <div className="avatarbox">
-          <Avatar />
+          <Avatar doppel_me={props.user.doppel_me}/>
         </div>
-        <Link onClick={props.logoutUser}>Sign Out</Link>
+        <Link className="signOut" onClick={props.logoutUser}>Sign Out</Link>
       </Col>
     </Navbar>
   );

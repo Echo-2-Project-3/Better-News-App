@@ -26,6 +26,13 @@ module.exports = {
         .catch(err => res.status(407).json(err));
     },
 
+    findByDoppel: function(req, res) {
+        db.User.findOne({where: {name: req.params.doppel}})
+        .then(user => res.json(user))
+        .catch(err => res.status(407).json(err));
+    },
+
+
     login: function(req, res) {
         console.log("Login function", req.user);
         res.send(req.user);
@@ -33,10 +40,10 @@ module.exports = {
     },
 
     findChallenge: function(req, res) {
-        console.log("finding challenge");
-        let {user_id, challenge_name} = req.params; 
+        console.log("finding challenge", req.params);
+        let {user_id, challenge_id} = req.params; 
         db.User.findOne({
-            include: [{model: db.Challenge, where: {name: challenge_name}, through: {'UserId': user_id}}], 
+            include: [{model: db.Challenge, where: {id: challenge_id}, through: {'UserId': user_id}}], 
 
         })
         .then(data=> {
