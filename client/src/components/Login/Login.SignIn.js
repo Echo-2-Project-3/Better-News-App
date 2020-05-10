@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import "../styles/login.css";
+import "../../styles/login.css";
 
 function SignIn(props) {
   //    const [email, setEmail] = useState("");
@@ -71,7 +71,7 @@ function SignIn(props) {
             <hr />
             <Button
               variant="primary"
-              onClick={props.handleSubmit}
+              onClick={props.handleLogin}
               block
             >
               Sign In

@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import {useLocation} from 'react-router-dom';
 //import { Link } from "react-router-dom";
-import ChallengeInfo from "../data/ChallengeInfo.json";
-import ChallengeProgress from "../components/ChallengeProgress.js";
-import TrophyCase from "../components/TrophyCase.js";
-import LeaderBoards from "./Leaderboard.js";
-import ButtonsComponent from '../components/ButtonsComponent'
-import ButtonComponent from "../components/ButtonsComponent";
+import ChallengeInfo from "../../data/ChallengeInfo.json";
+import ChallengeProgress from "../../components/Challenge/ChallengeProgress.js";
+import TrophyCase from "../../components/TrophyCase/TrophyCase.js";
+import LeaderBoards from "../Leaderboard/Leaderboard.js";
+import ButtonsComponent from '../../components/Buttons/ButtonsComponent'
+import ButtonComponent from "../../components/Buttons/ButtonsComponent";
 import { InputGroup, FormControl, Container, Row, Col, Button } from 'react-bootstrap';
 import axios from "axios";
-import "../pages/Leaderboard.css";
-import "../styles/connectedChlng.css"
+import "../Leaderboard/Leaderboard.css";
+import "../../styles/connectedChlng.css"
 // import {menu} from "./challengesPage";
 
 class ChallengePage extends Component {
@@ -47,8 +47,8 @@ class ChallengePage extends Component {
       console.log(res); 
       
       //if()
-      let challenge= res.data.Challenges[0];
-      let {SubscribedTo} = challenge;
+      let challenge = res.data.challenge;
+      let SubscribedTo = res.data.subscription;
       SubscribedTo.name = challenge.name;
 
       this.setState({

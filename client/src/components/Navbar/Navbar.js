@@ -1,10 +1,10 @@
 import React from "react";
 import { Navbar, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Avatar from "./Avatar.js";
-import sprout from "../images/sprout.png";
-import "../styles/nav.css";
-import "../animation/logoanimation.css";
+import Avatar from "../Avatar/Avatar.js";
+import sprout from "../../images/sprout.png";
+import "../../styles/nav.css";
+import "../../animation/logoanimation.css";
 
 function Navybar(props) {
   return (

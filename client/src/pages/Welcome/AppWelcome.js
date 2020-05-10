@@ -4,8 +4,8 @@ import React, { Component } from "react";
 
 //const buttonNames = ["Connect with Friends!", "Jump Right In!", "View Leaderboards!"];
 //const later = "Health and Fitness!", "Children's Corner!", "Social and Staying Connected!",  "Professional!", "Home Improvements!","Self-Help and Mindfulness!", " Make a Custom Challenge!",]
-import SignIn from "../components/Login.SignIn.js";
-import logo from "../images/sprout.png"
+import SignIn from "../../components/Login/Login.SignIn.js";
+import logo from "../../images/sprout.png"
 
 class AppWelcome extends Component {
     
@@ -36,7 +36,7 @@ class AppWelcome extends Component {
       // user.dopple_me = this.state.dopple_me; 
       // user.email = this.state.email;
 
-      this.props.handleSubmit(user);
+      this.props.handleLogin(user);
     }
 
 
@@ -58,7 +58,7 @@ class AppWelcome extends Component {
       <img src={logo} className="sprout-logo" alt="virus" height="200px" />
       <p>Please log in to get started!</p>
       <br></br>
-      <SignIn show={this.state.show} handleClose={this.handleClose} handleSubmit={this.handleSignIn} name={this.state.name} password={this.state.password} email={this.state.email} handleChange={this.handleChange}/>
+      <SignIn show={this.state.show} handleClose={this.handleClose} handleLogin={this.handleSignIn} name={this.state.name} password={this.state.password} email={this.state.email} handleChange={this.handleChange}/>
       {/* <button type="button" className="btn btn-danger">
         Get Started!
         </button> */}
