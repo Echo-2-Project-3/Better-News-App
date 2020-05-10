@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonComponent from "../components/ButtonsComponent";
+import ButtonComponent from "../../components/Buttons/ButtonsComponent";
 import {Route} from 'react-router-dom';
 //import {Route} from 'react-router-dom';
 

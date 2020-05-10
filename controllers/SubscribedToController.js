@@ -18,6 +18,25 @@ module.exports = {
         .then(data => {
             res.send(data);
         })
+        .catch(err=> {
+            return res.stats(404).json(err)
+        })
+    },
+    findByUserAndChallengeId: function(req, res) {
+        let {UserId, ChallengeId} = req.params;
+        console.log("User and Challenge IDs: ", UserId, ChallengeId);
+        db.SubscribedTo.findOne({
+            where: {
+                UserId, 
+                ChallengeId
+            }
+        })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err=> {
+            return res.status(404).json(err);
+        })
     },
     create: function(req, res) {
         console.log("create sub", req.body)

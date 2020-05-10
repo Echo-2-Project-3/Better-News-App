@@ -10,6 +10,9 @@ router.route("/")
 router.route("/:challenge_name")
 .get(subscribedTo.findByChallengeName)
 
+router.route("/challenge/:ChallengeId/user/:UserId")
+.get(subscribedTo.findByUserAndChallengeId)
+
 
 module.exports = router;
 

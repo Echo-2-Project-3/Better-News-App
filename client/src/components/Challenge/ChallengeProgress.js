@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 // import user from '';
-import data from '../data/ChallengeInfo.json';
-import "../styles/challengeCardStyling.css";
+import data from '../../data/ChallengeInfo.json';
+import "../../styles/challengeCardStyling.css";
 
 function ChallengeProgress(props) {
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import trophy from '../images/trophy.png';
+import trophy from '../../images/trophy.png';
 
 // let success = //mysql element regarding success of a challenge;
 

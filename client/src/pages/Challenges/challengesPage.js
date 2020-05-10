@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import MenuBtnComponent from "../components/menuButtons.js";
+import MenuBtnComponent from "../../components/Buttons/menuButtons.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
 

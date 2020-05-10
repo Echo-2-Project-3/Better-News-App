@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../components/Avatar.js";
+import Avatar from "../../components/Avatar/Avatar.js";
 import {Button} from "react-bootstrap";
 function ProfilePage(props) {
     return (

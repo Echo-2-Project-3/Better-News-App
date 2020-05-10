@@ -42,13 +42,28 @@ module.exports = {
     findChallenge: function(req, res) {
         console.log("finding challenge", req.params);
         let {user_id, challenge_id} = req.params; 
-        db.User.findOne({
-            include: [{model: db.Challenge, where: {id: challenge_id}, through: {'UserId': user_id}}], 
 
+        db.sequelize.query(`select * from subscribedtos where UserId = ${user_id} and ChallengeId = ${challenge_id}`).spread((subs, metadata) => {
+
+            let subscription = subs[0];
+            db.sequelize.query(`select * from challenges where id = ${challenge_id}`).spread((chal, md)=> {
+                let challenge = chal[0]
+                let data ={
+                    subscription: subscription, 
+                    challenge: challenge
+                }
+                return res.json(data)
+            })
+            
+            // Results will be an empty array and metadata will contain the number of affected rows.
         })
-        .then(data=> {
-            res.send(data)
-        })
+        // db.User.findOne({
+        //     include: {model: db.Challenge, where: {id: challenge_id}, through: {UserId: user_id}}, 
+
+        // })
+        // .then(data=> {
+        //     res.send(data)
+        // })
         
     }
 }
