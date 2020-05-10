@@ -7,7 +7,9 @@ module.exports = function (sequelize, DataTypes) {
 
     Post.associate = function(models) {
         Post.belongsTo(models.Challenge) 
+        Post.belongsTo(models.User) 
     } 
 
+    
     return Post;
 };

@@ -10,7 +10,8 @@ module.exports ={
         db.Post.findAll({
             where: {
                 ChallengeId: challenge_id
-            }
+            },
+            order: [['createdAt', 'DESC']]
         })
         .then(posts => {
             res.send(posts);
@@ -23,9 +24,31 @@ module.exports ={
 
     create: function(request, response) {
         let post = request.body;
+        let {UserId, ChallengeId, content} = request.body
+        console.log({ChallengeId, content});
         db.Post.create(post)
-        .then(post => response.json(post))
-        .catch(err => res.status(404).send(err))
+        .then(post => {
+            console.log("post is:", post)
+            db.SubscribedTo.update({
+                point: db.sequelize.literal('point + 1')
+            }, {
+                where: {
+                UserId: UserId, 
+                ChallengeId: ChallengeId
+            }})
+            .then(re => {
+                response.json(post)
+            })
+            .catch(err=> {
+                console.log("err", err)
+            })
+            
+        })
+        .catch(err => {
+            console.log("err",err)
+            response.status(404).json(err)
+        
+        })
     }
 }
 

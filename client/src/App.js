@@ -52,6 +52,7 @@ class App extends Component {
         user: user,
         authenticated: true
       })
+
     } else {
       this.setState({
         user: null,

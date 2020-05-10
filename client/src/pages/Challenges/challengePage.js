@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {useLocation} from 'react-router-dom';
 //import { Link } from "react-router-dom";
 import ChallengeInfo from "../../data/ChallengeInfo.json";
+import "./Challenge.css";
 import ChallengeProgress from "../../components/Challenge/ChallengeProgress.js";
 import TrophyCase from "../../components/TrophyCase/TrophyCase.js";
 import LeaderBoards from "../Leaderboard/Leaderboard.js";
@@ -12,20 +13,36 @@ import axios from "axios";
 import "../Leaderboard/Leaderboard.css";
 import "../../styles/connectedChlng.css"
 // import {menu} from "./challengesPage";
-
+const modalStyles = {
+  window: {position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover'},
+  box: {color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'rgba(0,0,0,.3)', padding: '1em', borderRadius: '1em', display: 'block'},
+  form: {display: 'block', width: '30em'}
+};
+const resetStyles = {
+          window: {},
+          box: {display: 'none'},
+          form: {}
+}
 class ChallengePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       challengeCompleted: false, 
-      challenge: {
-        name: ""
-      },
-      theChallenge: {},
+      challenge: {},
+      theChallenge: { name: ""},
       post: "",
       posts: ["Test1", "test2","test3"],
       challengeNavigation: ["Subscribe", "Leader Board"],
-      leaderUsers: []
+      leaderUsers: [],
+      modal: {
+        styles: {
+          window: {},
+          box: {display: 'none'},
+          form: {
+          }
+        },
+        open: false
+      }
     };
   }
   
@@ -49,39 +66,44 @@ class ChallengePage extends Component {
       //if()
       let challenge = res.data.challenge;
       let SubscribedTo = res.data.subscription;
-      SubscribedTo.name = challenge.name;
 
+      console.log("Setting the states", challenge);
+      console.log(SubscribedTo)
+
+  
       this.setState({
-        challenge: SubscribedTo,
-        theChallenge: challenge
+        challenge: (SubscribedTo) ? SubscribedTo : {},
+        theChallenge: challenge, 
+        modalStyle: {}
       
       }, function() {
-       axios.get(`/api/posts/${this.state.challenge.ChallengeId}`)
-       .then(res=> {
-         console.log("POSTS::::", res.data);
-         this.setState({
-           posts: res.data
-         },
-         this.getLeaderUsers(this.state.challenge.ChallengeId)
-         )
-
-       })
-       .catch(err=> {
-         console.error(err);
-       })
+        
+        this.getPosts();
+        this.getLeaderUsers(this.state.challenge.ChallengeId)
       })
-
-      
-
     })
     .catch(err=> {
       console.log("err", err);
     })
   }
 
+  getPosts = () => {
+    axios.get(`/api/posts/${this.state.challenge.ChallengeId}`)
+       .then(res=> {
+         console.log("POSTS::::", res.data);
+         this.setState({
+           posts: res.data
+         })
+       })
+       .catch(err=> {
+         console.error(err);
+       })
+  }
+
   handlePost = () => {
     console.log("Sending post: ", this.state.post);
     let post = {
+      UserId: this.props.user.id,
       ChallengeId: this.state.challenge.ChallengeId,
       content: this.state.post
     }
@@ -90,6 +112,9 @@ class ChallengePage extends Component {
       //let postInfo = res;
 
       console.log(res);
+      this.getPosts();
+      this.handleModal();
+      this.pointUpdater();
     })
     .catch(err=> {
       console.log("err", err);
@@ -131,7 +156,7 @@ class ChallengePage extends Component {
   }
 
  challengeNameSpread = () => {
-  let cleanedName1 =  this.state.challenge.name.replace(/-/g, ' ')
+  let cleanedName1 =  this.state.theChallenge.name.replace(/-/g, ' ')
   let cleanedName2 = cleanedName1.replace(/(\b[a-z](?!\s))/g,  function(x){return x.toUpperCase() })
   return cleanedName2
  }
@@ -141,13 +166,43 @@ class ChallengePage extends Component {
   checkSubcribe = (el) => {
     console.log("string is: ", el)
     if(el  == "Subscribe") {
-      if(this.state.theChallenge.id){
+      if(this.state.challenge.ChallengeId){
         return false;
       } 
      
     }
     return true;
   }
+
+  handleModal = () => {
+    console.log("Open modal")
+    let modal = this.state.modal;
+    if(!(this.state.modal.styles.window.position)) {
+      modal.styles = modalStyles;
+    } else {
+      modal.styles = resetStyles; 
+    }
+    this.setState({
+      modal: modal 
+    })
+  }
+
+  pointUpdater = () => {
+    axios
+    .get(`/api/subscribed-to/challenge/${this.state.theChallenge.id}/user/${this.props.user.id}`)
+    .then(res => {
+      console.log("resssss:", res)
+      this.setState({
+         challenge: res.data
+      })
+    })
+    .catch(err => {
+      console.log("uhoh", err);
+    })
+
+  }
+
+
   render() {
     console.log("my props", this.props);
     return (
@@ -158,7 +213,7 @@ class ChallengePage extends Component {
         {this.props.info}
         
         <br></br>
-        {(this.state.theChallenge.id) ? <ChallengeProgress  point={this.state.challenge.point} total={this.state.theChallenge.total}/> : null}
+        {(this.state.challenge.ChallengeId) ? <ChallengeProgress  point={this.state.challenge.point} total={this.state.theChallenge.total}/> : null}
         {this.state.challengeNavigation.map(el => {
           return (
             <>
@@ -175,35 +230,65 @@ class ChallengePage extends Component {
 
         {(this.state.challenge) ?<Container>
           <Row>
-            <Col md={{span: 6, offset: 3}}>
-              <InputGroup>
-                <FormControl as="textarea" aria-label="With textarea" name="post" value={this.state.post} onChange={this.handlePostChange} />
-              </InputGroup>
-              <Button variant="primary" size="lg" onClick={this.handlePost} block>
+            <Col md={{span: 6, offset: 3}}>              
+              <Button variant="primary" size="lg" onClick={this.handleModal} block>
                 Make Post
               </Button>
-          
+              
             </Col>
 
           </Row>
           <Row>
-            <div><h2>Previous Posts</h2>
-           {/* // <h6 id="postsHere">{postInfo}</h6> */}
-            </div>
           </Row>
         </Container> : null
       }
         {/* post stuff here */}
+        <Container>
+          <Row>
+            <Col md={{span: 6, offset: 3}}>
+            <div>
+              <h2>Previous Posts</h2>
+            </div>
+                  {
+                this.state.posts.map(post => {
+                return (
+                <div>
+                  <p>
+                    <h6><span style={{backgroundColor: 'rgb(79, 245, 79)'}}>created at {(new Date(post.createdAt)).toDateString()}</span></h6>
+                    {post.content}
+                    
+                  </p>
+                  
+                </div>
+                )
+                })
+              }
+            </Col>
+          </Row>
+        </Container>
 
-        {
-          this.state.posts.map(post => {
-          return <ul>{post.content}</ul>
-          })
-        }
 
         <div className="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
 
         <div className="leaderboard"><LeaderBoards rows={this.state.leaderUsers} /></div>
+        <div id="post-modal" style={this.state.modal.styles.window}>
+          <div id="post-model-box" style={this.state.modal.styles.box}>
+          <div id="X" onClick={this.handleModal}>
+            <span id="x">X</span>
+          </div>
+            <div id="post-model-form" style={this.state.modal.styles.form}>
+           
+              <InputGroup>
+                <FormControl as="textarea" aria-label="With textarea" name="post" style={{height: '15em'}} value={this.state.post} onChange={this.handlePostChange} />
+              </InputGroup>
+              <button className="btn btn-primary" style={{marginTop: '1em', width: '30em'}} onClick={this.handlePost}>Button</button>
+              
+            
+            </div>
+            
+          </div>
+        </div>
+
       </div>
     );
 
