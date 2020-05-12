@@ -16,7 +16,7 @@ import "../../styles/connectedChlng.css";
 // import {menu} from "./challengesPage";
 const modalStyles = {
   window: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover', filter: 'blur 10px' },
-  box: { color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate( -50%, -50%)', background: 'rgba(0,0,0,.3)', padding: '1em', borderRadius: '1em', display: 'block', filter: 'blur 10px' },
+  box: { color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate( -50%, -50%)', background: 'rgba(0,0,0,.3)', padding: '1em', borderRadius: '1em', display: 'block' },
   form: { display: 'block', width: '30em' },
 };
 const resetStyles = {
@@ -247,16 +247,16 @@ class ChallengePage extends Component {
           </Container> : null
         }
         <Container className="columns4boards" id="leaderContainer">
-          <MDBContainer className="columnEach">
+          <MDBContainer className="columnLeaders">
             <div className="leaderboard"><LeaderBoards rows={this.state.leaderUsers} /></div>
           </MDBContainer>
 
-          <MDBContainer className="columnEach">
+          <MDBContainer className="columnPosts">
 
             {/* post stuff here */}
             <MDBScrollbar className="scrollbar  mt-3 mx-auto scrollbar-primary" style={scrollContainerStyle}>
               <Row>
-                <Col md={{ span: 6, offset: 3 }}>
+                <Col md={{ span: 3, offset: 3 }}>
                   <div>
                     <h2>Previous Posts</h2>
                   </div>
