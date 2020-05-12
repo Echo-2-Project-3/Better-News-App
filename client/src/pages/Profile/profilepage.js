@@ -20,7 +20,7 @@ function ProfilePage(props) {
             <h2> Age: <input type="text"/> </h2>
         <br/>
         <Button
-              variant="primary"
+              variant="info"
               onClick={props.handleSubmit}
               block
             > 

@@ -1,8 +1,9 @@
 insert into users (name, email, password, age, doppel_me, interest, createdAt, updatedAt)
 values ("Justin", "justiniscool@gmail.com", "blip", 26, "DM1732408G6E", "lots of cool things", NOW(), NOW()),
 ("Jeff", "jeffiscool@gmail.com", "blap", 11076, "DM1732543FC8", "lots of other cool things", NOW(), NOW()),
-("Chels", "chelsiscool@gmail.com", "blep", 96, "DM12345ABC", "two cool things, the rest are nerdy things....", NOW(), NOW()),
-("Samantha", "samanthaiscool@gmail.com", "blop", 510, "DM1733628NPY", "too many cool things to count...",NOW(), NOW())
+("Chels", "chelsiscool@gmail.com", "blep", 96, "DM17324064K4", "two cool things, the rest are nerdy things....", NOW(), NOW()),
+("Samantha", "samanthaiscool@gmail.com", "blop", 510, "DM1733628NPY", "too many cool things to count...",NOW(), NOW()),
+("Destiny", "ynitsedekralc@gmail.com", "blup", 400, "DM1734361WML", "So so many incredibly cool things....", NOW(), NOW())
 
 /*SELECT * FROM betternews.challenges;*/
 insert into challenges (name, info, total, trophy, createdAt, updatedAt)

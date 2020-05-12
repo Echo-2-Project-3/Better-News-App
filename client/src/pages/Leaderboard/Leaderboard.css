@@ -5,6 +5,13 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+#leaderContainer {
+  background-image: url("../../images/prism.png");
+  box-shadow: 3px 3px 10px black;
+
+}
+
+
 .leadheader {
   width: 100%;
   height: 70px;

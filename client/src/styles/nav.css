@@ -6,6 +6,11 @@
     
     }
 
+/* .Container{
+   border-color: green;
+   border-bottom: 10px;
+   border-top: 10px;
+} */
 .spacingForStuff {
    margin: 0 10px;
 }
@@ -14,6 +19,7 @@
    font-size: x-large;
    -webkit-text-stroke: 1px black;
    color: rgb(79, 245, 79);
+ 
 }
 
 .signOut {

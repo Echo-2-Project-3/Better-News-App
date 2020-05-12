@@ -70,7 +70,7 @@ function SignIn(props) {
             </FormGroup>
             <hr />
             <Button
-              variant="primary"
+              variant="info"
               onClick={props.handleLogin}
               block
             >
@@ -79,7 +79,7 @@ function SignIn(props) {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.handleClose}>
+          <Button variant="info" onClick={props.handleClose}>
             Close
               </Button>
         </Modal.Footer>

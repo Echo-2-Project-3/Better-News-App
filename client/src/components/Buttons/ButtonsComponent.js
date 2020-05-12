@@ -11,7 +11,7 @@ function ButtonComponent({ children, ...props }) {
  // console.log("PROPS FOR BUTTON: ", path)
   return (
 
-    <button type="button" onClick={props.handleClick} className="btn btn-primary challengeButtonStyle">
+    <button type="button" onClick={props.handleClick} className="btn btn-info challengeButtonStyle">
       {/* <Link to={`/challenges/${path}`} style={{ color: 'white' }}> {children}</Link> */}
       {children}
     </button>
