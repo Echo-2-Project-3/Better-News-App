@@ -3,7 +3,7 @@
       "username": "project3",
       "password": "project3",
       "database": "betternews",
-      "host": "localhost",
+      "host": "betternews-proj.csellkjnu7hc.us-east-2.rds.amazonaws.com",
       "port": 3306,
       "dialect": "mysql"
     },
