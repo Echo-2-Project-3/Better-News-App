@@ -3,12 +3,13 @@ body {
   /* background: url("https://i.kinja-img.com/gawker-media/image/upload/m6ztwkawvypgrnn9k5o3.jpg") no-repeat center center fixed; */
   /* background-size: cover; */
   font-family: "Montserrat", sans-serif;
+ 
 }
 
 #leaderContainer {
-  background-image: url("../../images/prism.png");
+  background-image: url("../../images/white-waves.png");
   box-shadow: 3px 3px 10px black;
-
+color: yellow;
 }
 
 
@@ -139,8 +140,7 @@ body {
 
 
 .leaderboard {
-  width: 75%;
-  /* display:flex; */
-  /* justify-content: space-evenly; */
-  margin: 40px auto;
+  width: 100%;
+  display:flex;
+  
 }

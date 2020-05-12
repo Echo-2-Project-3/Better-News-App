@@ -9,6 +9,7 @@ import "../../animation/logoanimation.css";
 function Navybar(props) {
   return (
   // <Container>
+  <div className="top-nav">
     <Navbar bg="link" variant="dark">
       <Col xs={1}>
         <Link to="/" className="spacingForStuff navfont">
@@ -45,7 +46,7 @@ function Navybar(props) {
         <Link className="signOut" onClick={props.logoutUser}>Sign Out</Link>
       </Col>
     </Navbar>
-    
+    </div>
   );
 }
 

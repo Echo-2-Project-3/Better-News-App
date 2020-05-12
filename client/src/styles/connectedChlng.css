@@ -23,25 +23,36 @@
   .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 5px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-    background: rgba(0, 0, 0, 0.2);
+     background: rgba(0, 0, 0, 0.2);
+     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); 
+   
   }
 
 
   .columns4boards {
       display: flex;
-      justify-content: space-evenly;
-     width: 90%;
+      justify-content: auto;
+     width: 40%;
+     margin: 10px;
      padding: 10px;
 
   }
 
-  .columnEach {
+  .columnLeaders {
       display: flex;
-      width: 40%;
+      justify-content: flex-start;
+      object-fit: fill;
   }
+
+.columnPosts {
+  display: flex;
+  
+}
 
   .columnCase {
       display: flex;
       width: 20%;
-      padding: 20px;
+      object-fit: contain;
+      border: solid 5px rgb(79, 245, 79);
+      padding: 10px;
   }

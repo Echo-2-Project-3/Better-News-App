@@ -64,7 +64,7 @@ class AppWelcome extends Component {
         </button> */}
         
         <br />
-        <button type="button" className="btn btn-primary" onClick={this.handleShow}>
+        <button type="button" className="btn btn-info" onClick={this.handleShow}>
         Login!
       </button>
       
