@@ -1,0 +1,11 @@
+#newChallengesCol{
+    background-image: url(../images/tryMe/webb.png);
+}
+
+#subscribedChallengesCol {
+    background-image: url(../images/tryMe/subtle_stripes.png);
+}
+
+#completedChallengesCol {
+    background-image: url(../images/tryMe/y-so-serious-white.png);
+}

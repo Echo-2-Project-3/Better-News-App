@@ -46,6 +46,7 @@
 
 .columnPosts {
   display: flex;
+  background-image: url(../images/tryMe/struckaxiom_@2X.png);
   
 }
 
@@ -55,4 +56,5 @@
       object-fit: contain;
       border: solid 5px rgb(79, 245, 79);
       padding: 10px;
+      background-image: url(../images/tryMe/white_carbonfiber_@2X.png);
   }

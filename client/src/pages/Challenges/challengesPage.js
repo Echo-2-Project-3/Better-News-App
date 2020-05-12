@@ -1,32 +1,64 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import MenuBtnComponent from "../../components/Buttons/menuButtons.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../../styles/challengePageStyle.css";
+
 
 
 class ChallengesPage extends Component {
-  state = {
-    menu: []
-  }
 
-  componentDidMount() {
-    if(this.state.menu.length <= 0) {
-      this.getMenuItems();
+  constructor(props) {
+    super(props);
+    this.state = {
+      subscribed: [],
+      completed: [],
+      unsubscribed: [],
+      menu: []
     }
   }
-  getMenuItems = () => {
-    axios.get("/api/challenges")
-    .then(res => {
-      console.log(res);
-      this.setState({
-        menu: res.data
-      })
-     
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+
+
+  challengesIsNotSet = () => {
+    if (this.state.completed.length <= 0 && this.state.subscribed.length <= 0 && this.state.unsubscribed.length <= 0)
+      return true;
+    return false;
   }
+  componentDidMount() {
+    if (this.challengesIsNotSet) {
+      this.getSubscribedChallengesList();
+    }
+  }
+
+  getSubscribedChallengesList = () => {
+    let def = 0;
+    //axios.get("/api/subscribed-to/challenges/:challengeId/by/user/userId")
+    axios.get(`/api/challenges/subscribe-to/${def}/user/${this.props.user.id}`)
+      .then(resp => {
+        console.log("respon get challeneds", resp);
+        this.setState({
+          subscribed: resp.data.subscribed,
+          unsubscribed: resp.data.unsubscribed,
+          completed: resp.data.completed
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+  // getMenuItems = () => {
+  //   axios.get("/api/challenges")
+  //   .then(res => {
+  //     console.log(res);
+  //     this.setState({
+  //       menu: res.data
+  //     })
+
+  //   })
+  //   .catch(err=>{
+  //     console.log(err);
+  //   })
+  // }
 
   render() {
     return (
@@ -38,14 +70,42 @@ class ChallengesPage extends Component {
           ranking, and connect with friends.
       </h3>
         <br />
-        <div id="menuBtnDiv">
-          {this.state.menu.map((menuItem, index) => (
-           <MenuBtnComponent key={index} index={index} info={menuItem.name} name={menuItem.name}>
-            <Link to={`/challenges/${menuItem.id}/${menuItem.name.toLowerCase().split(" ").join("-")}`} style={{color: 'white'}}>
-              {menuItem.name}
-            </Link>
-            </MenuBtnComponent>
-          ))}
+        <div id="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-2 col-md-3" id="newChallengesCol">
+              <h4 style={{}}>New Challenges</h4>
+              {this.state.unsubscribed.map((menuItem, index) => (
+                <MenuBtnComponent key={index} index={index} info={menuItem.name} name={menuItem.name}>
+                  <Link to={`/challenges/${menuItem.id}/${menuItem.name.toLowerCase().split(" ").join("-")}`} style={{ color: 'white' }}>
+                    {menuItem.name}
+                  </Link>
+                </MenuBtnComponent>
+              ))}
+            </div>
+            <div className="col-lg-2 col-md-3" id="subscribedChallengesCol">
+              <h4 style={{}}>Your Subscriptions</h4>
+            {this.state.subscribed.map((menuItem, index) => (
+                <MenuBtnComponent key={index} index={index} info={menuItem.name} name={menuItem.name}>
+                  <Link to={`/challenges/${menuItem.id}/${menuItem.name.toLowerCase().split(" ").join("-")}`} style={{ color: 'white' }}>
+                    {menuItem.name}
+                  </Link>
+                </MenuBtnComponent>
+              ))}
+
+            </div>
+            <div className="col-lg-2 col-md-3" id="completedChallengesCol">
+              <h4 style={{}}>Completed Challenges</h4>
+            {this.state.completed.map((menuItem, index) => (
+                <MenuBtnComponent key={index} index={index} info={menuItem.name} name={menuItem.name}>
+                  <Link to={`/challenges/${menuItem.id}/${menuItem.name.toLowerCase().split(" ").join("-")}`} style={{ color: 'white' }}>
+                    {menuItem.name}
+                  </Link>
+                </MenuBtnComponent>
+              ))}
+
+            </div>
+          </div>
+
 
           <br></br>
         </div>

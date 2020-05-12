@@ -14,7 +14,8 @@ router.route("/") // https://ipadress:3000/api/challenge/
 router.route("/:challenge_name")
   .get(challenge.findByName)
 
-router.route("/subscribe-to/:challenge_id/user/:user_id")
+router.route("/subscribe-to/:challenge_id/user/:user_id") // we can use a query param for this
+  .get(challenge.getFilteredChallenges)
   .post(challenge.subscribeToUser)
 
 router.route("/users/:challenge_id")

@@ -6,7 +6,7 @@ import  { Container, Col, Row } from 'react-bootstrap';
 
 function MenuBtnComponent({ children, ...props }) {  
   return (
-    <div>
+    <div style={{textAlign: 'center'}}>
         
       <button type="button"  className="btn btn-info mb-2" >
         {children}
