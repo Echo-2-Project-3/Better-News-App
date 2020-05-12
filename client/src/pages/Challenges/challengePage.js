@@ -15,8 +15,8 @@ import "../Leaderboard/Leaderboard.css";
 import "../../styles/connectedChlng.css";
 // import {menu} from "./challengesPage";
 const modalStyles = {
-  window: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover', filter: 'blur 10px' },
-  box: { color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate( -50%, -50%)', background: 'rgba(0,0,0,.3)', padding: '1em', borderRadius: '1em', display: 'block' },
+  window: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover', filter: 'blur(10px)' },
+  box: { color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate( -50%, -50%)', background: 'rgba(0,0,0,.3)', padding: '1em', borderRadius: '1em', display: 'block', filter: 'none' },
   form: { display: 'block', width: '30em' },
 };
 const resetStyles = {
