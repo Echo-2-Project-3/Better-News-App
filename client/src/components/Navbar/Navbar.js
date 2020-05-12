@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Col } from "react-bootstrap";
+import { Container, Navbar, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../Avatar/Avatar.js";
 import sprout from "../../images/sprout.png";
@@ -8,7 +8,8 @@ import "../../animation/logoanimation.css";
 
 function Navybar(props) {
   return (
-    <Navbar>
+  // <Container>
+    <Navbar bg="link" variant="dark">
       <Col xs={1}>
         <Link to="/" className="spacingForStuff navfont">
           <div>
@@ -44,6 +45,7 @@ function Navybar(props) {
         <Link className="signOut" onClick={props.logoutUser}>Sign Out</Link>
       </Col>
     </Navbar>
+    
   );
 }
 

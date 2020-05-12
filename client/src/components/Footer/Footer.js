@@ -1,7 +1,10 @@
 import React from 'react';
 import "./Footer.css";
-
+// import { Container, Row, Col } from 'reactstrap'
 const Footer = props => (
+    // <Container>
+    //     <Row>
+    //         <Col>
 <table>
     <tbody>
         <tr>
@@ -18,6 +21,7 @@ const Footer = props => (
         </tr>
     </tbody>
 </table>
+
 
 )
 

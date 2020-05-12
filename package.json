@@ -24,10 +24,13 @@
     "express": "^4.16.3",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
+    "mdbreact": "^4.26.1",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "prop-types": "^15.7.2",
+    "react-strap": "0.0.1",
+    "reactstrap": "^8.4.1",
     "sequelize": "^4.41.2",
     "unirest": "^0.6.0"
   }
