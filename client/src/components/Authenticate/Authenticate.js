@@ -14,7 +14,7 @@ function NotAuthenticatedRoutes(props) {
         <>
             <Route exact path="/">
                 <AppWelcome user={props.user}
-                handleLogin={props.handleLogin} handleChange={props.handleChange} />
+                handleLogin={props.handleLogin} handleSignup={props.handleSignup} handleChange={props.handleChange} />
             </Route>
             <Route exact path="/signup">
                 <Signup user={props.user}/>

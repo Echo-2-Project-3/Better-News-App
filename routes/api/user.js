@@ -17,10 +17,15 @@ router.route("/get-challenge/:user_id/:challenge_id")
 router.route("/:name")
   .get(user.findByName)
 
-  router.use("/login", passport.authenticate("local"));
+router.use("/login", passport.authenticate("local"));
 
-  router.route("/login")
+router.route("/login")
   .post(user.login)
+
+router.route("/signup")
+  .post(user.signup)
+
+
 
 router.route("/:doppel")
   .get(user.findByDoppel)

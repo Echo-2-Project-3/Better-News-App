@@ -34,10 +34,20 @@ class AppWelcome extends Component {
       let user = {name: "", password: "", doppel_me: "", email: ""};
       user.name = this.state.name; 
       user.password = this.state.password; 
-      // user.dopple_me = this.state.dopple_me; 
-      // user.email = this.state.email;
+      user.doppel_me = this.state.doppel_me; 
+      user.email = this.state.email;
 
       this.props.handleLogin(user);
+    }
+
+    handleSignup = () => {
+      let user = {name: "", password: "", doppel_me: "", email: ""};
+      user.name = this.state.name; 
+      user.password = this.state.password; 
+      user.doppel_me = this.state.doppel_me; 
+      user.email = this.state.email;
+
+      this.props.handleSignup(user);
     }
 
 
@@ -59,7 +69,7 @@ class AppWelcome extends Component {
       <img src={logo} className="sprout-logo" alt="virus" height="200px" />
       <p>Please log in to get started!</p>
       <br></br>
-      <SignIn show={this.state.show} handleClose={this.handleClose} handleLogin={this.handleSignIn} name={this.state.name} password={this.state.password} email={this.state.email} handleChange={this.handleChange}/>
+      <SignIn show={this.state.show} handleClose={this.handleClose} handleLogin={this.handleSignIn} handleSignup={this.handleSignup} name={this.state.name} password={this.state.password} email={this.state.email} doppel_me={this.state.doppel_me} handleChange={this.handleChange}/>
       {/* <button type="button" className="btn btn-danger">
         Get Started!
         </button> */}

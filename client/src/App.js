@@ -22,11 +22,7 @@ class App extends Component {
     };
   }
 
-  handleLogin = (user) => {
-    let { name } = user;
-    console.log("Logging in");
-    // let {email, name, password} = this.state; 
-    // let user = {email, name, password};
+  handleLogin = (user) => {  
     axios.post(`/api/user/login`, user)
       .then((response) => {
         console.log("response: ", response)
@@ -41,7 +37,20 @@ class App extends Component {
 
   }; //&& route to user page
 
+  handleSignup = (user) => {
+    axios.post(`/api/user/signup/`, user)
+      .then((response) => {
+        console.log("response: ", response)
 
+        //let user = response.data;
+        //window.sessionStorage.setItem('user', JSON.stringify(user));
+        //this.setState({ user: user, authenticated: true })
+        window.location.href = "/";
+      })
+      .catch((err) => {
+        console.log("err", err)
+      })
+  }
 
   componentDidMount() {
     console.log("mounting: ")
@@ -64,12 +73,13 @@ class App extends Component {
   logoutUser = () => {
     window.sessionStorage.removeItem('user')
     this.setState({ user: null, authenticated: false })
+    window.location.href = "/";
   }
   render() {
     return (
       <div className="App">
         <Router>
-          <AuthenticateRoutes {...this.state} handleLogin={this.handleLogin} logoutUser={this.logoutUser} />
+          <AuthenticateRoutes {...this.state} handleLogin={this.handleLogin} logoutUser={this.logoutUser} handleSignup={this.handleSignup} />
           <Footer />
         </Router>
       </div>

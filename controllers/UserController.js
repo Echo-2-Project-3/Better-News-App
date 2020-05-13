@@ -39,6 +39,18 @@ module.exports = {
               
     },
 
+    signup: function(req, res) {
+        db.User.create(req.body)
+        .then(user=> {
+            console.log(user);
+           return res.json(user);
+        })
+        .catch((err) => {
+            console.log(err);
+           return res.status(404).json(err);
+        })
+    },
+
     findChallenge: function(req, res) {
         let {user_id, challenge_id} = req.params; 
 
