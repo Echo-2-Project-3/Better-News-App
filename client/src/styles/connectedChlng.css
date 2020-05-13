@@ -39,22 +39,43 @@
   }
 
   .columnLeaders {
-      display: flex;
-      justify-content: flex-start;
-      object-fit: fill;
+    display: flex;
+    justify-content: flex-start;
+    object-fit: fill;
+    margin: 1em;
+    padding: 5px;
+    border-radius: 8px;
+    border-style: ridge;
+    border-color: rgb(170, 170, 170);
+    border-width: 4px;
+    box-shadow: 3px 3px 5px black;
   }
 
 .columnPosts {
   display: flex;
-  background-image: url(../images/tryMe/struckaxiom_@2X.png);
+  background-image: url("../images/tryMe/leather_1.png");
+  margin: 1em;
+  padding: 5px;
+  border-radius: 8px;
+  border-style: ridge;
+  border-color: rgb(170, 170, 170);
+  border-width: 4px;
+  box-shadow: 3px 3px 5px black;
   
 }
 
   .columnCase {
-      display: flex;
-      width: 20%;
-      object-fit: contain;
-      border: solid 5px rgb(79, 245, 79);
-      padding: 10px;
-      background-image: url(../images/tryMe/white_carbonfiber_@2X.png);
+    display: flex;
+    width: 20%;
+    object-fit: contain;
+    /* border: solid 5px rgb(79, 245, 79); */
+    padding: 10px;
+    background-image: url("../images/tryMe/white_carbonfiber_@2X.png");
+    margin: 1em;
+    padding: 5px;
+    border-radius: 8px;
+    border-style: ridge;
+    border-color: rgb(170, 170, 170);
+    border-width: 4px;
+    box-shadow: 3px 3px 5px black;
   }

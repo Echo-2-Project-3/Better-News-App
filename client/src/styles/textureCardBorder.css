@@ -1,0 +1,20 @@
+.textureCardBorder {
+    margin: 1em;
+    padding: 5px;
+    border-radius: 8px;
+    border-style: ridge;
+    border-color: rgb(170, 170, 170);
+    border-width: 4px;
+    box-shadow: 3px 3px 5px black;
+}
+
+.textureCard {
+    background: url("../images/qbkls.png");
+    margin: 1em;
+    padding: 5px;
+    border-radius: 8px;
+    border-style: ridge;
+    border-color: rgb(170, 170, 170);
+    border-width: 4px;
+    box-shadow: 3px 3px 5px black;
+}
