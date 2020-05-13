@@ -65,7 +65,7 @@ class AppWelcome extends Component {
                 <br></br>
                 <br></br>
       <h1>Welcome to Sproso!</h1>
-      <p>The app that ....blah blah blah...</p>
+      <p>In today's isolated world, staying motivated can be a challenge. The Sproso App is here to make that happen. Here, you can challenge yourself in a myriad of ways, from staying social to simple positivity. Participate with other users to see your rank on our leaderboards or even create your own challenge for yourself or other users. Here at Sproso, we want you to feel connected. Sproso: connecting you by challenging you.</p>
       <img src={logo} className="sprout-logo" alt="virus" height="200px" />
       <p>Please log in to get started!</p>
       <br></br>
