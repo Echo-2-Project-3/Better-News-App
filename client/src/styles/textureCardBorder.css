@@ -6,6 +6,9 @@
     border-color: rgb(170, 170, 170);
     border-width: 4px;
     box-shadow: 3px 3px 5px black;
+    animation-name: lightShift;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
 }
 
 .textureCard {
@@ -17,4 +20,22 @@
     border-color: rgb(170, 170, 170);
     border-width: 4px;
     box-shadow: 3px 3px 5px black;
+    animation-name: lightShift;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes lightShift{
+    0% {box-shadow: 3px 3px 5px black;}
+    10% {box-shadow: 4px 2px 6px black;}
+    20% {box-shadow: 5px 1px 7px black;}
+    30% {box-shadow: 6px 2px 8px black;}
+    40% {box-shadow: 5px 3px 9px black;}
+    50% {box-shadow: 4px 4px 10px black;}
+    60% {box-shadow: 3px 5px 9px black;}
+    70% {box-shadow: 2px 6px 8px black;}
+    80% {box-shadow: 1px 5px 7px black;}
+    90% {box-shadow: 2px 4px 6px black;}
+    100% {box-shadow: 3px 3px 5px black;}
+    
 }

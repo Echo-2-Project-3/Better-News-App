@@ -146,7 +146,7 @@ class ChallengePage extends Component {
     let challengeId = window.location.pathname.split("/")[2];
     axios.post(`/api/challenges/subscribe-to/${challengeId}/user/${this.props.user.id}`)
       .then((res) => {
-        console.log("SUBWCRIBED:", res);
+        console.log("SUBSCRIBED:", res);
         let challengeId = window.location.pathname.split("/")[2];
         this.getChallenge(challengeId);
 

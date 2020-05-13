@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 //import ButtonComponent from "../components/ButtonsComponent";
 //import {Route} from 'react-router-dom';
 
@@ -64,9 +65,16 @@ class AppWelcome extends Component {
         </button> */}
         
         <br />
-        <button type="button" className="btn btn-info" onClick={this.handleShow}>
+       <Link to="/"> 
+        <button type="button" className="btn btn-info" style={{marginRight: '.5em'}} onClick={this.handleShow}>
         Login!
       </button>
+      </Link>
+      <Link to="/signup">
+      <button type="button" className="btn btn-info" style={{marginLeft: '.5em'}}>
+        Signup!
+      </button>
+      </Link>
       
       <br />
    
