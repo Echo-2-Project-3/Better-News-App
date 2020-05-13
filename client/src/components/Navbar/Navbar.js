@@ -8,14 +8,17 @@ import "../../animation/logoanimation.css";
 
 function Navybar(props) {
   return (
-  // <Container>
+  
   <div className="top-nav">
+    <Container>
     <Navbar bg="link" variant="dark">
       <Col xs={1}>
         <Link to="/" className="spacingForStuff navfont">
           <div>
             <div className="air">
+              <Container>
               <img className="movement" src={sprout} />
+              </Container>
                           </div>
             <div className="shadow"></div>
           </div>
@@ -24,7 +27,9 @@ function Navybar(props) {
       <Col xs={1}>
         <Link to="/" className="spacingForStuff navfont">
           <div>
-                                       <h1>SPROSO</h1>
+            <Container>
+      <h1>SPROSO</h1>
+      </Container>
             </div>
             
           
@@ -46,6 +51,7 @@ function Navybar(props) {
         <Link className="signOut" onClick={props.logoutUser}>Sign Out</Link>
       </Col>
     </Navbar>
+    </Container>
     </div>
   );
 }

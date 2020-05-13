@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Footer.css";
-// import { Container, Row, Col } from 'reactstrap'
+import { Container } from 'react-bootstrap'
 const Footer = props => (
     // <Container>
     //     <Row>
@@ -9,6 +9,7 @@ const Footer = props => (
 
 
 <div id="footer" className="container-fluid" style={{position: 'fixed', bottom: 0}}>
+    <Container>
     <div className="row">
         <div className="col-md-12">
         <a href="https://react.js.org/" target="_blank" rel="noopener noreferrer">
@@ -21,6 +22,7 @@ const Footer = props => (
                 The Echo Team, Sproso Project, 2020
         </div>
     </div>
+    </Container>
 </div>
 
 )
