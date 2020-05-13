@@ -28,8 +28,8 @@ function ProfilePage(props) {
         </Button>
         
 
-        <Avatar/>
-        <h3>Your Profile</h3>
+        {/* <Avatar /> */}
+        {/* <h3>Your Profile</h3> */}
         </div>
     );
 };

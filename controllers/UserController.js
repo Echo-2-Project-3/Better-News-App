@@ -39,14 +39,25 @@ module.exports = {
               
     },
 
+    signup: function(req, res) {
+        db.User.create(req.body)
+        .then(user=> {
+            console.log(user);
+           return res.json(user);
+        })
+        .catch((err) => {
+            console.log(err);
+           return res.status(404).json(err);
+        })
+    },
+
     findChallenge: function(req, res) {
-        console.log("finding challenge", req.params);
         let {user_id, challenge_id} = req.params; 
 
-        db.sequelize.query(`select * from subscribedtos where UserId = ${user_id} and ChallengeId = ${challenge_id}`).spread((subs, metadata) => {
+        db.sequelize.query(`select * from SubscribedTos where UserId = ${user_id} and ChallengeId = ${challenge_id}`).spread((subs, metadata) => {
 
             let subscription = subs[0];
-            db.sequelize.query(`select * from challenges where id = ${challenge_id}`).spread((chal, md)=> {
+            db.sequelize.query(`select * from Challenges where id = ${challenge_id}`).spread((chal, md)=> {
                 let challenge = chal[0]
                 let data ={
                     subscription: subscription, 

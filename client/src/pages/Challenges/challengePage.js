@@ -13,10 +13,11 @@ import { InputGroup, FormControl, Container, Row, Col, Button } from 'react-boot
 import axios from "axios";
 import "../Leaderboard/Leaderboard.css";
 import "../../styles/connectedChlng.css";
+import "../../styles/textureCardBorder.css";
 // import {menu} from "./challengesPage";
 const modalStyles = {
-  window: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover', filter: 'blur(10px)' },
-  box: { color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate( -50%, -50%)', background: 'rgba(0,0,0,.3)', padding: '1em', borderRadius: '1em', display: 'block', filter: 'none' },
+  window: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover', backdropFilter: 'blur(10px)', transitionDuration: '2s', transitionProperty: 'backdrop-filter '},
+  box: { color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate( -50%, -50%)', background: 'rgba(0,0,0,.4)', transitionDuration: '5s', transitionProperty: 'background', padding: '1em', borderRadius: '1em', display: 'block', filter: 'none' },
   form: { display: 'block', width: '30em' },
 };
 const resetStyles = {
@@ -145,7 +146,7 @@ class ChallengePage extends Component {
     let challengeId = window.location.pathname.split("/")[2];
     axios.post(`/api/challenges/subscribe-to/${challengeId}/user/${this.props.user.id}`)
       .then((res) => {
-        console.log("SUBWCRIBED:", res);
+        console.log("SUBSCRIBED:", res);
         let challengeId = window.location.pathname.split("/")[2];
         this.getChallenge(challengeId);
 
@@ -210,7 +211,7 @@ class ChallengePage extends Component {
     return (
       <div id="ChallengePage" >
         <br></br>
-        <h6>Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h6>
+        <h6 class="textureCard">Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h6>
 
         {this.props.info}
 
@@ -246,12 +247,12 @@ class ChallengePage extends Component {
             </Row>
           </Container> : null
         }
-        <Container className="columns4boards" id="leaderContainer">
+        <Container className="columns4boards" id="leaderContainer" class="textureCardBorder">
           <MDBContainer className="columnLeaders">
             <div className="leaderboard"><LeaderBoards rows={this.state.leaderUsers} /></div>
           </MDBContainer>
 
-          <MDBContainer className="columnPosts">
+          <MDBContainer className="columnPosts" class="textureCardBorder">
 
             {/* post stuff here */}
             <MDBScrollbar className="scrollbar  mt-3 mx-auto scrollbar-primary" style={scrollContainerStyle}>
@@ -277,7 +278,7 @@ class ChallengePage extends Component {
             </MDBScrollbar>
           </MDBContainer>
 
-          <MDBContainer className="columnCase">
+          <MDBContainer className="columnCase" class="textureCardBorder">
             <div className="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
           </MDBContainer>
         </Container>
