@@ -21,7 +21,9 @@ module.exports = function (sequelize, DataTypes) {
                 through: models.SubscribedTo
             })
         Challenge.hasMany(models.Post) 
-    } 
+        Challenge.belongsTo(models.Benchmark)
+    }
+    
 
     return Challenge;
 };

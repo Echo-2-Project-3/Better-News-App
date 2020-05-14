@@ -3,6 +3,7 @@
   background-color: rgb(252, 144, 2);
   font-family: 'Fredoka One', cursive;
   padding-bottom: 20px;
+  height: 900px;
   
 }
 
@@ -13,7 +14,7 @@
 
 .App-header {
   background-color: rgb(230, 138, 18);
-  height: 150px;
+  height: 900px;
   padding: 20px;
   color: white;
 
