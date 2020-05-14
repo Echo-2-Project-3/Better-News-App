@@ -16,7 +16,7 @@
 
 .shadow {
  position: absolute;
-  left: 20px;  
+  left: 24px;  
   /* height: 5px;
   width: 20px; */
   display: flex;
@@ -24,7 +24,7 @@
   animation-duration: 4s;
   /* justify-content: space-evenly; */
   background: rgb(75, 75, 75);
-  opacity:0.5;
+  opacity:0.3;
   border-radius: 50%;
   animation-iteration-count: infinite;
   transition: transform alternate;
@@ -32,15 +32,15 @@
 }
 @keyframes shadow {
   0% {
-    width: 20px;
+    width: 50px;
     height: 4px;
   }
   50% {
-    width: 25px;
+    width: 55px;
     height: 5px;
   }
   100% {
-    width: 20px;
+    width: 50px;
     height: 4px;
   }
 }
@@ -60,84 +60,3 @@
         transform: translate3d(0px, -27px, 0px);
     }
   }
-
-
-.sproutWelcome {
-  position: absolute;
-    height: 70px;
-    left: 21px;
-    animation-name: dropIn;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    transition: transform;
-}
-
-@keyframes levitate {
-  0% {
-      /* left: 0px; */
-      /* top: 0px; */
-      transform: translate3d(0px, -150px, 0px);
-  }
-  50% {
-     transform: translate3d(0px, 100px, 0px);
-  }
-  99% {
-    transform: skewY(-20deg);
-    transform: skewY(20deg);
-    transform: skewY(-20deg);
-    transform: skewY(20deg);
-    transform: skewY(-20deg);
-    transform: skewY(20deg);
-  }
-  100% {
-            /* left: 0px; */
-      /* top: 3px; */
-      transform: translate3d(0px, 100px, 0px);
-  }
-}
-
-
-.move-area{
-  width: 100vw;
-  height: 100vh;
-  padding: 10% 45%;
-}
-.container {
-  width: 100%;
-}
-.eye {
-  position: relative;
-  z-index: 3;
-  display: inline-block;
-  border-radius: 50%;
-  height:50rem;
-  width: 50rem;
-  left:13rem;
-  bottom: 5rem;
-  margin: 5px;
-  background: white;
-  border: solid 1px black;
-}
-.eye:after { /*pupil*/
- position: absolute;
- bottom: 17px;
-  right: 10px; 
-  width: 10px;
-  height: 10px;
-  background: black;
-  border-radius: 50%;
-  content: " ";
-}
-/* JS:  $("body").mousemove(function(event) {
-  var eye = $(".eye");
-  var x = (eye.offset().left) + (eye.width() / 2);
-  var y = (eye.offset().top) + (eye.height() / 2);
-  var rad = Math.atan2(event.pageX - x, event.pageY - y);
-  var rot = (rad * (180 / Math.PI) * -1) + 90;
-  eye.css({
-    '-webkit-transform': 'rotate(' + rot + 'deg)',
-    '-moz-transform': 'rotate(' + rot + 'deg)',
-    '-ms-transform': 'rotate(' + rot + 'deg)',
-    'transform': 'rotate(' + rot + 'deg)'
-  });
-}); */

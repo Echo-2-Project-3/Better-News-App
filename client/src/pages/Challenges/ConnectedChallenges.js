@@ -13,7 +13,7 @@ function Jump(props) {
         return <h1>Subscribed to Jump</h1>
     }
 
-    return <h1>Want to subscribte to jump???</h1>;
+    return <h1>Want to subscribe to jump???</h1>;
 }
 function ConnectedChallenge(props) {
 

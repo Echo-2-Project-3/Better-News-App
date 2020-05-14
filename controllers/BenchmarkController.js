@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports ={
 
     // go
-    findById: function(req, res) {
+    findAll: function(req, res) {
         // use db to grab posts
        
     

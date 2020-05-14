@@ -30,17 +30,17 @@
 
 
   .columns4boards {
-      display: flex;
-      justify-content: auto;
-     width: 40%;
+
+    /*justify-content: auto;*/
+     /* width: 40%;
      margin: 10px;
-     padding: 10px;
+     padding: 10px; */
 
   }
 
   .columnLeaders {
-    display: flex;
-    justify-content: flex-start;
+    /* display: flex; */
+    /* justify-content: flex-start; */
     object-fit: fill;
     margin: 1em;
     padding: 5px;
@@ -52,7 +52,7 @@
   }
 
 .columnPosts {
-  display: flex;
+  /* display: flex; */
   background-image: url("../images/tryMe/leather_1.png");
   margin: 1em;
   padding: 5px;
@@ -65,7 +65,7 @@
 }
 
   .columnCase {
-    display: flex;
+    /* display: flex; */
     width: 20%;
     object-fit: contain;
     /* border: solid 5px rgb(79, 245, 79); */

@@ -48,7 +48,7 @@ module.exports = {
           }
         })
           .then(user => {
-            user.addChallenge(challenge, { through: { "point": 0, "trophy": 0, "percent_completed": 50 } })
+            user.addChallenge(challenge, { through: { "point": 0, "trophy": 0, "percent_completed": 0 } })
             res.send(user);
           })
       })
