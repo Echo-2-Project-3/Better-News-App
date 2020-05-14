@@ -104,10 +104,14 @@ class ChallengePage extends Component {
 
   handlePost = () => {
     console.log("Sending post: ", this.state.post);
+
+    let percent = Math.round(this.state.challenge.point / this.state.theChallenge.total * 100);
+    console.log("percen", percent);
     let post = {
       UserId: this.props.user.id,
       ChallengeId: this.state.challenge.ChallengeId,
-      content: this.state.post
+      content: this.state.post,
+      percent: percent
     }
     axios.post("/api/posts", post)
       .then(res => {
@@ -212,7 +216,7 @@ class ChallengePage extends Component {
       <div id="ChallengePage">
         <br></br>
        <div  className="row justify-content-md-center"  id="challengeHeader">
-          <h4 class="textureCard">Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h4>
+          <h4 className="textureCard">Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h4>
        </div>
 
         {this.props.info}
@@ -249,17 +253,18 @@ class ChallengePage extends Component {
             </Row>
           </Container> : null
         }
-        <Container className="columns4boards" id="leaderContainer" class="textureCardBorder">
+
+        <Container id="leaderContainer" className="columns4boards " >
           <MDBContainer className="columnLeaders">
             <div className="leaderboard"><LeaderBoards rows={this.state.leaderUsers} /></div>
           </MDBContainer>
 
-          <MDBContainer className="columnPosts" class="textureCardBorder">
+          <MDBContainer className="columnPosts textureCardBorder">
 
             {/* post stuff here */}
             <MDBScrollbar className="scrollbar  mt-3 mx-auto scrollbar-primary" style={scrollContainerStyle}>
               <Row>
-                <Col md={{ span: 3, offset: 3 }}>
+                <Col sm="2" md={{ span: 3, offset: 3 }}>
                   <div>
                     <h2>Previous Posts</h2>
                   </div>
@@ -280,7 +285,7 @@ class ChallengePage extends Component {
             </MDBScrollbar>
           </MDBContainer>
 
-          <MDBContainer className="columnCase" class="textureCardBorder">
+          <MDBContainer className="columnCase textureCardBorder">
             <div className="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
           </MDBContainer>
         </Container>
