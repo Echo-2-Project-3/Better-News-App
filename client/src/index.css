@@ -5,3 +5,8 @@ body {
   background-color: rgb(252, 144, 2);
 }
 body:hover{cursor: url("https://img.icons8.com/android/48/26e07f/leaf.png"), auto !important;}
+
+
+button {
+  cursor: inherit;
+}
