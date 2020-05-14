@@ -209,9 +209,11 @@ class ChallengePage extends Component {
     console.log("my props", this.props);
     const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
     return (
-      <div id="ChallengePage" >
+      <div id="ChallengePage">
         <br></br>
-        <h6 class="textureCard">Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h6>
+       <div  className="row justify-content-md-center"  id="challengeHeader">
+          <h4 class="textureCard">Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h4>
+       </div>
 
         {this.props.info}
 
