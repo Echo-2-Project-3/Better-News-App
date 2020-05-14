@@ -1,6 +1,6 @@
 .textureCardBorder {
-    margin: 1em;
-    padding: 5px;
+    margin: auto;
+    /* padding: auto; */
     border-radius: 8px;
     border-style: ridge;
     border-color: rgb(170, 170, 170);
