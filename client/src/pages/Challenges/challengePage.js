@@ -30,8 +30,11 @@ class ChallengePage extends Component {
     super(props);
     this.state = {
       challengeCompleted: false,
-      challenge: {},
-      theChallenge: { name: "" },
+      challenge: {}, //subscription
+      theChallenge: { 
+        name: "",
+        benchmark: {},
+    }, //benchmark?
       post: "",
       posts: ["Test1", "test2", "test3"],
       challengeNavigation: ["Subscribe", "Leader Board"],
@@ -68,6 +71,8 @@ class ChallengePage extends Component {
         //if()
         let challenge = res.data.challenge;
         let SubscribedTo = res.data.subscription;
+
+        challenge.benchmarks = res.data.benchmarks;
 
         console.log("Setting the states", challenge);
         console.log(SubscribedTo)
@@ -118,6 +123,9 @@ class ChallengePage extends Component {
         //let postInfo = res;
 
         console.log(res);
+        this.setState({
+          post: ""
+        })
         this.getPosts();
         this.handleModal();
         this.pointUpdater();
@@ -211,7 +219,7 @@ class ChallengePage extends Component {
 
   render() {
     console.log("my props", this.props);
-    const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
+    const scrollContainerStyle = { maxHeight: "400px" }; // width: "800px", 
     return (
       <div id="ChallengePage">
         <br></br>
@@ -237,7 +245,7 @@ class ChallengePage extends Component {
         }
 
 
-        {(this.state.challenge) ?
+        {(this.state.challenge.ChallengeId) ?
           <>
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
@@ -257,7 +265,7 @@ class ChallengePage extends Component {
           <Row>
             <Col>
               <MDBContainer className="columnCase textureCardBorder">
-                <TrophyCase challengeCompleted={this.state.challengeCompleted} />
+                <TrophyCase challengeCompleted={this.state.challengeCompleted} challenge={this.state.theChallenge} subscription={this.state.challenge} />
               </MDBContainer>
             </Col>
           </Row>
@@ -274,7 +282,7 @@ class ChallengePage extends Component {
               <MDBContainer className="columnPosts textureCardBorder">
                 <MDBScrollbar className="scrollbar  mt-3 mx-auto scrollbar-primary" style={scrollContainerStyle}>
                   <Row>
-                    <Col sm="2" md={{ span: 3, offset: 3 }}>
+                    <Col sm="2" md={{ span: 12}}>
                       <div>
                         <h2>Previous Posts</h2>
                       </div>

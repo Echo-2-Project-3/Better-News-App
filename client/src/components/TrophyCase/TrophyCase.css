@@ -13,12 +13,14 @@
     cursor: pointer;
 }
 
+
+
 .trophyImage {
-    width: 10em;/**you will have to creat a media query at specific breakpoints*/
+   height: 90%;/**you will have to create a media query at specific breakpoints*/
     filter: grayscale(100%);
-   padding: auto;
-   margin: auto;
+   padding: auto; 
    justify-content: space-evenly;
+   vertical-align: sub;
    /* word-spacing: auto; */
  }
 
@@ -29,11 +31,11 @@
 }
 
 .trophyFrame {
-    width: 60em;
+    width: 5em;
+    height: 5rem;
     border-style: ridge;
     border-width: 3px;
-    padding: auto;
-    margin: auto;
+    padding: auto;    
     border-color: white;
     transition: width 42em 3s;
     animation: trophyFrameHover 4s;

@@ -64,7 +64,7 @@ class ChallengesPage extends Component {
   render() {
     return (
       <div id="challengesPage">
-        <div class="textureCard">
+        <div className="textureCard">
           <h1>Welcome {this.props.user.name}!</h1>
           <br />
           <h3>
@@ -75,7 +75,7 @@ class ChallengesPage extends Component {
         <br />
         <div id="container">
           <div className="row justify-content-center">
-            <div className="col-lg-2 col-md-3" id="newChallengesCol" class="textureCardBorder">
+            <div className="col-lg-2 col-md-3  textureCardBorder" id="newChallengesCol">
               <h4 style={{}}>New Challenges</h4>
               {this.state.unsubscribed.map((menuItem, index) => (
                 <MenuBtnComponent key={index} index={index} info={menuItem.name} name={menuItem.name}>
@@ -85,7 +85,7 @@ class ChallengesPage extends Component {
                 </MenuBtnComponent>
               ))}
             </div>
-            <div className="col-lg-2 col-md-3" id="subscribedChallengesCol" class="textureCardBorder">
+            <div className="col-lg-2 col-md-3 textureCardBorder" id="subscribedChallengesCol">
               <h4 style={{}}>Your Subscriptions</h4>
               {this.state.subscribed.map((menuItem, index) => (
                 <MenuBtnComponent key={index} index={index} info={menuItem.name} name={menuItem.name}>
@@ -96,7 +96,7 @@ class ChallengesPage extends Component {
               ))}
 
             </div>
-            <div className="col-lg-2 col-md-3" id="completedChallengesCol" class="textureCardBorder">
+            <div className="col-lg-2 col-md-3 textureCardBorder" id="completedChallengesCol">
               <h4 style={{}}>Completed Challenges</h4>
               {this.state.completed.map((menuItem, index) => (
                 <MenuBtnComponent key={index} index={index} info={menuItem.name} name={menuItem.name}>
