@@ -257,7 +257,7 @@ class ChallengePage extends Component {
           <Row>
             <Col>
               <MDBContainer className="columnCase textureCardBorder">
-                <div className="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
+                <TrophyCase challengeCompleted={this.state.challengeCompleted} />
               </MDBContainer>
             </Col>
           </Row>

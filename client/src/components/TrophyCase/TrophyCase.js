@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import trophy from '../../images/trophy.png';
 import './TrophyCase.css';
-
+// import bronze from "../../images/name.jpg";
+import silver from "../../images/trophy.png";
+import gold from "../../images/virus.jpg";
 
 // let success = //mysql element regarding success of a challenge;
 
@@ -22,18 +24,18 @@ function Trophy (props) {
     <div className="trophyCase">
            <div className="row">
              <div id="bronze" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
-                <img src={trophy} className="trophyImage"/>
+                <img src="#" className="trophyImage"/>
                 {/* <button onClick={props.handleModal}>Click me to know more</button> */}
              </div>
              <div id="silver" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
-                <img src={trophy}  className="trophyImage" />
+                <img src={silver}  className="trophyImage" />
              </div>
              <div id="gold" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
-                <img src={trophy} 
+                <img src={gold} 
                 className="trophyImage"/>
              </div>
-             <div id="platinum" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
-                <img src={trophy} 
+                        <div id="platinum" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
+                <img src="#"
                className="trophyImage"/>
              </div>
              </div>
@@ -73,7 +75,7 @@ class TrophyCase extends React.Component {
     render() {
 
   return (
-    <div>
+    <>
        {/*this.state.trophyCase*/}
        <Trophy {...this.props} {...this.state} handleModal={this.handleModal}/>
        
@@ -87,7 +89,7 @@ class TrophyCase extends React.Component {
            </div>
          </div>
        </div>
-    </div>
+    </>
   )
 
 }

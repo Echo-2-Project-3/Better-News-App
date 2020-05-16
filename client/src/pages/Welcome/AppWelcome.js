@@ -72,10 +72,10 @@ class AppWelcome extends Component {
       <p>In today's isolated world, staying motivated can be a challenge. The Sproso App is here to make that happen. Here, you can challenge yourself in a myriad of ways, from staying social to simple positivity. Participate with other users to see your rank on our leaderboards or even create your own challenge for yourself or other users. Here at Sproso, we want you to feel connected. Sproso: connecting you by challenging you.</p>
       <Container>
         <div className="imgDiv">
-          <img src={logo} alt="Sproutling" id="nakedSprout" className="entrance"/>
-          <div className="moveArea"> 
-             <div class='eye'></div>
-             <div class='eye'></div>
+          {/* <img src={logo} alt="Sproutling" id="nakedSprout" className="entrance"/> */}
+          <div id="ma" className="moveArea entrance" style={{backgroundImage: 'url('+logo+')'}}> 
+             <div className='eye'></div>
+             <div className='eye'></div>
           </div>
         </div>
       </Container>

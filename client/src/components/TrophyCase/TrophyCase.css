@@ -17,8 +17,10 @@
     width: 10em;/**you will have to creat a media query at specific breakpoints*/
     filter: grayscale(100%);
    padding: auto;
-  
-}
+   margin: auto;
+   justify-content: space-evenly;
+   /* word-spacing: auto; */
+ }
 
 .trophyImage:hover {
   animation: trophyHover 3s;
@@ -30,15 +32,18 @@
     width: 60em;
     border-style: ridge;
     border-width: 3px;
+    padding: auto;
+    margin: auto;
     border-color: white;
     transition: width 42em 3s;
-    animation: trophyFrameHover 4s
+    animation: trophyFrameHover 4s;
+    justify-content: space-evenly;
 }
 
 @keyframes trophyHover {
     0% {filter: grayscale(100%);}
-    50% {filter: grayscale(75%);}
-    100% {filter: grayscale(50%);}
+    50% {filter: grayscale(50%);}
+    100% {filter: grayscale(100%);}
 }
 
 @keyframes trophyFrameHover {
@@ -55,3 +60,6 @@
  @media screen and (max-width: 750px) {
    
  }
+
+
+ 
