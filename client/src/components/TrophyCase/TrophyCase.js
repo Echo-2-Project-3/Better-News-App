@@ -16,6 +16,30 @@ const resetStyles = {
   form: {}
 }
 
+function Trophy (props) {
+  return (
+    <div className="container">
+           <div className="row">
+             <div id="bronze" className="col-md-3 trophyFrame" onClick={props.handleModal}>
+                <img src={trophy} className="trophyImage"/>
+                {/* <button onClick={props.handleModal}>Click me to know more</button> */}
+             </div>
+             <div id="silver" className="col-md-3" onClick={props.handleModal}>
+                <img src={trophy} width= "40em" style={{filter: 'grayscale(100%)'}} />
+             </div>
+             <div id="gold" className="col-md-3" onClick={props.handleModal}>
+                <img src={trophy} width= "40em"
+                style={{filter: 'grayscale(100%)'}}/>
+             </div>
+             <div id="platinum" className="col-md-3" onClick={props.handleModal}>
+                <img src={trophy} width= "40em"
+                style={{filter: 'grayscale(100%)'}}/>
+             </div>
+             </div>
+         </div>
+  )
+}
+
 class TrophyCase extends React.Component {
     constructor(props) {
       super(props);
@@ -27,11 +51,7 @@ class TrophyCase extends React.Component {
     }
 
     componentDidMount() {
-      if (this.props.challengeCompleted) {
-        this.setState({trophyCase: <img src={trophy} height= "400px"></img>});
-     }else {
-      this.setState({trophyCase:<h2>"No trophies to display yet, but go get it!"</h2>})
-     };
+     
     }
 
     handleModal = () => {
@@ -50,11 +70,12 @@ class TrophyCase extends React.Component {
     // if (user.challenges.trophy == true) {
 
     render() {
-        
+
   return (
     <div>
-       {this.state.trophyCase}
-       <button onClick={this.handleModal}>Click me to know more</button>
+       {/*this.state.trophyCase*/}
+       <Trophy {...this.props} {...this.state} handleModal={this.handleModal}/>
+       
        <div id="modal-window" style={this.state.modal.styles.window}>
          <div id="modal-box" style={this.state.modal.styles.box}>
          <div id="X" onClick={this.handleModal}>

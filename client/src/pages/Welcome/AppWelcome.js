@@ -7,13 +7,16 @@ import "./Welcome.css";
 //const later = "Health and Fitness!", "Children's Corner!", "Social and Staying Connected!",  "Professional!", "Home Improvements!","Self-Help and Mindfulness!", " Make a Custom Challenge!",]
 import SignIn from "../../components/Login/Login.SignIn.js";
 import logo from "../../images/nakedSprout2.png"
+import "./welcomeAnimation.js";
+
+
 
 class AppWelcome extends Component {
     
   constructor(props){
     super(props);
     this.state = {
-      show: true,
+      show: false,
       email: "",
       name: "",
       password: "",
@@ -66,7 +69,8 @@ class AppWelcome extends Component {
                 <br></br>
       <h1>Welcome to Sproso!</h1>
       <p>In today's isolated world, staying motivated can be a challenge. The Sproso App is here to make that happen. Here, you can challenge yourself in a myriad of ways, from staying social to simple positivity. Participate with other users to see your rank on our leaderboards or even create your own challenge for yourself or other users. Here at Sproso, we want you to feel connected. Sproso: connecting you by challenging you.</p>
-      <div className="imgDiv"><img src={logo} alt="virus" id="nakedSprout"/></div>
+      <div className="imgDiv"><img src={logo} alt="virus" id="nakedSprout" className="entrance"/><div className="moveArea"> <div class='eye'></div>
+      <div class='eye'></div></div></div>
       <p>Please log in to get started!</p>
       <br></br>
       <SignIn show={this.state.show} handleClose={this.handleClose} handleLogin={this.handleSignIn} handleSignup={this.handleSignup} name={this.state.name} password={this.state.password} email={this.state.email} doppel_me={this.state.doppel_me} handleChange={this.handleChange}/>

@@ -13,4 +13,34 @@
     cursor: pointer;
 }
 
+.trophyImage {
+    width: 40em;
+    filter: grayscale(100%);
+}
+
+.trophyImage:hover {
+  animation: trophyHover 3s;
+  /* transition: width 10s; */
+  /* width: 200px; */
+}
+
+.trophyFrame {
+    width: 45em;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: white;
+    transition: width 42em 3s;
+    animation: trophyFrameHover 4s
+}
+
+@keyframes trophyHover {
+    0% {filter: grayscale(100%);}
+    50% {filter: grayscale(75%);}
+    100% {filter: grayscale(50%);}
+}
+
+@keyframes tophyFrameHover {
+    0% {border-radius: 0px;}
+    50% {border-radius: }
+}
 
