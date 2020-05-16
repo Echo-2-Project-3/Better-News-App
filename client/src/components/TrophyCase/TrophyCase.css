@@ -14,8 +14,10 @@
 }
 
 .trophyImage {
-    width: 40em;
+    width: 10em;/**you will have to creat a media query at specific breakpoints*/
     filter: grayscale(100%);
+   padding: auto;
+  
 }
 
 .trophyImage:hover {
@@ -25,7 +27,7 @@
 }
 
 .trophyFrame {
-    width: 45em;
+    width: 60em;
     border-style: ridge;
     border-width: 3px;
     border-color: white;
@@ -39,8 +41,17 @@
     100% {filter: grayscale(50%);}
 }
 
-@keyframes tophyFrameHover {
+@keyframes trophyFrameHover {
     0% {border-radius: 0px;}
-    50% {border-radius: }
+    50% {border-radius: 5px;}
 }
 
+@media screen and (max-width: 1200px) {
+  
+ }
+ @media screen and (max-width: 800px) {
+    
+ }
+ @media screen and (max-width: 750px) {
+   
+ }

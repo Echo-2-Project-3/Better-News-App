@@ -1,6 +1,6 @@
 .imgDiv {
   max-width: 100%;
-  height: auto;
+  height:auto;
   display: flex;
   justify-content: center;
 }
@@ -10,6 +10,16 @@
   width: 200;
   height: auto;
   z-index: 1;
+}
+
+.moveArea {
+  position: absolute;
+  z-index: 4;
+  width: 10vw;
+  height: 5vh;
+  padding: 10% 45%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .entrance {
@@ -71,7 +81,7 @@
   /* height: -30rem;
   width: 5rem; */
   left: 0rem;
-  bottom: 6rem;
+  bottom: 4rem;
   margin: 40px;
    /* background: white; 
   border: solid 1px black; */

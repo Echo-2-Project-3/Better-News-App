@@ -238,9 +238,7 @@ class ChallengePage extends Component {
 
 
         {(this.state.challenge) ?
-
-          <Container className="">
-
+          <>
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
                 <Button variant="info" size="lg" onClick={this.handleModal} block>
@@ -252,10 +250,10 @@ class ChallengePage extends Component {
             </Row>
             <Row>
             </Row>
-          </Container> : null
+          </> : null
         }
 
-        <Container id="leaderContainer" className="textureCardBorder">
+        <div id="leaderContainer" className="textureCardBorder">
           <Row>
             <Col>
               <MDBContainer className="columnCase textureCardBorder">
@@ -298,7 +296,7 @@ class ChallengePage extends Component {
               </MDBContainer>
             </Col>
           </Row>
-        </Container>
+        </div>
 
 
         <div id="post-modal" style={this.state.modal.styles.window}>

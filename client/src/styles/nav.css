@@ -47,7 +47,7 @@
       font-size:medium;
    }
    img{
-      max-width: 50px;
+      max-width: auto;
    }
 }
 @media screen and (max-width: 800px) {
@@ -60,7 +60,7 @@
       font-size:small;
    }
    img{
-      max-width: 25px;
+      max-width: auto;
    }
 }
 @media screen and (max-width: 750px) {
@@ -73,6 +73,6 @@
       font-size:x-small;
    }
    img{
-      max-width: 15px;
+      max-width: 28px;
    }
 }

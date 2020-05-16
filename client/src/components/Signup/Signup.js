@@ -88,7 +88,7 @@ export default class Signup extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="signUpModal">
       <div id="modal-window" style={this.state.modal.styles.window}>
         <div id="modal-box" style={this.state.modal.styles.box}> 
         <div id="X" onClick={this.handleModal}>
