@@ -58,12 +58,19 @@ module.exports = {
 
             let subscription = subs[0];
             db.sequelize.query(`select * from Challenges where id = ${challenge_id}`).spread((chal, md)=> {
+           
                 let challenge = chal[0]
-                let data ={
-                    subscription: subscription, 
-                    challenge: challenge
-                }
-                return res.json(data)
+                db.sequelize.query(`select * from Benchmarks where id=${challenge.BenchmarkId}`).spread((benchm, meta) => {
+                    let benchmarks = benchm[0];
+                    let data ={
+                        subscription: subscription, 
+                        benchmarks: benchmarks,
+                        challenge: challenge
+                    }
+                    return res.json(data)
+`   `
+                })
+                
             })
             
             // Results will be an empty array and metadata will contain the number of affected rows.

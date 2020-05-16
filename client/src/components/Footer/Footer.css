@@ -2,9 +2,8 @@ a,a:hover {
     color: whitesmoke
 
 }
-
 #footer{
-    height:100px;
+    height:60px;
     background-color: rgb(79, 245, 79);
     border-top: 5px solid yellow;
     width: 100%;

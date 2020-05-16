@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import trophy from '../../images/trophy.png';
-import './TrophyCase.css'
+import './TrophyCase.css';
+import bronze from "../../images/trophies/BronzeTrophy.png";
+import silver from "../../images/trophies/TrophySilver.png";
+import gold from "../../images/trophies/TrophyGold.png";
+import platinum from "../../images/trophies/platinumTrophy.png";
+import virus from "../../images/virus.jpg";
 
 // let success = //mysql element regarding success of a challenge;
 
@@ -16,27 +21,31 @@ const resetStyles = {
   form: {}
 }
 
+
+
 function Trophy (props) {
+
   return (
-    <div className="container">
-           <div className="row">
-             <div id="bronze" className="col-md-3 trophyFrame" onClick={props.handleModal}>
-                <img src={trophy} className="trophyImage"/>
+    <div className="trophyCase">
+           <div className="row trophyRow">
+             <div id="bronze" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
+                { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.bronze) && <img src={bronze} className="trophyImage"/>}
                 {/* <button onClick={props.handleModal}>Click me to know more</button> */}
              </div>
-             <div id="silver" className="col-md-3" onClick={props.handleModal}>
-                <img src={trophy} width= "40em" style={{filter: 'grayscale(100%)'}} />
+             <div id="silver" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
+                <img src={silver}  className="trophyImage" />
              </div>
-             <div id="gold" className="col-md-3" onClick={props.handleModal}>
-                <img src={trophy} width= "40em"
-                style={{filter: 'grayscale(100%)'}}/>
+             <div id="gold" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
+                <img src={gold} 
+                className="trophyImage"/>
              </div>
-             <div id="platinum" className="col-md-3" onClick={props.handleModal}>
-                <img src={trophy} width= "40em"
-                style={{filter: 'grayscale(100%)'}}/>
+                        <div id="platinum" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
+                <img src={platinum}
+               className="trophyImage"/>
              </div>
              </div>
          </div>
+         
   )
 }
 
@@ -45,7 +54,8 @@ class TrophyCase extends React.Component {
       super(props);
       this.state = {
         modal: {
-          styles: resetStyles
+          styles: resetStyles,
+      
         }
       }
     }
@@ -72,7 +82,7 @@ class TrophyCase extends React.Component {
     render() {
 
   return (
-    <div>
+    <>
        {/*this.state.trophyCase*/}
        <Trophy {...this.props} {...this.state} handleModal={this.handleModal}/>
        
@@ -86,7 +96,7 @@ class TrophyCase extends React.Component {
            </div>
          </div>
        </div>
-    </div>
+    </>
   )
 
 }

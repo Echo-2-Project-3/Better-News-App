@@ -77,11 +77,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <Router>
           <AuthenticateRoutes {...this.state} handleLogin={this.handleLogin} logoutUser={this.logoutUser} handleSignup={this.handleSignup} />
-          <Footer />
+         
         </Router>
+        <Footer />
       </div>
     )
   }

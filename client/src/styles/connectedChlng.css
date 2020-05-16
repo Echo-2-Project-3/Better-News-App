@@ -29,14 +29,14 @@
   }
 
 
-  .columns4boards {
+  /* .columns4boards { */
 
     /*justify-content: auto;*/
      /* width: 40%;
      margin: 10px;
      padding: 10px; */
 
-  }
+  /* } */
 
   .columnLeaders {
     /* display: flex; */
@@ -54,7 +54,7 @@
 .columnPosts {
   /* display: flex; */
   background-image: url("../images/tryMe/leather_1.png");
-  margin: 1em;
+  margin-top: 1em;
   padding: 5px;
   border-radius: 8px;
   border-style: ridge;
@@ -71,7 +71,7 @@
     /* border: solid 5px rgb(79, 245, 79); */
     padding: 10px;
     background-image: url("../images/tryMe/white_carbonfiber_@2X.png");
-    margin: 1em;
+    /* margin: 1em; */
     padding: 5px;
     border-radius: 8px;
     border-style: ridge;

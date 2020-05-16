@@ -13,10 +13,16 @@
     cursor: pointer;
 }
 
+
+
 .trophyImage {
-    width: 40em;
+   height: 90%;/**you will have to create a media query at specific breakpoints*/
     filter: grayscale(100%);
-}
+   padding: auto; 
+   justify-content: space-evenly;
+   vertical-align: sub;
+   /* word-spacing: auto; */
+ }
 
 .trophyImage:hover {
   animation: trophyHover 3s;
@@ -25,22 +31,37 @@
 }
 
 .trophyFrame {
-    width: 45em;
+    width: 5em;
+    height: 5rem;
     border-style: ridge;
     border-width: 3px;
+    padding: auto;    
     border-color: white;
     transition: width 42em 3s;
-    animation: trophyFrameHover 4s
+    animation: trophyFrameHover 4s;
+    justify-content: space-evenly;
 }
 
 @keyframes trophyHover {
     0% {filter: grayscale(100%);}
-    50% {filter: grayscale(75%);}
-    100% {filter: grayscale(50%);}
+    50% {filter: grayscale(50%);}
+    100% {filter: grayscale(100%);}
 }
 
-@keyframes tophyFrameHover {
+@keyframes trophyFrameHover {
     0% {border-radius: 0px;}
-    50% {border-radius: }
+    50% {border-radius: 5px;}
 }
 
+@media screen and (max-width: 1200px) {
+  
+ }
+ @media screen and (max-width: 800px) {
+    
+ }
+ @media screen and (max-width: 750px) {
+   
+ }
+
+
+ 

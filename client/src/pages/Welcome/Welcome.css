@@ -1,15 +1,29 @@
 .imgDiv {
   max-width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
+  height:auto;
+  position: relative;
 }
 
-#nakedSprout {
+/* #nakedSprout {
   
-  width: 200;
+  width: 17vw;
   height: auto;
   z-index: 1;
+} */
+
+.moveArea {
+
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* width: 17vw; */
+  z-index: 4;
+  
+  /* height: fit-content; */
+  padding: 10% 45%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .entrance {
@@ -53,7 +67,7 @@
   }
 }
 
-.moveArea {
+/* .moveArea {
   position: absolute;
   z-index: 4;
   width: 10vw;
@@ -61,7 +75,7 @@
   padding: 10% 45%;
   display: flex;
   justify-content: space-evenly;
-}
+} */
 
 .eye {
   position: relative;
@@ -71,8 +85,9 @@
   /* height: -30rem;
   width: 5rem; */
   left: 0rem;
-  bottom: 6rem;
-  margin: 40px;
+  bottom: 3rem;
+  /* margin: 1rem; */
+  margin-top: 1rem;
    /* background: white; 
   border: solid 1px black; */
   animation-name: eyeDropIn;
@@ -99,10 +114,11 @@
   /*pupil*/
   z-index: 4;
   position: absolute;
-  /* bottom: 5px;
-  right: 5px; */
-  width: 10px;
-  height: 10px;
+ bottom: 5px;
+  /* right: 5px; */ 
+  width: .5rem;
+  
+  height: .5rem;
   background: black;
   border-radius: 50%;
   content: " ";

@@ -1,6 +1,7 @@
 .textureCardBorder {
-    margin: auto;
+    /* margin: auto; */
     /* padding: auto; */
+    width: 100%;
     border-radius: 8px;
     border-style: ridge;
     border-color: rgb(170, 170, 170);
@@ -9,6 +10,10 @@
     animation-name: lightShift;
     animation-duration: 20s;
     animation-iteration-count: infinite;
+}
+
+.trophyRow {
+    height: fit-content;
 }
 
 .textureCard {
