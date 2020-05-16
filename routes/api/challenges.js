@@ -11,6 +11,9 @@ router.route("/") // https://ipadress:3000/api/challenge/
     //.get(challenge.findOne)
     .post(challenge.create);
 
+router.route("/names")
+    .get(challenge.getChallengeNames)
+
 router.route("/:challenge_name")
   .get(challenge.findByName)
 
@@ -20,6 +23,10 @@ router.route("/subscribe-to/:challenge_id/user/:user_id") // we can use a query 
 
 router.route("/users/:challenge_id")
   .get(challenge.findAllUsersByChallengeID)
+
+
+
+  
 
 
 
