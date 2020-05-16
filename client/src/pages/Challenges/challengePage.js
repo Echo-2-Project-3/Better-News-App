@@ -16,7 +16,7 @@ import "../../styles/connectedChlng.css";
 import "../../styles/textureCardBorder.css";
 // import {menu} from "./challengesPage";
 const modalStyles = {
-  window: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover', backdropFilter: 'blur(10px)', transitionDuration: '2s', transitionProperty: 'backdrop-filter '},
+  window: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(100,100,100,.5)', zIndex: 200, backgroundSize: 'cover', backdropFilter: 'blur(10px)', transitionDuration: '2s', transitionProperty: 'backdrop-filter ' },
   box: { color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate( -50%, -50%)', background: 'rgba(0,0,0,.4)', transitionDuration: '5s', transitionProperty: 'background', padding: '1em', borderRadius: '1em', display: 'block', filter: 'none' },
   form: { display: 'block', width: '30em' },
 };
@@ -104,10 +104,14 @@ class ChallengePage extends Component {
 
   handlePost = () => {
     console.log("Sending post: ", this.state.post);
+
+    let percent = Math.round(this.state.challenge.point / this.state.theChallenge.total * 100);
+    console.log("percen", percent);
     let post = {
       UserId: this.props.user.id,
       ChallengeId: this.state.challenge.ChallengeId,
-      content: this.state.post
+      content: this.state.post,
+      percent: percent
     }
     axios.post("/api/posts", post)
       .then(res => {
@@ -146,7 +150,7 @@ class ChallengePage extends Component {
     let challengeId = window.location.pathname.split("/")[2];
     axios.post(`/api/challenges/subscribe-to/${challengeId}/user/${this.props.user.id}`)
       .then((res) => {
-        console.log("SUBWCRIBED:", res);
+        console.log("SUBSCRIBED:", res);
         let challengeId = window.location.pathname.split("/")[2];
         this.getChallenge(challengeId);
 
@@ -209,9 +213,11 @@ class ChallengePage extends Component {
     console.log("my props", this.props);
     const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
     return (
-      <div id="ChallengePage" >
+      <div id="ChallengePage">
         <br></br>
-        <h6 class="textureCard">Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h6>
+        <div className="row justify-content-md-center" id="challengeHeader">
+          <h4 className="textureCard">Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}.</h4>
+        </div>
 
         {this.props.info}
 
@@ -234,6 +240,7 @@ class ChallengePage extends Component {
         {(this.state.challenge) ?
 
           <Container className="">
+
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
                 <Button variant="info" size="lg" onClick={this.handleModal} block>
@@ -247,40 +254,50 @@ class ChallengePage extends Component {
             </Row>
           </Container> : null
         }
-        <Container className="columns4boards" id="leaderContainer" class="textureCardBorder">
-          <MDBContainer className="columnLeaders">
-            <div className="leaderboard"><LeaderBoards rows={this.state.leaderUsers} /></div>
-          </MDBContainer>
 
-          <MDBContainer className="columnPosts" class="textureCardBorder">
+        <Container id="leaderContainer" className="textureCardBorder">
+          <Row>
+            <Col>
+              <MDBContainer className="columnCase textureCardBorder">
+                <div className="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
+              </MDBContainer>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6}>
+              <MDBContainer className="columnLeaders">
+                <div className="leaderboard"><LeaderBoards rows={this.state.leaderUsers} /></div>
+              </MDBContainer>
+            </Col>
+
 
             {/* post stuff here */}
-            <MDBScrollbar className="scrollbar  mt-3 mx-auto scrollbar-primary" style={scrollContainerStyle}>
-              <Row>
-                <Col md={{ span: 3, offset: 3 }}>
-                  <div>
-                    <h2>Previous Posts</h2>
-                  </div>
-                  {
-                    this.state.posts.map(post => {
-                      return (
-                        <div><hr></hr>
-                          <h5>
-                            {post.content}
-                          </h5>
-                          <p><p style={{ textAlign: 'right' }}>-{(new Date(post.createdAt)).toDateString()}</p></p><hr></hr>
-                        </div>
-                      )
-                    })
-                  }
-                </Col>
-              </Row>
-            </MDBScrollbar>
-          </MDBContainer>
-
-          <MDBContainer className="columnCase" class="textureCardBorder">
-            <div className="trophycase"><TrophyCase challengeCompleted={this.state.challengeCompleted} /></div>
-          </MDBContainer>
+            <Col md={6}>
+              <MDBContainer className="columnPosts textureCardBorder">
+                <MDBScrollbar className="scrollbar  mt-3 mx-auto scrollbar-primary" style={scrollContainerStyle}>
+                  <Row>
+                    <Col sm="2" md={{ span: 3, offset: 3 }}>
+                      <div>
+                        <h2>Previous Posts</h2>
+                      </div>
+                      {
+                        this.state.posts.map(post => {
+                          return (
+                            <div><hr></hr>
+                              <h5>
+                                {post.content}
+                              </h5>
+                              <p><p style={{ textAlign: 'right' }}>-{(new Date(post.createdAt)).toDateString()}</p></p><hr></hr>
+                            </div>
+                          )
+                        })
+                      }
+                    </Col>
+                  </Row>
+                </MDBScrollbar>
+              </MDBContainer>
+            </Col>
+          </Row>
         </Container>
 
 
@@ -310,10 +327,10 @@ class ChallengePage extends Component {
       </div>
 
       //         </InputGroup >
-              
-            
+
+
       //       </div >
-            
+
       //     </div >
       //   </div >
 

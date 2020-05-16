@@ -1,91 +1,131 @@
-import React from "react";
+import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "../../styles/login.css";
 
-function SignIn(props) {
+class SignIn extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={ 
+      signin: true
+    }
+  }
   //    const [email, setEmail] = useState("");
   //    const [password, setPassword] = useState("");
-  console.log("PROPS IN SIGN IN", props);
-  return (
+  componentDidMount() {
+    console.log(this.props)
+  }
 
-    <div className="Login">
-      <Modal show={props.show} >
-        <Modal.Header closeButton onClick={props.handleClose}>
-          <Modal.Title className="title">
-            Please sign in to begin!
+  handleSignInCreate = () => {
+    this.setState({
+      signin: !this.state.signin
+    })
+  }
+  render() {
+
+
+    return (
+
+      <div className="Login">
+        <Modal show={this.props.show} >
+          <Modal.Header closeButton onClick={this.props.handleClose}>
+            <Modal.Title className="title">
+              Please sign in to begin!
             </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form>
-            <Form.Group controlId="name">
-              <FormLabel className="mandatory">
-                Name
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <Form.Group controlId="name">
+                <FormLabel className="mandatory">
+                  Name
                   <FormControl
-                  autoFocus
-                  value={props.name}
-                  type="text"
-                  name="name"
-                  onChange={props.handleChange}
-                />
-              </FormLabel>
-            </Form.Group>
-            <FormGroup controlId="email">
-              <FormLabel className="mandatory">
-                Email:
+                    autoFocus
+                    value={this.props.name}
+                    type="text"
+                    name="name"
+                    onChange={this.props.handleChange}
+                  />
+                </FormLabel>
+              </Form.Group>
+              <FormGroup controlId="email">
+                <FormLabel className="mandatory">
+                  Email:
                   <FormControl
-                  autoFocus
-                  name="email"
-                  type="email"
-                  value={props.email}
-                  onChange={props.handleChange}
-                />
-              </FormLabel>
-            </FormGroup>
-            <Form.Group controlId="doppelme">
-              <FormLabel>
-                Doppel Me Key
-                <p className="justanote">Personalize your own avatar at DoppelMe.com to get your unique "Doppel Me" key at <a href="https://www.doppelme.com/">here.</a></p>
+                    autoFocus
+                    name="email"
+                    type="email"
+                    value={this.props.email}
+                    onChange={this.props.handleChange}
+                  />
+                </FormLabel>
+              </FormGroup>
+              <Form.Group controlId="doppelme">
+                <FormLabel>
+                  Doppel Me Key
+                <p className="justanote">Personalize your own avatar at DoppelMe.com to get your unique "Doppel Me" key <a href="https://www.doppelme.com/" target="_blank" id="doppelLink">here.</a></p>
                   <FormControl
-                  autoFocus
-                  value={props.dopple_me}
-                  type="text"
-                  name="name"
-                  onChange={props.handleChange}
-                />
-              </FormLabel>
-              
-            </Form.Group>
-            <FormGroup controlId="password">
-              <FormLabel className="mandatory">
-                Password:
+                    autoFocus
+                    value={this.props.doppel_me}
+                    type="text"
+                    name="doppel_me"
+                    onChange={this.props.handleChange}
+                  />
+                </FormLabel>
+
+              </Form.Group>
+              <FormGroup controlId="password">
+                <FormLabel className="mandatory">
+                  Password:
                   <FormControl
-                  autoFocus
-                  name="password"
-                  type="password"
-                  value={props.password}
-                  onChange={props.handleChange}
-                />
-              </FormLabel>
-            </FormGroup>
-            <hr />
-            <Button
-              variant="info"
-              onClick={props.handleLogin}
-              block
-            >
-              Sign In
+                    autoFocus
+                    name="password"
+                    type="password"
+                    value={this.props.password}
+                    onChange={this.props.handleChange}
+                  />
+                </FormLabel>
+              </FormGroup>
+              <hr />
+              <div className="text-center">
+              {
+                (this.state.signin) &&<div> <Button
+                variant="info"
+                onClick={this.props.handleLogin}
+                  block
+                >
+                  Sign In
               </Button>
-          </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="info" onClick={props.handleClose}>
-            Close
+              <div>
+                <span onClick={this.handleSignInCreate}>Need to create an account</span>
+              </div>
+              </div>
+              }
+              {
+                (!this.state.signin) && <div><Button
+                  variant="info"
+                  onClick={this.props.handleSignup}
+                  block
+                >
+                  Create Account
               </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
+              <div>
+                <span onClick={this.handleSignInCreate}>Already have an account?</span>
+              </div>
+              </div>
+              }
+              </div>
+            </form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="info" onClick={this.props.handleClose}>
+              Close
+              </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
+
+  }
 
 }
 

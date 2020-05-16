@@ -9,7 +9,7 @@ body {
 #leaderContainer {
   background-image: url("../../images/tryMe/subtle_orange_emboss.png");
   box-shadow: 3px 3px 10px black;
-color: yellow;
+color:darkgreen;
 }
 
 
@@ -141,6 +141,6 @@ color: yellow;
 
 .leaderboard {
   width: 100%;
-  display:flex;
+  /* display:flex; */
   
 }

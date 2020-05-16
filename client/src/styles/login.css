@@ -3,7 +3,12 @@
 }
 
 .justanote {
-    font-size: xx-small;
+    font-size: x-small;
+    color: blue;
+}
+
+#doppelLink {
+    color: rgb(255, 0, 0);
 }
 
 .title {

@@ -48,7 +48,7 @@ module.exports = {
           }
         })
           .then(user => {
-            user.addChallenge(challenge, { through: { "point": 0, "trophy": 0, "percent_completed": 50 } })
+            user.addChallenge(challenge, { through: { "point": 0, "trophy": 0, "percent_completed": 0 } })
             res.send(user);
           })
       })
@@ -67,7 +67,7 @@ module.exports = {
           through:
           {
             where: {
-              "percent_completed" : { $lt: 100}
+              "percent_completed": { $lt: 100 }
             }
           }
         })
@@ -75,57 +75,72 @@ module.exports = {
             // cleaned subscribed
             let subscribed = [];
             let filtered = [];
-            for (let i = 0; i< subscribed_not_completed.length; i++) {
+            for (let i = 0; i < subscribed_not_completed.length; i++) {
               let uncompleted_challenge = subscribed_not_completed[i];
-              let {id, name, total, info, trophy, createdAt, updatedAt} = uncompleted_challenge;
-              let ch = {id, name, total, info, trophy, createdAt, updatedAt};
+              let { id, name, total, info, trophy, createdAt, updatedAt } = uncompleted_challenge;
+              let ch = { id, name, total, info, trophy, createdAt, updatedAt };
               filtered.push(id);
               subscribed.push(ch)
             }
-            
+
 
             user.getChallenges({
               through:
               {
                 where: {
-                  "percent_completed" : 100
+                  "percent_completed": 100
                 }
               }
             }).then(subscribed_completed => {
 
               let completed = [];
-              for (let i = 0; i< subscribed_completed.length; i++) {
+              for (let i = 0; i < subscribed_completed.length; i++) {
                 let completed_challenge = subscribed_completed[i];
-                let {id, name, total, info, trophy, createdAt, updatedAt} = completed_challenge;
-                let comp_ch = {id, name, total, info, trophy, createdAt, updatedAt};
+                let { id, name, total, info, trophy, createdAt, updatedAt } = completed_challenge;
+                let comp_ch = { id, name, total, info, trophy, createdAt, updatedAt };
                 filtered.push(id);
                 completed.push(comp_ch)
               }
-             
+
 
               db.Challenge.findAll({
                 where: {
-                  id: {$notIn: filtered}
+                  id: { $notIn: filtered }
                 }
               })
-              .then(unsubscribed => {
-                 let data = {subscribed, completed, unsubscribed}
-                 
-                 return res.json(data);
-                 
-              })
-              
-            })
+                .then(unsubscribed => {
+                  let data = { subscribed, completed, unsubscribed }
+
+                  return res.json(data);
+
+                });
+
+            });
 
 
-            
-          })
+
+          });
 
         // db.Challenges.find({
         //   where: {
         //     ChallengeId: {$notIn: []}
         //   }
         // })
-      })
+      });
+
+
+  },
+  getChallengeNames: function (request, response) {
+    console.log("I am here");
+    db.Challenge.findAll({
+      attributes: ["name"]
+    })
+    .then(challengeNames => {
+      response.json(challengeNames)
+    })
+    .catch(err => {
+      response.status(404).json(err)
+    })
+
   }
 };
