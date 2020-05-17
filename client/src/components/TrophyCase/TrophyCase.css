@@ -77,8 +77,8 @@
  .shimmer1 {
     position: absolute;
     z-index: 5;
-      top: .5rem;
-      left: 4rem;
+      top: 10%;
+      left: 42%;
       height: 30%;
       width: 30%;
       opacity: 0;
@@ -100,4 +100,89 @@
     transform: rotate(-40deg)}
     48% {opacity: 0}
     100% {opacity: 0}
+ }
+
+ .shimmer2 {
+     z-index: 5;
+     position: absolute;
+     top: 20%;
+     left: 28%;
+     height: 40%;
+     width: 40%;
+     animation-name: shimmer2;
+     animation-delay: 2s;
+     animation-duration: 4s;
+     animation-timing-function: ease-in-out;
+     animation-iteration-count: infinite;
+ }
+
+ @keyframes shimmer2 {
+    0% {opacity: 0;
+       transform:rotate(25deg);}
+   20% {opacity: .5;
+   transform:rotate(5deg);}
+   40% {opacity: .2;
+   transform: rotate(180);}
+   60% {opacity: 1; 
+   transform: rotate(-40deg)}
+   80% {opacity: 0}
+   100% {opacity: 0}
+}
+
+.shimmer3 {
+    z-index: 5;
+    position: absolute;
+    top: 25%;
+    left: 22%;
+    height: 80%;
+    width: 60%;
+    animation-name: shimmer1;
+    animation-delay: 2s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.shimmer4 {
+    z-index: 5;
+    position: absolute;
+    top: -27%;
+    left: 17%;
+    height: 80%;
+    width: 60%;
+    animation-name: shimmer1;
+    animation-delay: 2s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.shimmer5 {
+    z-index: 5;
+    position: absolute;
+    top: 0%;
+    left: 16%;
+    height: 80%;
+    width: 60%;
+    opacity: 0;
+    animation-name: shimmer2;
+    animation-delay: 2s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.shimmer6 {
+    position: absolute;
+    z-index: 5;
+      top: 12%;
+      left: 39%;
+      height: 30%;
+      width: 30%;
+      opacity: 0;
+      border-radius: 50px;
+      animation-name: shimmer1;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
  }

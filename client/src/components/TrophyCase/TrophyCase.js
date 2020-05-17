@@ -7,7 +7,8 @@ import silver from "../../images/trophies/TrophySilver.png";
 import gold from "../../images/trophies/TrophyGold.png";
 import platinum from "../../images/trophies/platinumTrophy.png";
 // import virus from "../../images/virus.jpg";
-import shimmer1 from "./shimmer1.png"
+import shimmer1 from "./shimmer1.png";
+import shimmer2 from "./shimmer2.png";
 
 // let success = //mysql element regarding success of a challenge;
 
@@ -34,13 +35,13 @@ function Trophy (props) {
                 {/* <button onClick={props.handleModal}>Click me to know more</button> */}
                 
              </div>
-             <div id="silver" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
+             <div id="silver" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}><img src={shimmer2} className="shimmer2"/>
              { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.silver) && <img src={silver} className="trophyImage"/>}
              </div>
-             <div id="gold" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
+             <div id="gold" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}><img src={shimmer2} className="shimmer3"/>
              { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.gold) && <img src={gold} className="trophyImage"/>}
              </div>
-              <div id="platinum" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
+              <div id="platinum" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}><img src={shimmer2} className="shimmer4"/><img src={shimmer2} className="shimmer5"/><img src={shimmer1} className="shimmer6"/>
                         { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.platinum) && <img src={platinum} className="trophyImage"/>}
              </div>
              </div>
