@@ -105,10 +105,10 @@
  .shimmer2 {
      z-index: 5;
      position: absolute;
-     top: 20%;
-     left: 28%;
-     height: 40%;
-     width: 40%;
+     top: 0%;
+     left: 8%;
+     height: 80%;
+     width: 80%;
      animation-name: shimmer2;
      animation-delay: 2s;
      animation-duration: 4s;
@@ -137,7 +137,7 @@
     height: 80%;
     width: 60%;
     animation-name: shimmer1;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
