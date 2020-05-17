@@ -13,4 +13,18 @@
     cursor: pointer;
 }
 
+.posts {
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
 
+}
+
+div.avatarDivForPosts {
+ height: 20px;
+}
+
+/* #avatarForPosts {
+    height: 100%;
+   
+} */

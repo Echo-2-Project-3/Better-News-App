@@ -19,9 +19,8 @@
   background-size: contain;
   /* width: 17vw; */
   z-index: 4;
-  
   /* height: fit-content; */
-  padding: 10% 45%;
+  padding: 15% 45%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -87,7 +86,9 @@
   left: 0rem;
   bottom: 3rem;
   /* margin: 1rem; */
-  margin-top: 1rem;
+  vertical-align: middle;
+  margin: .5rem;
+  /* margin-top: 2rem 1rem 2rem 0rem; */
    /* background: white; 
   border: solid 1px black; */
   animation-name: eyeDropIn;
@@ -114,13 +115,14 @@
   /*pupil*/
   z-index: 4;
   position: absolute;
- bottom: 5px;
+  bottom: 5px;
   /* right: 5px; */ 
   width: .5rem;
   
   height: .5rem;
   background: black;
   border-radius: 50%;
+  /* margin: .5rem; */
   content: " ";
   animation-name: eyeDropIn;
   animation-delay: 0;
