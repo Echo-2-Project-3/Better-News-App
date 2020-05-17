@@ -17,18 +17,18 @@
 
 .trophyImage {
    height: 90%;/**you will have to create a media query at specific breakpoints*/
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
    padding: auto; 
    justify-content: space-evenly;
    vertical-align: sub;
    /* word-spacing: auto; */
  }
 
-.trophyImage:hover {
+/* .trophyImage:hover {
   animation: trophyHover 3s;
-  /* transition: width 10s; */
-  /* width: 200px; */
-}
+  transition: width 10s;
+  width: 200px;
+} */
 
 .trophyFrame {
     /* width: 5.5em; */
@@ -39,8 +39,12 @@
     padding: auto;    
     border-color: rgb(223, 163, 45);
     transition: width 42em 3s;
-    animation: trophyFrameHover 4s;
     justify-content: space-evenly;
+}
+
+.trophyFrame:hover {
+    animation-name: trophyFrameHover;
+    animation-duration: 4s;
 }
 
 @keyframes trophyHover {
@@ -50,8 +54,9 @@
 }
 
 @keyframes trophyFrameHover {
-    0% {border-radius: 0px;}
-    50% {border-radius: 5px;}
+    0% {border-radius: 0px; box-shadow: 0px 0px 0px rgba(255, 255, 255, 0); border-color: rgb(223, 163, 45);}
+    50% {border-radius: 5px; box-shadow: -5px -5px 70px rgb(251, 255, 2); border-color: rgb(255, 102, 0);}
+    100% {border-radius: 0px; box-shadow: 0px 0px 0px rgba(255, 255, 255, 0); border-color: rgb(223, 163, 45);}
 }
 
 @media screen and (max-width: 1200px) {
