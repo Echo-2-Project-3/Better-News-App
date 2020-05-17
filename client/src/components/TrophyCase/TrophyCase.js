@@ -29,10 +29,10 @@ function Trophy (props) {
   return (
     <div className="trophyCase">
            <div className="row">
-             <div id="bronze" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
-                { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.bronze) && <img src={bronze} className="trophyImage"/>}
+             <div id="bronze" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}><img src={shimmer1} className="shimmer1"/>
+                { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.bronze) && (<img src={bronze} className="trophyImage"/>)}
                 {/* <button onClick={props.handleModal}>Click me to know more</button> */}
-                <span className="glimmer1" ><img src="shimmer" alt="shimmering"/></span>
+                
              </div>
              <div id="silver" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
              { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.silver) && <img src={silver} className="trophyImage"/>}
