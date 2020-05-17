@@ -2,6 +2,7 @@
   max-width: 100%;
   height:auto;
   position: relative;
+  z-index: 1;
 }
 
 /* #nakedSprout {
@@ -132,8 +133,50 @@
 @keyframes eyeDropIn {
     0% {
       left: 0px;
-      top: 200px;
+      top: -850;
       transform: translate3d(0px, -850px, 0px);
     
   }    
   }
+
+.sproutBeat {
+  position: absolute;
+  z-index: 0;
+  top: 40%;
+  left: 44%;
+  height: 40%;
+  width: 13%;
+  opacity: 0;
+  animation-name: sproutBeat;
+  animation-duration: 1.5s;
+  animation-delay: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sproutBeat {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: .5;
+  }
+  13% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: .8;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

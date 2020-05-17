@@ -8,6 +8,7 @@ import { Container, Button } from "react-bootstrap";
 //const later = "Health and Fitness!", "Children's Corner!", "Social and Staying Connected!",  "Professional!", "Home Improvements!","Self-Help and Mindfulness!", " Make a Custom Challenge!",]
 import SignIn from "../../components/Login/Login.SignIn.js";
 import logo from "../../images/nakedSprout2.png";
+import sproutBeat from "./sproutBeat.png";
 // import "./welcomeAnimation.js";
 
 import $ from "jquery";
@@ -101,7 +102,7 @@ class AppWelcome extends Component {
           connecting you by challenging you.
         </p>
         <Container>
-          <div className="imgDiv">
+          <div className="imgDiv"><div><img src={sproutBeat} alt="sprout beat" id="sproutBeat" className="sproutBeat"/></div>
             {/* <img src={logo} alt="Sproutling" id="nakedSprout" className="entrance"/> */}
             <div
               id="ma"
@@ -111,6 +112,7 @@ class AppWelcome extends Component {
               <div className="eye" type="text"></div>
               <div className="eye" type="text"></div>
             </div>
+            
           </div>
         </Container>
 
