@@ -13,11 +13,13 @@
 
 .scrollbar {
     overflow: scroll;
+    min-height: 100%;
   }
   
   .scrollbar::-webkit-scrollbar {
     /* width: 6px; */
     height: 6px;
+    
   }
   
   .scrollbar::-webkit-scrollbar-thumb {
@@ -29,18 +31,18 @@
   }
 
 
-  .columns4boards {
-      display: flex;
-      justify-content: auto;
-     width: 40%;
-     margin: 10px;
-     padding: 10px;
+  /* .columns4boards { */
 
-  }
+    /*justify-content: auto;*/
+     /* width: 40%;
+     margin: 10px;
+     padding: 10px; */
+
+  /* } */
 
   .columnLeaders {
-    display: flex;
-    justify-content: flex-start;
+    /* display: flex; */
+    /* justify-content: flex-start; */
     object-fit: fill;
     margin: 1em;
     padding: 5px;
@@ -52,26 +54,26 @@
   }
 
 .columnPosts {
-  display: flex;
+  /* display: flex; */
   background-image: url("../images/tryMe/leather_1.png");
-  margin: 1em;
+  margin-top: 1em;
   padding: 5px;
   border-radius: 8px;
   border-style: ridge;
   border-color: rgb(170, 170, 170);
   border-width: 4px;
   box-shadow: 3px 3px 5px black;
-  
+  height: 94.5%;
 }
 
   .columnCase {
-    display: flex;
+    /* display: flex; */
     width: 20%;
     object-fit: contain;
     /* border: solid 5px rgb(79, 245, 79); */
     padding: 10px;
     background-image: url("../images/tryMe/white_carbonfiber_@2X.png");
-    margin: 1em;
+    /* margin: 1em; */
     padding: 5px;
     border-radius: 8px;
     border-style: ridge;
@@ -79,3 +81,8 @@
     border-width: 4px;
     box-shadow: 3px 3px 5px black;
   }
+
+/* #challengeHeader {
+  padding: 3em;
+
+} */

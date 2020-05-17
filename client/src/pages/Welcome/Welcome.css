@@ -1,0 +1,182 @@
+.imgDiv {
+  max-width: 100%;
+  height:auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* #nakedSprout {
+  
+  width: 17vw;
+  height: auto;
+  z-index: 1;
+} */
+
+.moveArea {
+
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* width: 17vw; */
+  z-index: 4;
+  /* height: fit-content; */
+  padding: 15% 45%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.entrance {
+  animation-name: dropIn;
+  animation-duration: 1s;
+}
+
+@keyframes dropIn {
+  0% {
+    left: 0px;
+    top: 200px;
+    transform: translate3d(0px, -850px, 0px);
+  }
+  40% {
+    left: 0px;
+    top: 200px;
+    transform: translate3d(0px, -850px, 0px);
+  }
+  50% {
+    transform: translate3d(0px, 100px, 0px);
+  }
+  89% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(10deg);
+  }
+  91% {
+    transform: rotate(-10deg);
+  }
+  92% {
+    transform: rotate(10deg);
+  }
+  93% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    /* left: 0px;
+      top: 3px; 
+      transform: translate3d(0px, 100px, 0px); */
+  }
+}
+
+/* .moveArea {
+  position: absolute;
+  z-index: 4;
+  width: 10vw;
+  height: 5vh;
+  padding: 10% 45%;
+  display: flex;
+  justify-content: space-evenly;
+} */
+
+.eye {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  border-radius: 50%;
+  /* height: -30rem;
+  width: 5rem; */
+  left: 0rem;
+  bottom: 3rem;
+  /* margin: 1rem; */
+  vertical-align: middle;
+  margin: .5rem;
+  /* margin-top: 2rem 1rem 2rem 0rem; */
+   /* background: white; 
+  border: solid 1px black; */
+  animation-name: eyeDropIn;
+  animation-delay: .5s;
+  animation-duration: 1s;
+}
+
+/* .eye2 {
+  position: absolute;
+  z-index: 4;
+  display: inline-block;
+  border-radius: 50%;
+  /* height: -10rem;
+  width: 5rem; */
+  /* left: 41.5rem;
+  bottom: 13rem;
+  margin: 1px; */ 
+  /* background: white; */
+  /* border: solid 1px black; */
+
+
+
+.eye:after {
+  /*pupil*/
+  z-index: 4;
+  position: absolute;
+  bottom: 5px;
+  /* right: 5px; */ 
+  width: .5rem;
+  
+  height: .5rem;
+  background: black;
+  border-radius: 50%;
+  /* margin: .5rem; */
+  content: " ";
+  animation-name: eyeDropIn;
+  animation-delay: 0;
+  animation-duration: 2s;
+}
+
+@keyframes eyeDropIn {
+    0% {
+      left: 0px;
+      top: -850;
+      transform: translate3d(0px, -850px, 0px);
+    
+  }    
+  }
+
+.sproutBeat {
+  position: absolute;
+  z-index: 0;
+  top: 40%;
+  left: 44%;
+  height: 40%;
+  width: 13%;
+  opacity: 0;
+  animation-name: sproutBeat;
+  animation-duration: 1.5s;
+  animation-delay: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sproutBeat {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: .5;
+  }
+  13% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: .8;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

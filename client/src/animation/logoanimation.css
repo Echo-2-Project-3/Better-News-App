@@ -5,7 +5,7 @@
     animation-name: levitate;
     animation-duration: 4s;
     animation-iteration-count: infinite;
-    transition: ease-in-out
+    transition: alternate;
 }
 
 .air {
@@ -16,76 +16,47 @@
 
 .shadow {
  position: absolute;
-  left: 20px;  
-  height: 5px;
-  width: 20px;
-  /* display: flex; */
+  left: 24px;  
+  /* height: 5px;
+  width: 20px; */
+  display: flex;
   animation-name: shadow;
   animation-duration: 4s;
-
   /* justify-content: space-evenly; */
   background: rgb(75, 75, 75);
-  opacity:0.5;
+  opacity:0.3;
   border-radius: 50%;
   animation-iteration-count: infinite;
-  transition: ease-in-out
+  transition: transform alternate;
 
 }
 @keyframes shadow {
   0% {
-    width: 64px;
+    width: 50px;
     height: 4px;
   }
-  20% {
-    width: 66px;
+  50% {
+    width: 55px;
     height: 5px;
-  }
-  40% {
-    width: 68px;
-    height: 6px;
-  }
-  60% {
-    width: 66px;
-    height: 5px;
-  }
-  80% {
-    width: 64px;
-    height: 4px;
   }
   100% {
-    width: 62px;
-    height: 3px;
+    width: 50px;
+    height: 4px;
   }
 }
 
 @keyframes levitate {
     0% {
         /* left: 0px; */
-        top: 1px;
+        /* top: 0px; */
+        transform: translate3d(0px, -27px, 40px);
     }
-    20% {
-      
-        /* left: 0px; */
-        top: 2px;
-    }
-    40% {
-      
-        /* left: 0px; */
-        top: 3px;
-    }
-    60% {
-      
-        /* left: 0px; */
-        top: 2px;
-    }
-    80% {
-      
-        /* left: 0px; */
-        top: 1px;
+    50% {
+      transform: translate3d(0px, -20px, 0px);
     }
     100% {
-      
-        /* left: 0px; */
-        top: 0px;
+              /* left: 0px; */
+        /* top: 3px; */
+        transform: translate3d(0px, -27px, 0px);
     }
   }

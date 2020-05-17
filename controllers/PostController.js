@@ -1,5 +1,5 @@
 const db = require("../models");
-
+//import Avatar from ("../components/Avatar/Avatar.js")
 
 module.exports ={
 
@@ -24,13 +24,15 @@ module.exports ={
 
     create: function(request, response) {
         let post = request.body;
-        let {UserId, ChallengeId, content} = request.body
+        let {UserId, ChallengeId, content, percent} = request.body
         console.log({ChallengeId, content});
+
         db.Post.create(post)
         .then(post => {
             console.log("post is:", post)
             db.SubscribedTo.update({
-                point: db.sequelize.literal('point + 1')
+                point: db.sequelize.literal('point + 1'),
+                percent_completed: db.sequelize.literal(`percent_completed + ${percent}`)
             }, {
                 where: {
                 UserId: UserId, 

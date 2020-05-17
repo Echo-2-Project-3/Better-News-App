@@ -2,8 +2,8 @@ import React , {Component} from "react";
 import MenuBtnComponent from "../../components/Buttons/menuButtons.js";
 import { Link } from "react-router-dom";
 import LeaderBoard from "../Leaderboard/Leaderboard.js";
-
-import '../Leaderboard/Leaderboard.css';
+// import "../../styles/userHome.css";
+// import '../Leaderboard/Leaderboard.css';
 import axios from "axios";
 
 // const menu = ["Optimism Challenge", "Social Challenge"];
@@ -38,25 +38,25 @@ class UserHome extends Component {
 
     return (
       <>
-        <div id="userHome">
-          <h1>Welcome, {captilizeFirst(this.props.user.name || "user")}.</h1>
-
-          <br />
-          <h3>Look at all the wonderful things you've accomplished together!</h3>
-          <br />
-          <div>
-            <Link to={"/challenges/"}>
-              <button>See the Challenges</button>
-            </Link>
+          <div id="userHome" className="justify-content-md-center">
+            <h1>Welcome, {captilizeFirst(this.props.user.name || "user")}.</h1>
+          
+            <br />
+            <h3>Look at all the wonderful things you've accomplished together!</h3>
+            <br />
+            <div>
+              <Link to={"/challenges/"}>
+                <button>See the Challenges</button>
+              </Link>
+            </div>
+            {/*<div className="leaderboard"><LeaderBoard /></div>*/}
           </div>
-          {/*<div className="leaderboard"><LeaderBoard /></div>*/}
-        </div>
 
         <div id="accomplishments">
         <div id="container">
           <div className="row justify-content-center">
           {this.state.completed.map((menuItem, index) => (
-            <div className="col-lg-2 col-md-3" id="newChallengesCol" class="textureCardBorder">
+            <div className="col-lg-2 col-md-3" id="completedChallengesCol" class="textureCardBorder">
               <h4 style={{}}>{menuItem.name}</h4>
 
              
