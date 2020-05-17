@@ -334,7 +334,7 @@ class ChallengePage extends Component {
             <Col md={6}>
               <MDBContainer className="columnPosts textureCardBorder">
                 <MDBScrollbar
-                  className="scrollbar  mt-3 mx-auto scrollbar-primary"
+                  className="scrollbar  mt-8 mx-auto scrollbar-info"
                   style={scrollContainerStyle}
                 >
                   <Row>
