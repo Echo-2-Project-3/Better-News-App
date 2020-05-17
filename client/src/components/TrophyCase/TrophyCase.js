@@ -27,21 +27,19 @@ function Trophy (props) {
 
   return (
     <div className="trophyCase">
-           <div className="row trophyRow">
-             <div id="bronze" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
+           <div className="row">
+             <div id="bronze" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
                 { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.bronze) && <img src={bronze} className="trophyImage"/>}
                 {/* <button onClick={props.handleModal}>Click me to know more</button> */}
              </div>
-             <div id="silver" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
-                <img src={silver}  className="trophyImage" />
+             <div id="silver" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
+             { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.silver) && <img src={silver} className="trophyImage"/>}
              </div>
-             <div id="gold" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
-                <img src={gold} 
-                className="trophyImage"/>
+             <div id="gold" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
+             { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.gold) && <img src={gold} className="trophyImage"/>}
              </div>
-                        <div id="platinum" className="col-md-3 col-lg-3 trophyFrame" onClick={props.handleModal}>
-                <img src={platinum}
-               className="trophyImage"/>
+              <div id="platinum" className="col-md-2 col-lg-2 trophyFrame" onClick={props.handleModal}>
+                        { (props.challenge.benchmarks && props.subscription.percent_completed >= props.challenge.benchmarks.platinum) && <img src={platinum} className="trophyImage"/>}
              </div>
              </div>
          </div>

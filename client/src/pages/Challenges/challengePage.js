@@ -234,11 +234,11 @@ class ChallengePage extends Component {
         {this.state.challengeNavigation.map(el => {
           return (
             <>
-              {(this.checkSubcribe(el)) ?
+              {/* {(this.checkSubcribe(el)) ?
                 <ButtonComponent handleClick={(el == "Subscribe") ? this.subscribeTo : this.leaderBoard} >
                   {el}
                 </ButtonComponent> : null
-              }
+              } */}
             </>
           )
         })
@@ -248,11 +248,13 @@ class ChallengePage extends Component {
         {(this.state.challenge.ChallengeId) ?
           <>
             <Row>
+            
               <Col md={{ span: 6, offset: 3 }}>
+                <br></br>
                 <Button variant="info" size="lg" onClick={this.handleModal} block>
                   Make Post
               </Button>
-
+            <br></br>
               </Col>
 
             </Row>

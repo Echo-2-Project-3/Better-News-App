@@ -31,12 +31,13 @@
 }
 
 .trophyFrame {
-    width: 5em;
-    height: 5rem;
+    /* width: 5.5em; */
+    height: 6rem;
     border-style: ridge;
-    border-width: 3px;
+    border-width: 5px;
+    margin: auto;
     padding: auto;    
-    border-color: white;
+    border-color: rgb(223, 163, 45);
     transition: width 42em 3s;
     animation: trophyFrameHover 4s;
     justify-content: space-evenly;

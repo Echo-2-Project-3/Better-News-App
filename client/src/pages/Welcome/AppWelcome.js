@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 //import ButtonComponent from "../components/ButtonsComponent";
 //import {Route} from 'react-router-dom';
 import "./Welcome.css";
-import {Container} from 'react-bootstrap';
+import {Container, Button} from 'react-bootstrap';
 //const buttonNames = ["Connect with Friends!", "Jump Right In!", "View Leaderboards!"];
 //const later = "Health and Fitness!", "Children's Corner!", "Social and Staying Connected!",  "Professional!", "Home Improvements!","Self-Help and Mindfulness!", " Make a Custom Challenge!",]
 import SignIn from "../../components/Login/Login.SignIn.js";
@@ -74,8 +74,8 @@ class AppWelcome extends Component {
         <div className="imgDiv">
           {/* <img src={logo} alt="Sproutling" id="nakedSprout" className="entrance"/> */}
           <div id="ma" className="moveArea entrance" style={{backgroundImage: 'url('+logo+')'}}> 
-             <div className='eye'></div>
-             <div className='eye'></div>
+             <div className='eye' type="text"></div>
+             <div className='eye' type="text"></div>
           </div>
         </div>
       </Container>
@@ -91,14 +91,14 @@ class AppWelcome extends Component {
         
         <br />
        <Link to="/"> 
-        <button type="button" className="btn btn-info" style={{marginRight: '.5em'}} onClick={this.handleShow}>
+        <Button type="button" variant="info" className="btn" style={{marginRight: '.5em'}} onClick={this.handleShow}>
         Login!
-      </button>
+      </Button>
       </Link>
       <Link to="/signup">
-      <button type="button" className="btn btn-info" style={{marginLeft: '.5em'}}>
+      <Button type="button" variant="info" className="btn" style={{marginLeft: '.5em'}}>
         Signup!
-      </button>
+      </Button>
       </Link>
       
       <br />
