@@ -28,7 +28,7 @@ const resetStyles = {
   form: {}
 }
 
-export default class Signup extends Component {
+export default class signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,12 +55,12 @@ export default class Signup extends Component {
   }
 
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
 
-    // do spinner stuff
-    this.props.handleSignup(this.state.user);
-  }
+  //   // do spinner stuff
+  //   this.props.handleSignup(this.state.user);
+  // }
 
   handleConfirmationSubmit = (event) => {
     event.preventDefault();
@@ -91,6 +91,8 @@ export default class Signup extends Component {
       <div className="container">
       <div id="modal-window" style={this.state.modal.styles.window}>
         <div id="modal-box" style={this.state.modal.styles.box}> 
+        <form action="/" className="inline">
+        <button className="btn btn-info">Login Page</button></form>
         <div id="X" onClick={this.handleModal}>
               <span id="x">X</span>
         </div>
@@ -116,7 +118,7 @@ export default class Signup extends Component {
           />
         </FormGroup>
         <FormGroup controlId="confirmPassword" bsSize="large">
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control type="password" placeholder="Confirm Password" />
           <FormControl
             type="password"
             name="confirmPassword"
@@ -151,5 +153,6 @@ export default class Signup extends Component {
     );
   }
 }
+// export default Signup;
 
     

@@ -96,7 +96,7 @@ class SignIn extends Component {
                   Sign In
               </Button>
               <div>
-                <span onClick={this.handleSignInCreate}>Need to create an account</span>
+                <span onClick={this.handleSignInCreate}>Need to create an account? Click <a href= "/signup"><button>here!</button></a></span>
               </div>
               </div>
               }
