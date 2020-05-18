@@ -64,7 +64,7 @@ function Trophy(props) {
         <div
           id="bronze"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : ""), null)}
+          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : "Bronze"), null)}
         >
           {checkTrophyState('bronze') && (
               <img src={shimmer1} className="shimmer1" />
@@ -193,9 +193,9 @@ class TrophyCase extends React.Component {
               <span id="x">X</span>
             </div>
             <div id="modal-content">
-              <h1>Bronze Trohpy</h1>
+              <h1>type Trohpy</h1>
               <img style={{maxWidth: '300px'}} src={this.state.modal.image} />
-              <h4>You can earn me by reaching 25%</h4>
+              <h4>You can earn me by reaching X%</h4>
               <h4>completion. X more posts required.</h4>
             </div>
           </div>
