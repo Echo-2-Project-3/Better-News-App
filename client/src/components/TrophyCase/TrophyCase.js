@@ -50,22 +50,26 @@ const resetStyles = {
 };
 
 function Trophy(props) {
+  let checkTrophyState = (type) => {
+    if(props.challenge.benchmarks &&
+      props.subscription.percent_completed >=
+      props.challenge.benchmarks[type]) {
+        return true;
+      }
+      return false;
+  }
   return (
     <div className="trophyCase">
       <div className="row">
         <div
           id="bronze"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : ""), null)}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.bronze && (
+          {checkTrophyState('bronze') && (
               <img src={shimmer1} className="shimmer1" />
             )}
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.bronze && (
+          {checkTrophyState('bronze') && (
               <img src={bronze} className="trophyImage" />
             )}
           {/* <button onClick={props.handleModal}>Click me to know more</button> */}
@@ -73,61 +77,45 @@ function Trophy(props) {
         <div
           id="silver"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal(checkTrophyState('silver') ? silver : "")}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.silver && (
+          {checkTrophyState('silver') && (
               <img src={shimmer2} className="shimmer2" />
             )}
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.silver && (
+          {checkTrophyState('silver') && (
               <img src={silver} className="trophyImage" />
             )}
         </div>
         <div
           id="gold"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal(checkTrophyState('gold') ? gold : "")}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.gold && (
+          {checkTrophyState('gold') && (
               <img src={shimmer2} className="shimmer3" />
             )}
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.gold && (
+          {checkTrophyState('gold') && (
               <img src={gold} className="trophyImage" />
             )}
         </div>
         <div
           id="platinum"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal(checkTrophyState('platinum') ? platinum : "")}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={shimmer2} className="shimmer4" />
             )}
 
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={shimmer2} className="shimmer5" />
             )}
 
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={shimmer1} className="shimmer6" />
             )}
 
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={platinum} className="trophyImage" />
             )}
         </div>
@@ -142,15 +130,27 @@ class TrophyCase extends React.Component {
     this.state = {
       modal: {
         styles: resetStyles,
+        image: ""
       },
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
-  handleModal = () => {
+  handleModal = (image, type) => {
     console.log("Open modal");
+    console.log("Any trophies in here? ", this.props);
+    if(type) {
+      let trophyType = this.props.challenge.benchmarks[type]
+      let subscription = this.props.subscription; 
+      let percent_completed = subscription.percent_completed; 
+      // difference information 
+      let diff = trophyType - percent_completed;
+    }
+ 
+
     let modal = this.state.modal;
+    modal.image = image;
     if (!this.state.modal.styles.window.position) {
       modal.styles = modalStyles;
     } else {
@@ -171,7 +171,21 @@ class TrophyCase extends React.Component {
           {...this.props}
           {...this.state}
           handleModal={this.handleModal}
+          
         />
+
+        {/* <div id="modal-window" style={this.state.modal.styles.window}>
+          <div id="modal-box" style={this.state.modal.styles.box}>
+            <div id="X" onClick={this.handleModal}>
+              <span id="x">X</span>
+            </div>
+            <div id="modal-content">
+              <h1>Bronze Trohpy</h1>
+        
+            </div>
+          </div>
+        </div>
+      </> */}
 
         <div id="modal-window" style={this.state.modal.styles.window}>
           <div id="modal-box" style={this.state.modal.styles.box}>
@@ -179,7 +193,10 @@ class TrophyCase extends React.Component {
               <span id="x">X</span>
             </div>
             <div id="modal-content">
-              <h1>this is my modal stuff</h1>
+              <h1>Bronze Trohpy</h1>
+              <img style={{maxWidth: '300px'}} src={this.state.modal.image} />
+              <h4>You can earn me by reaching 25%</h4>
+              <h4>completion. X more posts required.</h4>
             </div>
           </div>
         </div>

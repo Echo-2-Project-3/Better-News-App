@@ -388,9 +388,8 @@ class ChallengePage extends Component {
                 style={{ marginTop: "1em", width: "30em" }}
                 onClick={this.handlePost}
               >
-                Button
+                Post
               </button>
-              <span id="x">X</span>
             </div>
 
             {/* <InputGroup>
