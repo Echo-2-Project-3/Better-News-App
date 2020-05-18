@@ -70,7 +70,7 @@ class ChallengePage extends Component {
       }, //benchmark?
       post: "",
       posts: ["Test1", "test2", "test3"],
-      challengeNavigation: ["Subscribe", "Leader Board"],
+      challengeNavigation: ["Subscribe"],
       leaderUsers: [],
       // user: {},
       modal: {
@@ -143,16 +143,17 @@ class ChallengePage extends Component {
 
   handlePost = () => {
     console.log("Sending post: ", this.state.post);
-
+    let newPointTotal = (this.state.challenge.point + this.state.theChallenge.interval);
     let percent = Math.round(
-      (this.state.challenge.point / this.state.theChallenge.total) * 100
+      ( newPointTotal/ this.state.theChallenge.total) * 100
     );
-    console.log("percen", percent);
+    console.log("percent", percent);
     let post = {
       UserId: this.props.user.id,
       ChallengeId: this.state.challenge.ChallengeId,
       content: this.state.post,
       percent: percent,
+      newPointTotal: newPointTotal
     };
     axios
       .post("/api/posts", post)
@@ -273,18 +274,17 @@ class ChallengePage extends Component {
         <br></br>
         {this.state.challenge.ChallengeId ? (
           <ChallengeProgress
-            point={this.state.challenge.point}
-            total={this.state.theChallenge.total}
+            percent_completed={this.state.challenge.percent_completed}
           />
         ) : null}
         {this.state.challengeNavigation.map((el) => {
           return (
             <>
-              {/* {(this.checkSubcribe(el)) ?
+              {(this.checkSubcribe(el)) ?
                 <ButtonComponent handleClick={(el == "Subscribe") ? this.subscribeTo : this.leaderBoard} >
                   {el}
                 </ButtonComponent> : null
-              } */}
+              }
             </>
           );
         })}

@@ -9,6 +9,11 @@ module.exports = function (sequelize, DataTypes) {
         total: {
             type: DataTypes.INTEGER
         },
+        
+        interval: {
+            type: DataTypes.INTEGER
+        },
+
         trophy: {
             type: DataTypes.STRING,
             defaultValue: 0
