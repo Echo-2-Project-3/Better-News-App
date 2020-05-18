@@ -24,21 +24,21 @@ module.exports ={
 
     create: function(request, response) {
         let post = request.body;
-        let {UserId, ChallengeId, content, percent} = request.body
+        let {UserId, ChallengeId, content, percent, newPointTotal} = request.body
         console.log({ChallengeId, content});
 
         db.Post.create(post)
         .then(post => {
             console.log("post is:", post)
             db.SubscribedTo.update({
-                point: db.sequelize.literal('point + 1'),
-                percent_completed: db.sequelize.literal(`percent_completed + ${percent}`)
+                point: newPointTotal,//db.sequelize.literal('point + 1'),
+                percent_completed: percent//db.sequelize.literal(`percent_completed + ${percent}`)
             }, {
                 where: {
                 UserId: UserId, 
                 ChallengeId: ChallengeId
             }})
-            .then(re => {
+            .then(res => {
                 response.json(post)
             })
             .catch(err=> {

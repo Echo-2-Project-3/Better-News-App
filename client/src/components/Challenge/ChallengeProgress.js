@@ -7,13 +7,10 @@ import "../../styles/challengeCardStyling.css";
 
 function ChallengeProgress(props) {
 
-  let progressPercent =  (props.point / props.total);
-  let userPointTotal = progressPercent * 100;
-
-  return (
+    return (
     <div className="progressBar1">
-      <ProgressBar animated variant="success" now={userPointTotal} />
-      <span>{userPointTotal}% Complete</span>
+      <ProgressBar animated variant="success" now={props.percent_completed} />
+      <span>{props.percent_completed}% Complete</span>
     </div>
   )
 
