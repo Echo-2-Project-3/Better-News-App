@@ -67,7 +67,7 @@ function Trophy(props) {
           className="col-md-2 col-lg-2 trophyFrame"
           onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : "Bronze"), 'bronze')}
         >
-          {!checkTrophyState('bronze') && <MysteryCube1/>}
+          {!checkTrophyState('bronze') && <MysteryCube2/>}
           {checkTrophyState('bronze') && (
               <img src={shimmer1} className="shimmer1" />
             )}
@@ -81,6 +81,7 @@ function Trophy(props) {
           className="col-md-2 col-lg-2 trophyFrame"
           onClick={() => props.handleModal(checkTrophyState('silver') ? silver : "", 'silver')}
         >
+          {!checkTrophyState('silver') && <MysteryCube2/>}
           {checkTrophyState('silver') && (
               <img src={shimmer2} className="shimmer2" />
             )}
@@ -93,6 +94,7 @@ function Trophy(props) {
           className="col-md-2 col-lg-2 trophyFrame"
           onClick={() => props.handleModal(checkTrophyState('gold') ? gold : "", 'gold')}
         >
+          {!checkTrophyState('gold') && <MysteryCube2/>}
           {checkTrophyState('gold') && (
               <img src={shimmer2} className="shimmer3" />
             )}
@@ -105,6 +107,7 @@ function Trophy(props) {
           className="col-md-2 col-lg-2 trophyFrame"
           onClick={() => props.handleModal(checkTrophyState('platinum') ? platinum : "", 'platinum')}
         >
+          {!checkTrophyState('platinum') && <MysteryCube1/>}
           {checkTrophyState('platinum') && (
               <img src={shimmer2} className="shimmer4" />
             )}
