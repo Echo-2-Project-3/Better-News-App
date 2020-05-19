@@ -6,8 +6,6 @@ body {
 }
 body:hover{cursor: url("https://img.icons8.com/android/48/26e07f/leaf.png"), auto !important;}
 
-
-
 button {
   cursor: inherit;
 }
