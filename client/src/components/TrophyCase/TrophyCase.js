@@ -9,8 +9,9 @@ import platinum from "../../images/trophies/platinumTrophy.png";
 // import virus from "../../images/virus.jpg";
 import shimmer1 from "./shimmer1.png";
 import shimmer2 from "./shimmer2.png";
-// import mysteryCube from "../../animation/mysteryCubeThis";
-
+// import mysteryCube from "../../animation/mysteryCube.css";
+// import mysteryCube1 from "../../animation/mysteryCube.html";
+// import mysteryCube2 from "../../animation/mysteryCube2.html";
 // let success = //mysql element regarding success of a challenge;
 
 const modalStyles = {
@@ -64,20 +65,21 @@ function Trophy(props) {
         <div
           id="bronze"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : "Bronze"), null)}
+          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : "Bronze"), 'bronze')}
         >
+          {/* {!checkTrophyState('bronze') && {MysteryCube1}} */}
           {checkTrophyState('bronze') && (
               <img src={shimmer1} className="shimmer1" />
             )}
           {checkTrophyState('bronze') && (
               <img src={bronze} className="trophyImage" />
-            )}
+            ) }
           {/* <button onClick={props.handleModal}>Click me to know more</button> */}
         </div>
         <div
           id="silver"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={() => props.handleModal(checkTrophyState('silver') ? silver : "")}
+          onClick={() => props.handleModal(checkTrophyState('silver') ? silver : "", 'silver')}
         >
           {checkTrophyState('silver') && (
               <img src={shimmer2} className="shimmer2" />
@@ -89,7 +91,7 @@ function Trophy(props) {
         <div
           id="gold"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={() => props.handleModal(checkTrophyState('gold') ? gold : "")}
+          onClick={() => props.handleModal(checkTrophyState('gold') ? gold : "", 'gold')}
         >
           {checkTrophyState('gold') && (
               <img src={shimmer2} className="shimmer3" />
@@ -101,7 +103,7 @@ function Trophy(props) {
         <div
           id="platinum"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={() => props.handleModal(checkTrophyState('platinum') ? platinum : "")}
+          onClick={() => props.handleModal(checkTrophyState('platinum') ? platinum : "", 'platinum')}
         >
           {checkTrophyState('platinum') && (
               <img src={shimmer2} className="shimmer4" />
@@ -130,7 +132,8 @@ class TrophyCase extends React.Component {
     this.state = {
       modal: {
         styles: resetStyles,
-        image: ""
+        image: "",
+        content: ""
       },
     };
   }
@@ -139,17 +142,29 @@ class TrophyCase extends React.Component {
 
   handleModal = (image, type) => {
     console.log("Open modal");
-    console.log("Any trophies in here? ", this.props);
+    console.log("Any trophies in here? ", this.props.challenge.benchmarks);
+    
+    let modal = this.state.modal;
+  
+    
     if(type) {
       let trophyType = this.props.challenge.benchmarks[type]
       let subscription = this.props.subscription; 
-      let percent_completed = subscription.percent_completed; 
+      let percent_completed = subscription.percent_completed;
+      modal.header = type.toUpperCase();
+       
       // difference information 
       let diff = trophyType - percent_completed;
+      if(diff > 0) {
+        console.log("You need %d percent more to go", diff)
+        modal.content = `You need ${trophyType}% You have ${diff}% more to go`;
+      } else if( diff <=0 ) {
+        modal.content = "You are a winner. Don't let anyone tell you otherwise.";
+        console.log("You are a winner. Don't let anyone tell you otherwise.")
+      }
     }
  
 
-    let modal = this.state.modal;
     modal.image = image;
     if (!this.state.modal.styles.window.position) {
       modal.styles = modalStyles;
@@ -193,10 +208,10 @@ class TrophyCase extends React.Component {
               <span id="x">X</span>
             </div>
             <div id="modal-content">
-              <h1>type Trophy</h1>
+              <h4>{this.state.modal.header} Trophy</h4>
               <img style={{maxWidth: '300px'}} src={this.state.modal.image} />
-              <h4>You can earn me by reaching X%</h4>
-              <h4>completion. X more posts required.</h4>
+              <h4>{this.state.modal.content}</h4>
+           
             </div>
           </div>
         </div>

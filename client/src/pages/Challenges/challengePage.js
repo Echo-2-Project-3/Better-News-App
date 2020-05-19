@@ -69,7 +69,7 @@ class ChallengePage extends Component {
         benchmark: {},
       }, //benchmark?
       post: "",
-      posts: ["Test1", "test2", "test3"],
+      posts: [],
       challengeNavigation: ["Subscribe"],
       leaderUsers: [],
       // user: {},
@@ -104,6 +104,7 @@ class ChallengePage extends Component {
         //if()
         let challenge = res.data.challenge;
         let SubscribedTo = res.data.subscription;
+        let challengeInfo = res.data.challenge.info;
 
         challenge.benchmarks = res.data.benchmarks;
 
@@ -113,7 +114,9 @@ class ChallengePage extends Component {
         this.setState(
           {
             challenge: SubscribedTo ? SubscribedTo : {},
+            // challengeInfo: challengeInfo,
             theChallenge: challenge,
+            challengeInfo: challengeInfo,
             modalStyle: {},
           },
           function () {
@@ -267,6 +270,8 @@ class ChallengePage extends Component {
             Hi, {this.props.user.name}. This is the {this.challengeNameSpread()}
             .
           </h4>
+
+          <h5>{this.state.challengeInfo}</h5>
         </div>
 
         {this.props.info}
@@ -347,7 +352,7 @@ class ChallengePage extends Component {
                           <div>
                             <hr></hr>
                             <div className="columnLeaders posts">
-                              <div className="avatarDivforPosts users img"><Avatar id="avatarForPosts" doppel_me={this.state.leaderUsers.doppel_me}/> </div>
+                              <div className="avatarDivforPosts users img"><Avatar id="avatarForPosts" doppel_me={(post.User) ? post.User.doppel_me : null}/> </div>
                               <div><h5>{post.content}</h5></div>
                             </div>
                             <p>

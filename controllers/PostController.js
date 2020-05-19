@@ -11,6 +11,7 @@ module.exports ={
             where: {
                 ChallengeId: challenge_id
             },
+            include: [db.User],
             order: [['createdAt', 'DESC']]
         })
         .then(posts => {
