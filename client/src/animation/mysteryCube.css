@@ -10,9 +10,10 @@
   justify-content: center;
   align-items: center;
   min-height: 4vh;
+  
 }
 .containerCube .cube-container {
-  perspective: 300px;
+  perspective: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +24,7 @@
   transform-style: preserve-3d;
   width: 50px;
   height: 50px;
-  margin: 20px;
+  margin: 20px 0px;
   }
 .containerCube .cube-container .cube.cube {
   animation: horizontal-spin 5s infinite ease-in-out;
@@ -42,7 +43,7 @@
   position: absolute;
   color: white;
   text-transform: uppercase;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.08em;
   font-family: "Roboto", sans-serif;
   font-size: 30px;
   font-weight: 600;
