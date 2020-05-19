@@ -9,9 +9,9 @@ import platinum from "../../images/trophies/platinumTrophy.png";
 // import virus from "../../images/virus.jpg";
 import shimmer1 from "./shimmer1.png";
 import shimmer2 from "./shimmer2.png";
-// import mysteryCube from "../../animation/mysteryCube.css";
-// import mysteryCube1 from "../../animation/mysteryCube.html";
-// import mysteryCube2 from "../../animation/mysteryCube2.html";
+import mysteryCube from "../../animation/mysteryCube.css";
+import MysteryCube1 from "../../animation/mysteryCube.js";
+import MysteryCube2 from "../../animation/mysteryCube2.js";
 // let success = //mysql element regarding success of a challenge;
 
 const modalStyles = {
@@ -67,7 +67,7 @@ function Trophy(props) {
           className="col-md-2 col-lg-2 trophyFrame"
           onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : "Bronze"), 'bronze')}
         >
-          {/* {!checkTrophyState('bronze') && {MysteryCube1}} */}
+          {!checkTrophyState('bronze') && <MysteryCube1/>}
           {checkTrophyState('bronze') && (
               <img src={shimmer1} className="shimmer1" />
             )}

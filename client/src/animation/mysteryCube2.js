@@ -1,3 +1,9 @@
+import React from 'react';
+
+function MysteryCube2() {
+
+  return(
+
 <div class="container">
   <div class="cube-container">
     <div class="cube cube2">
@@ -9,4 +15,6 @@
       <div class="box box2 right">?</div>
     </div>
   </div>
-</div>
+</div>)
+}
+export default MysteryCube2;
