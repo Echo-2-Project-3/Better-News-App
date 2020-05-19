@@ -180,7 +180,7 @@ class TrophyCase extends React.Component {
               <span id="x">X</span>
             </div>
             <div id="modal-content">
-              <h1>Bronze Trohpy</h1>
+              <h1>Bronze Trophy</h1>
         
             </div>
           </div>
@@ -193,7 +193,7 @@ class TrophyCase extends React.Component {
               <span id="x">X</span>
             </div>
             <div id="modal-content">
-              <h1>type Trohpy</h1>
+              <h1>type Trophy</h1>
               <img style={{maxWidth: '300px'}} src={this.state.modal.image} />
               <h4>You can earn me by reaching X%</h4>
               <h4>completion. X more posts required.</h4>

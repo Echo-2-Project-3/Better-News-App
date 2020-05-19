@@ -4,7 +4,9 @@ body {
   font-family: sans-serif;
   background-color: rgb(252, 144, 2);
 }
-body:hover{cursor: url("https://img.icons8.com/android/48/26e07f/leaf.png"), auto !important;}
+/* body:hover{cursor: url("https://img.icons8.com/android/48/26e07f/leaf.png"), auto !important;} */
+
+  /* body:hover{cursor: url("./mouse.png"), auto !important;} */
 
 button {
   cursor: inherit;

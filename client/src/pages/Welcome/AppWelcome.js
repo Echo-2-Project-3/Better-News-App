@@ -149,12 +149,13 @@ class AppWelcome extends Component {
             Login!
           </Button>
         </Link>
-        <Link to="/signup">
-          <Button
+        <Link to="/">
+        <Button
             type="button"
             variant="info"
             className="btn"
-            style={{ marginLeft: ".5em" }}
+            style={{ marginRight: ".5em" }}
+            onClick={this.handleShow}
           >
             Signup!
           </Button>
