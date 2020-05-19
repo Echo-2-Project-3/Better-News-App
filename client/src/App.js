@@ -18,7 +18,8 @@ class App extends Component {
     super(props);
     this.state = {
       user: null,
-      authenticated: false
+      authenticated: false,
+      canvas: null
     };
   }
 
@@ -55,6 +56,15 @@ class App extends Component {
   componentDidMount() {
     console.log("mounting: ")
     let user = JSON.parse(window.sessionStorage.getItem('user'));
+    let canvas = window.document.getElementsByTagName('canvas')[0];
+    console.log("canvas", canvas)
+    // if(!this.state.canvas) {
+    //   this.setState({
+    //     canvas: (canvas.toDataURL) ? canvas.toDataURL("image/png") : ''
+    //   })
+    // }
+  
+    console.log("can", canvas)
     console.log("mounting: ", user)
     if (user) {
       this.setState({
