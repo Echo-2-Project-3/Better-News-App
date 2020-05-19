@@ -1,6 +1,5 @@
 const db = require('../models');
 
-
 module.exports = {
     findAll: function(req, res) {
         db.User.find(req.query)
@@ -40,10 +39,14 @@ module.exports = {
     },
 
     signup: function(req, res) {
+
         db.User.create(req.body)
         .then(user=> {
             console.log(user);
            return res.json(user);
+            
+
+
         })
         .catch((err) => {
             console.log(err);

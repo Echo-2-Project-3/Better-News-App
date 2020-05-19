@@ -93,12 +93,15 @@ class AppWelcome extends Component {
         <br></br>
         <h1>Welcome to Sproso!</h1>
         <p>
-          In today's isolated world, staying motivated can be a challenge. The
-          Sproso App is here to make that happen. Here, you can challenge
-          yourself in a myriad of ways, from staying social to simple
-          positivity. Participate with other users to see your rank on our
-          leaderboards or even create your own challenge for yourself or other
-          users. Here at Sproso, we want you to feel connected. Sproso:
+          In today's isolated world, staying motivated and connected can be a challenge. The
+          Sproso App is here to make that easier. Here, you can challenge
+          yourself in a myriad of ways, from staying social to sharing
+          positivity. The more active you are and the more challenges 
+          you complete the higher you will be on the leaderboard!
+          Other users can see your rank on the leaderboard and this 
+          can increase your visibilty. Create your own challenge 
+          and share with other users!
+          Here at Sproso, we want you to feel connected. Sproso:
           connecting you by challenging you.
         </p>
         <Container>
@@ -146,12 +149,13 @@ class AppWelcome extends Component {
             Login!
           </Button>
         </Link>
-        <Link to="/signup">
-          <Button
+        <Link to="/">
+        <Button
             type="button"
             variant="info"
             className="btn"
-            style={{ marginLeft: ".5em" }}
+            style={{ marginRight: ".5em" }}
+            onClick={this.handleShow}
           >
             Signup!
           </Button>

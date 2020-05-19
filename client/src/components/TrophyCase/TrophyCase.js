@@ -9,8 +9,9 @@ import platinum from "../../images/trophies/platinumTrophy.png";
 // import virus from "../../images/virus.jpg";
 import shimmer1 from "./shimmer1.png";
 import shimmer2 from "./shimmer2.png";
-// import mysteryCube from "../../animation/mysteryCubeThis";
-
+// import mysteryCube from "../../animation/mysteryCube.css";
+// import mysteryCube1 from "../../animation/mysteryCube.html";
+// import mysteryCube2 from "../../animation/mysteryCube2.html";
 // let success = //mysql element regarding success of a challenge;
 
 const modalStyles = {
@@ -50,84 +51,73 @@ const resetStyles = {
 };
 
 function Trophy(props) {
+  let checkTrophyState = (type) => {
+    if(props.challenge.benchmarks &&
+      props.subscription.percent_completed >=
+      props.challenge.benchmarks[type]) {
+        return true;
+      }
+      return false;
+  }
   return (
     <div className="trophyCase">
       <div className="row">
         <div
           id="bronze"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : "Bronze"), 'bronze')}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.bronze && (
+          {/* {!checkTrophyState('bronze') && {MysteryCube1}} */}
+          {checkTrophyState('bronze') && (
               <img src={shimmer1} className="shimmer1" />
             )}
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.bronze && (
+          {checkTrophyState('bronze') && (
               <img src={bronze} className="trophyImage" />
-            )}
+            ) }
           {/* <button onClick={props.handleModal}>Click me to know more</button> */}
         </div>
         <div
           id="silver"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal(checkTrophyState('silver') ? silver : "", 'silver')}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.silver && (
+          {checkTrophyState('silver') && (
               <img src={shimmer2} className="shimmer2" />
             )}
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.silver && (
+          {checkTrophyState('silver') && (
               <img src={silver} className="trophyImage" />
             )}
         </div>
         <div
           id="gold"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal(checkTrophyState('gold') ? gold : "", 'gold')}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.gold && (
+          {checkTrophyState('gold') && (
               <img src={shimmer2} className="shimmer3" />
             )}
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.gold && (
+          {checkTrophyState('gold') && (
               <img src={gold} className="trophyImage" />
             )}
         </div>
         <div
           id="platinum"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={props.handleModal}
+          onClick={() => props.handleModal(checkTrophyState('platinum') ? platinum : "", 'platinum')}
         >
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={shimmer2} className="shimmer4" />
             )}
 
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={shimmer2} className="shimmer5" />
             )}
 
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={shimmer1} className="shimmer6" />
             )}
 
-          {props.challenge.benchmarks &&
-            props.subscription.percent_completed >=
-              props.challenge.benchmarks.platinum && (
+          {checkTrophyState('platinum') && (
               <img src={platinum} className="trophyImage" />
             )}
         </div>
@@ -142,15 +132,40 @@ class TrophyCase extends React.Component {
     this.state = {
       modal: {
         styles: resetStyles,
+        image: "",
+        content: ""
       },
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
-  handleModal = () => {
+  handleModal = (image, type) => {
     console.log("Open modal");
+    console.log("Any trophies in here? ", this.props.challenge.benchmarks);
+    
     let modal = this.state.modal;
+  
+    
+    if(type) {
+      let trophyType = this.props.challenge.benchmarks[type]
+      let subscription = this.props.subscription; 
+      let percent_completed = subscription.percent_completed;
+      modal.header = type.toUpperCase();
+       
+      // difference information 
+      let diff = trophyType - percent_completed;
+      if(diff > 0) {
+        console.log("You need %d percent more to go", diff)
+        modal.content = `You need ${trophyType}% You have ${diff}% more to go`;
+      } else if( diff <=0 ) {
+        modal.content = "You are a winner. Don't let anyone tell you otherwise.";
+        console.log("You are a winner. Don't let anyone tell you otherwise.")
+      }
+    }
+ 
+
+    modal.image = image;
     if (!this.state.modal.styles.window.position) {
       modal.styles = modalStyles;
     } else {
@@ -171,7 +186,21 @@ class TrophyCase extends React.Component {
           {...this.props}
           {...this.state}
           handleModal={this.handleModal}
+          
         />
+
+        {/* <div id="modal-window" style={this.state.modal.styles.window}>
+          <div id="modal-box" style={this.state.modal.styles.box}>
+            <div id="X" onClick={this.handleModal}>
+              <span id="x">X</span>
+            </div>
+            <div id="modal-content">
+              <h1>Bronze Trophy</h1>
+        
+            </div>
+          </div>
+        </div>
+      </> */}
 
         <div id="modal-window" style={this.state.modal.styles.window}>
           <div id="modal-box" style={this.state.modal.styles.box}>
@@ -179,7 +208,10 @@ class TrophyCase extends React.Component {
               <span id="x">X</span>
             </div>
             <div id="modal-content">
-              <h1>this is my modal stuff</h1>
+              <h4>{this.state.modal.header} Trophy</h4>
+              <img style={{maxWidth: '300px'}} src={this.state.modal.image} />
+              <h4>{this.state.modal.content}</h4>
+           
             </div>
           </div>
         </div>

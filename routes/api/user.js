@@ -14,6 +14,7 @@ router.route("/") // https://ipadress:3000/api/user/
 router.route("/get-challenge/:user_id/:challenge_id")
 .get(user.findChallenge)
 
+
 router.route("/:name")
   .get(user.findByName)
 
