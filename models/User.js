@@ -44,9 +44,8 @@ module.exports = function(sequelize, DataTypes) {
         {
         through: models.SubscribedTo
       });
-
       User.hasMany(models.Post) 
-     
     }
+    
     return User;
   };
