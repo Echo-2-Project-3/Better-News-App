@@ -2,7 +2,7 @@
 ## The social isolation app.     
 ## Team Echo developed this app as a part of the University of Denver Full-Stack Developer Coding Bootcamp. This is our final project for this course. This app was realized during the recent social isolation imposed by COVID-19. We created this app to help us, and others, connect during this difficult time.
 
-## The basic usage of this app is for users to create a DoppelMe and an account to post successful challenges they completed. Challenges range from social challenges, challenges about optism, fitness challenges, and even music challenges. We hope to expand our categories of challenges even further in future releases.
+## The basic usage of this app is for users to create a DoppelMe and an account to post successful challenges they completed. Challenges range from social challenges, challenges about optimism, fitness challenges, and even music challenges. We hope to expand our categories of challenges even further in future releases.
 
 ## After a user creates an account, they can decide what challenges they would like to subscribe to. After subscribing to that challenge, they can see other users subscribed to that challenge, those users posts, a leaderboard comparing them to other users, and they can even earn trophies for their performance.
  
