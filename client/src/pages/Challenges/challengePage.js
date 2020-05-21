@@ -263,7 +263,7 @@ class ChallengePage extends Component {
     console.log("my props", this.props);
     const scrollContainerStyle = { maxHeight: "400px" }; // width: "800px",
     return (
-      <div id="ChallengePage">
+      <div id="ChallengePage" style={{height: '120vh'}}>
         <br></br>
         <div className="row justify-content-md-center" id="challengeHeader">
           <h4 className="textureCard">

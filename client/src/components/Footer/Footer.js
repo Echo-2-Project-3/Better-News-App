@@ -6,7 +6,7 @@ const Footer = props => (
 
 
 
-<div id="footer" className="container-fluid" style={{position: 'absolute', bottom: 0}}>
+<div id="footer" className="container-fluid" style={{position: 'fixed', bottom: 0}}>
   
     <div className="row">
         <div className="col-md-12">

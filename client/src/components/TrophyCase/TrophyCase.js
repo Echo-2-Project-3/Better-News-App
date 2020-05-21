@@ -65,7 +65,7 @@ function Trophy(props) {
         <div
           id="bronze"
           className="col-md-2 col-lg-2 trophyFrame"
-          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : "Bronze"), 'bronze')}
+          onClick={() => props.handleModal((checkTrophyState('bronze') ? bronze : ""), 'bronze')}
         >
           {!checkTrophyState('bronze') && <MysteryCube2/>}
           {checkTrophyState('bronze') && (
