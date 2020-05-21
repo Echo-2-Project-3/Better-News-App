@@ -28,7 +28,7 @@ values ('music-challenge',
  insert into Challenges (name, info, total, Challenges.interval, trophy, benchmarkId, createdAt, updatedAt)
 values ('fitness-challenge', 
 'Welcome to the Fitness Challenge! Here you can test and develop your upper-body strength. Do some Fibonacci pushups: do 1 push up on day one, 2 on day 2, 3 on day 3, 5 on day 4, 8 on day 5 etc.
-Post the number of push ups you did each day and you get a point!  Get enough points in and collect a fit trophy', 
+Post the number of push ups you did each day and you get a point! Be sure to start over every 10 days. Get enough points in and collect a fit trophy!', 
 100, 2, "../../images/trophy.png", 1, NOW(), NOW());
  
 insert into Challenges (name, info, total, Challenges.interval, trophy, benchmarkId, createdAt, updatedAt)
