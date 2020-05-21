@@ -12,7 +12,7 @@ import Signup from "../../components/Signup/Signup"
 import ChallengeWebsite from "../../pages/Challenges/ChallengeWebsite";
 function NotAuthenticatedRoutes(props) {
     return (
-        <>
+        <div className="container">
             <Route exact path="/">
                 <AppWelcome user={props.user}
                     handleLogin={props.handleLogin} handleSignup={props.handleSignup} handleChange={props.handleChange} />
@@ -30,7 +30,7 @@ function NotAuthenticatedRoutes(props) {
             </Route>
 
 
-        </>
+        </div>
     )
 }
 function AuthenticateRoutes(props) {
@@ -74,7 +74,7 @@ class AuthenticatedRoutes extends React.Component {
     render() {
         return (
 
-            <>
+            <div className="container">
                 <Navybar logoutUser={this.props.logoutUser} user={this.props.user} />
                 <Switch>
                     <Route exact path="/"><UserHome user={this.props.user} /></Route>
@@ -103,7 +103,7 @@ class AuthenticatedRoutes extends React.Component {
                     </Route>
                 </Switch>
 
-            </>
+            </div>
         )
     }
 }   

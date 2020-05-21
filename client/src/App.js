@@ -87,7 +87,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App container">
+      <div className="App">
         <Router>
           <AuthenticateRoutes {...this.state} handleLogin={this.handleLogin} logoutUser={this.logoutUser} handleSignup={this.handleSignup} />
          
