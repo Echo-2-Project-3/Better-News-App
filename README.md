@@ -7,8 +7,8 @@
 ## After a user creates an account, they can decide what challenges they would like to subscribe to. After subscribing to that challenge, they can see other users subscribed to that challenge, those users posts, a leaderboard comparing them to other users, and they can even earn trophies for their performance.
  
 # Installation
-## For a local version, we recommend using Visual Studio Code. Navigate over to our GitHub repo, click clone, and be sure to type in the following below#:
-### git clone <the https request>#
+## For a local version, we recommend using Visual Studio Code. Navigate over to our GitHub repo, click clone, and be sure to type in the following below:
+### git clone <the https request>
 ## Navigate over to the terminal and open up the area around server.js in the terminal. Then type:
 ### npm install
 ## After all dependencies are loaded, then type:
